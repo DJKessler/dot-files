@@ -1,9 +1,35 @@
+# determine if this is a mac or linux machine
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	# this is ubuntu
+		# enable color support of ls and also add handy aliases
+		if [ -x /usr/bin/dircolors ]; then
+		    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+				alias ls='ls -lh --color=auto'
+		    alias grep='grep --color=auto'
+		fi
+		alias adc='cd ~/git/picosat_adc/'
+		alias cmn='cd ~/git/picosat_cmn/'
+		alias gui='cd ~/git/picosat_gui/'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	# this is a mac
+	alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
+	alias hg="/usr/local/bin/hg"
+	alias ls='ls -lh'
+	alias adc='cd ~/Documents/TSL/picosat_adc/'
+	alias cmn='cd ~/Documents/TSL/picosat_cmn/'
+	alias gui='cd ~/Documents/TSL/picosat_gui/'
+fi
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
-#  by Mike Stewart - http://MediaDoneRight.com
 
 #  SETUP CONSTANTS
 #  Bunch-o-predefined colors.  Makes reading code easier than escape sequences.
-#  I don't remember where I found this.  o_O
 
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
@@ -109,12 +135,3 @@ else \
   # @2 - Prompt when not in GIT repo
   echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
-
-
-
-
-alias adc='cd ~/git/picosat_adc/'
-alias cmn='cd ~/git/picosat_cmn/'
-alias gui='cd ~/git/picosat_gui/'
-
-alias ls='ls -lh --color=auto'
