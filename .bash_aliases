@@ -15,10 +15,18 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
 	alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
 	alias hg="/usr/local/bin/hg"
-	alias ls='ls -lh'
+	alias ls='ls -lh -G'
 	alias adc='cd ~/Documents/TSL/picosat_adc/'
 	alias cmn='cd ~/Documents/TSL/picosat_cmn/'
 	alias gui='cd ~/Documents/TSL/picosat_gui/'
+	if [ -f /Volumes/EFI/EFI/CLOVER/config.plist ]; then
+		alias config="vim /Volumes/EFI/EFI/CLOVER/config.plist"
+	fi
+	# copyTag is a function that copies the finder tag from arg 1, to arg 2
+	copyTag() {
+		sudo xattr -wx com.apple.metadata:_kMDitemUserTags "$(xattr -px	com.apple.metadata:_kMDItemUserTags "$1")" "$2";
+		sudo xattr -wx com.apple.FinderInfo "$(xattr -px com.apple.FinderInfo	"$1")" "$2"; 
+	}
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -111,26 +119,20 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-
-# This PS1 snippet was adopted from code for MAC/BSD I saw from: http://allancraig.net/index.php?option=com_content&view=article&id=108:ps1-export-command-for-git&catid=45:general&Itemid=96
-# I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
 PS1=$BIYellow'['
 PS1=$PS1$BIBlue'\h'
 PS1=$PS1$BIYellow'@'
 PS1=$PS1$BIBlue'\u'
 PS1=$PS1$BIYellow'] '
 PS1=$PS1$BIBlack$Time12h
-PS1=$PS1$Color_Off'$(git branch &>/dev/null;\
-if [ $? -eq 0 ]; then \
-  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-  if [ "$?" -eq "0" ]; then \
-    # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
-  else \
-    # @5 - Changes to working tree
-    echo "'$IRed'"$(__git_ps1 " {%s}"); \
-  fi) '$BYellow$PathShort$Color_Off'\$ "; \
-else \
-  # @2 - Prompt when not in GIT repo
-  echo " '$Yellow$PathShort$Color_Off'\$ "; \
-fi)'
+PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
+	if [ $? -eq 0 ]; then \
+		echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
+		if [ "$?" -eq "0" ]; then \
+			echo "'$Green'"$(__git_ps1 " (%s)"); \
+		else \
+			echo "'$IRed'"$(__git_ps1 " {%s}"); \
+		fi) '$BYellow$PathShort$Color_Off'\$ "; \
+	else \
+		echo " '$Yellow$PathShort$Color_Off'\$ "; \
+	fi)'
