@@ -1,5 +1,5 @@
 set modelines=0
-
+set mouse=a
 set nocompatible "use Vim defaults instead of 100% vi compatiblitiy
 set backspace=2  "more powerful backspacing
 set ai		 "auto indenting
