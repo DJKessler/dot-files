@@ -40,23 +40,25 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 		if [ -f $(brew --prefix)/etc/bash_completion ]; then
 			. $(brew --prefix)/etc/bash_completion
 		fi
-		export CLICOLOR=1
-		export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+		CLICOLOR=1
+		#export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+		LSCOLORS=Exfxcxdxbxegedabagacad
+
 fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
+HISTCONTROL=ignoredups:erasedups
 
 # attempt to save all lines of a multiple line command in the same history
 # entry. This allows easy re-editing of multi line commands.
 shopt -s cmdhist 
 
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=2222
+HISTSIZE=10000
 HISTFILESIZE=100000
 
 # set the history entry timestamp format
@@ -67,7 +69,7 @@ HISTIGNORE="&:pwd:clear:ls:[bf]g:exit:[ \t]*"
 
 # the contents of the PROMPT_COMMAND environement variable are executed as a
 # regular bash command just before Bash displays a prompt
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -75,7 +77,6 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
