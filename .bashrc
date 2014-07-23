@@ -3,6 +3,8 @@
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# this is ubuntu
+
+
 		# enable programmable completion features (you don't need to enable
 		# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 		# sources /etc/bash.bashrc).
@@ -13,6 +15,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		    . /etc/bash_completion
 		  fi
 		fi
+
 		# If not running interactively, don't do anything
 		case $- in
 		    *i*) ;;
@@ -48,7 +51,7 @@ fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoredups:erasedups
 
 # attempt to save all lines of a multiple line command in the same history
 # entry. This allows easy re-editing of multi line commands.
@@ -58,14 +61,14 @@ shopt -s cmdhist
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=100000
+export HISTSIZE=10000
+export HISTFILESIZE=100000
 
 # set the history entry timestamp format
-HISTTIMEFORMAT="%Y%m%d-%T "
+#export HISTTIMEFORMAT="%Y%m%d-%T "
 
 # set the commands that should not be saved to history
-HISTIGNORE="&:pwd:clear:ls:[bf]g:exit:[ \t]*"
+export HISTIGNORE="&:pwd:clear:ls*:[bf]g:exit:[ \t]*"
 
 # the contents of the PROMPT_COMMAND environement variable are executed as a
 # regular bash command just before Bash displays a prompt

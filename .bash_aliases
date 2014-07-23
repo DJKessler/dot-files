@@ -11,6 +11,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		alias adc='cd ~/git/picosat_adc/'
 		alias cmn='cd ~/git/picosat_cmn/'
 		alias gui='cd ~/git/picosat_gui/'
+		alias make='colormake'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
 	alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
@@ -136,3 +137,9 @@ PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
 	else \
 		echo " '$Yellow$PathShort$Color_Off'\$ "; \
 	fi)'
+
+
+if [ -f ~/.unixrc/aliasTabComplete.sh ]; then
+	. ~/.unixrc/aliasTabComplete.sh
+fi
+
