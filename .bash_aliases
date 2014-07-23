@@ -11,7 +11,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		alias adc='cd ~/git/picosat_adc/'
 		alias cmn='cd ~/git/picosat_cmn/'
 		alias gui='cd ~/git/picosat_gui/'
-		alias make='colormake'
+		if[ -f /usr/bin/colormake ]; then
+			alias make='colormake'
+		fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
 	alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
