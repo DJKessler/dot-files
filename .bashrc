@@ -24,18 +24,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		    debian_chroot=$(cat /etc/debian_chroot)
 		fi
 		
-		# set a fancy prompt (non-color, unless we know we "want" color)
-		case "$TERM" in
-		    xterm-color) color_prompt=yes;;
-		esac
-		# If this is an xterm set the title to user@host:dir
-		case "$TERM" in
-		xterm*|rxvt*)
-		    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-		    ;;
-		*)
-		    ;;
-		esac
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
 		if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -83,6 +71,7 @@ shopt -s checkwinsize
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
+color_prompt=yes
 
 #unset color_prompt force_color_prompt
 

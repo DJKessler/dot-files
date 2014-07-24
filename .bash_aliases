@@ -124,7 +124,7 @@ Jobs="\j"
 
 thisUser=$(whoami)
 
-if [ $thisUser = "vagrant" ]; then
+if [ $thisUser == "vagrant" ]; then
 	if [ "$color_prompt" = yes ]; then
 		PS1='$ '$NO_COLOR
 		PS1='\W '$PS1
