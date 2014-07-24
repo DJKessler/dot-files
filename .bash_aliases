@@ -126,7 +126,7 @@ thisUser=$(whoami)
 
 if [ $thisUser == "vagrant" ]; then
 	if [ "$color_prompt" = yes ]; then
-		PS1='$ '$NO_COLOR
+		PS1='$ '$Color_Off
 		PS1='\W '$PS1
 		PS1=$BIRed'\D{%M} '$PS1
 		PS1=$BIRed':'$PS1
