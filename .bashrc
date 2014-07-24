@@ -3,8 +3,6 @@
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# this is ubuntu
-
-
 		# enable programmable completion features (you don't need to enable
 		# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 		# sources /etc/bash.bashrc).

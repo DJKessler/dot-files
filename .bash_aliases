@@ -122,26 +122,43 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-PS1=$BIYellow'['
-PS1=$PS1$BIBlue'\h'
-PS1=$PS1$BIYellow'@'
-PS1=$PS1$BIBlue'\u'
-PS1=$PS1$BIYellow'] '
-PS1=$PS1$BIBlack$Time12h
-PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
-	if [ $? -eq 0 ]; then \
-		echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
-		if [ "$?" -eq "0" ]; then \
-			echo "'$Green'"$(__git_ps1 " (%s)"); \
-		else \
-			echo "'$IRed'"$(__git_ps1 " {%s}"); \
-		fi) '$BYellow$PathShort$Color_Off'\$ "; \
-	else \
-		echo " '$Yellow$PathShort$Color_Off'\$ "; \
-	fi)'
+thisUser=$(whoami)
 
+if [ $thisUser = "vagrant" ]; then
+	if [ "$color_prompt" = yes ]; then
+		PS1='$ '$NO_COLOR
+		PS1='\W '$PS1
+		PS1=$BIRed'\D{%M} '$PS1
+		PS1=$BIRed':'$PS1
+		PS1=$BIRed'\D{%H}'$PS1
+		PS1=$BIRed'] '$PS1
+		PS1=$BIRed'\h'$PS1
+		PS1=$BIRed'@'$PS1
+		PS1=$BIRed'\u'$PS1
+		PS1=$BIRed'['$PS1
+	else
+		PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	fi
+else
+	PS1=$BIYellow'['
+	PS1=$PS1$BIBlue'\h'
+	PS1=$PS1$BIYellow'@'
+	PS1=$PS1$BIBlue'\u'
+	PS1=$PS1$BIYellow'] '
+	PS1=$PS1$BIBlack$Time12h
+	PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
+		if [ $? -eq 0 ]; then \
+			echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
+			if [ "$?" -eq "0" ]; then \
+				echo "'$Green'"$(__git_ps1 " (%s)"); \
+			else \
+				echo "'$IRed'"$(__git_ps1 " {%s}"); \
+			fi) '$BYellow$PathShort$Color_Off'\$ "; \
+		else \
+			echo " '$Yellow$PathShort$Color_Off'\$ "; \
+		fi)'
+fi
 
 if [ -f ~/.unixrc/aliasTabComplete.sh ]; then
 	. ~/.unixrc/aliasTabComplete.sh
 fi
-
