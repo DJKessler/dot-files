@@ -1,1 +1,0 @@
-/home/djkessler/.vim/
