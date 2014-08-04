@@ -82,5 +82,6 @@ color_prompt=yes
 
 # Alias definitions.
 if [ -f $myHomeDir/.unixrc/.bash_aliases ]; then
-    . $myHomeDir/.unixrc/.bash_aliases
+	echo $myHomeDir
+	. $myHomeDir/.unixrc/.bash_aliases
 fi

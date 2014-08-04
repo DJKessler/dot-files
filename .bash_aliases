@@ -136,9 +136,7 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-thisUser=$(whoami)
-
-if [ $thisUser == "vagrant" ]; then
+if [ $USER == "vagrant" ]; then
 	if [ "$color_prompt" = yes ]; then
 		PS1='$ '$Color_Off
 		PS1='\W '$PS1
