@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# $myHomeDir/.bashrc: executed by bash(1) for non-login shells.
 
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -12,6 +12,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		  elif [ -f /etc/bash_completion ]; then
 		    . /etc/bash_completion
 		  fi
+		fi
+		if [ $USER == "vagrant" ]; then
+			set myHomeDir = /home/vagrant/
+		else
+			set myHomeDir = $home
 		fi
 
 		# If not running interactively, don't do anything
@@ -76,6 +81,6 @@ color_prompt=yes
 #unset color_prompt force_color_prompt
 
 # Alias definitions.
-if [ -f ~/.unixrc/.bash_aliases ]; then
-    . ~/.unixrc/.bash_aliases
+if [ -f $myHomeDir/.unixrc/.bash_aliases ]; then
+    . $myHomeDir/.unixrc/.bash_aliases
 fi
