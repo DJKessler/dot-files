@@ -9,6 +9,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		    alias grep='grep --color=auto'
 		fi
 		if [ $USER == "vagrant" ]; then
+			set myHomeDir = /home/vagrant/
 			alias adc='cd /vagrant/picosat_adc/'
 			alias cdh='cd /vagrant/picosat_cdh/'
 			alias cmn='cd /vagrant/picosat_cmn/'
@@ -16,6 +17,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 			alias lib='cd /vagrant/picosat_lib/'
 			alias sim='cd /vagrant/picosat_sim/'
 		else
+			set myHomeDir = $HOME
 			alias adc='cd $HOME/git/picosat_adc/'
 			alias cdh='cd $HOME/git/picosat_cdh/'
 			alias cmn='cd $HOME/git/picosat_cmn/'
@@ -171,6 +173,6 @@ else
 		fi)'
 fi
 
-if [ -f ~/.unixrc/aliasTabComplete.sh ]; then
-	. ~/.unixrc/aliasTabComplete.sh
+if [ -f $myHomeDir/.unixrc/aliasTabComplete.sh ]; then
+	. $myHomeDir/.unixrc/aliasTabComplete.sh
 fi
