@@ -8,9 +8,21 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 				alias ls='ls -lh --color=auto'
 		    alias grep='grep --color=auto'
 		fi
-		alias adc='cd ~/git/picosat_adc/'
-		alias cmn='cd ~/git/picosat_cmn/'
-		alias gui='cd ~/git/picosat_gui/'
+		if [ $USER == "vagrant" ]; then
+			alias adc='cd /vagrant/picosat_adc/'
+			alias cdh='cd /vagrant/picosat_cdh/'
+			alias cmn='cd /vagrant/picosat_cmn/'
+			alias gui='cd /vagrant/picosat_gui/'
+			alias lib='cd /vagrant/picosat_lib/'
+			alias sim='cd /vagrant/picosat_sim/'
+		else
+			alias adc='cd $HOME/git/picosat_adc/'
+			alias cdh='cd $HOME/git/picosat_cdh/'
+			alias cmn='cd $HOME/git/picosat_cmn/'
+			alias gui='cd $HOME/git/picosat_gui/'
+			alias lib='cd $HOME/git/picosat_lib/'
+			alias sim='cd $HOME/git/picosat_sim/'
+		fi
 		if [ -f /usr/bin/colormake ]; then
 			alias make='colormake'
 		fi
