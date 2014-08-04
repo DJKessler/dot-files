@@ -14,9 +14,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		  fi
 		fi
 		if [ $USER == "vagrant" ]; then
-			set myHomeDir = /home/vagrant/
+			echo "$USER"
+			export myHomeDir=/home/vagrant/
 		else
-			set myHomeDir = $home
+			echo "you are $USER"
+			export myHomeDir=$HOME
 		fi
 
 		# If not running interactively, don't do anything
@@ -26,7 +28,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		esac
 		# set variable identifying the chroot you work in (used in the prompt below)
 		if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-		    debian_chroot=$(cat /etc/debian_chroot)
+		    export debian_chroot=$(cat /etc/debian_chroot)
 		fi
 		
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -34,9 +36,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 		if [ -f $(brew --prefix)/etc/bash_completion ]; then
 			. $(brew --prefix)/etc/bash_completion
 		fi
-		CLICOLOR=1
+		export CLICOLOR=1
 		#export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
-		LSCOLORS=Exfxcxdxbxegedabagacad
+		export LSCOLORS=Exfxcxdxbxegedabagacad
 
 fi
 
@@ -63,7 +65,7 @@ export HISTIGNORE="&:pwd:clear:ls*:[bf]g:exit:[ \t]*"
 
 # the contents of the PROMPT_COMMAND environement variable are executed as a
 # regular bash command just before Bash displays a prompt
-PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -75,13 +77,15 @@ shopt -s checkwinsize
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
-color_prompt=yes
+export force_color_prompt=yes
+export color_prompt=yes
 
 #unset color_prompt force_color_prompt
 
 # Alias definitions.
 if [ -f $myHomeDir/.unixrc/.bash_aliases ]; then
-	echo $myHomeDir
+	echo "sourcing $myHomeDir/.unixrc/.bash_aliases"
 	. $myHomeDir/.unixrc/.bash_aliases
+else
+	echo "not sourcing $myHomeDir/.unixrc/.bash_aliases"
 fi

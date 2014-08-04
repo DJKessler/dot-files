@@ -5,39 +5,51 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		# enable color support of ls and also add handy aliases
 		if [ -x /usr/bin/dircolors ]; then
 		    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-				alias ls='ls -lh --color=auto'
-		    alias grep='grep --color=auto'
+				export alias ls='ls -lh --color=auto'
+		    export alias grep='grep --color=auto'
 		fi
 		if [ $USER == "vagrant" ]; then
-#			set myHomeDir = /home/vagrant/
-			alias adc='cd /vagrant/picosat_adc/'
-			alias cdh='cd /vagrant/picosat_cdh/'
-			alias cmn='cd /vagrant/picosat_cmn/'
-			alias gui='cd /vagrant/picosat_gui/'
-			alias lib='cd /vagrant/picosat_lib/'
-			alias sim='cd /vagrant/picosat_sim/'
+			export myHomeDir=/vagrant
+			echo "$myHomeDir"
 		else
-#			set myHomeDir = $HOME
-			alias adc='cd $HOME/git/picosat_adc/'
-			alias cdh='cd $HOME/git/picosat_cdh/'
-			alias cmn='cd $HOME/git/picosat_cmn/'
-			alias gui='cd $HOME/git/picosat_gui/'
-			alias lib='cd $HOME/git/picosat_lib/'
-			alias sim='cd $HOME/git/picosat_sim/'
+			export myHomeDir=$HOME/git
+			echo "$myHomeDir"
 		fi
+		alias adc='cd $myHomeDir/picosat_adc/'
+		alias cdh='cd $myHomeDir/picosat_cdh/'
+		alias cmn='cd $myHomeDir/picosat_cmn/'
+		alias gui='cd $myHomeDir/picosat_gui/'
+		alias lib='cd $myHomeDir/picosat_lib/'
+		alias sim='cd $myHomeDir/picosat_sim/'
+
+
+#			export alias adc='cd /vagrant/picosat_adc/'
+#			export alias cdh='cd /vagrant/picosat_cdh/'
+#			export alias cmn='cd /vagrant/picosat_cmn/'
+#			export alias gui='cd /vagrant/picosat_gui/'
+#			export alias lib='cd /vagrant/picosat_lib/'
+#			export alias sim='cd /vagrant/picosat_sim/'
+#		else
+#			export alias adc='cd $HOME/git/picosat_adc/'
+#			export alias cdh='cd $HOME/git/picosat_cdh/'
+#			export alias cmn='cd $HOME/git/picosat_cmn/'
+#			export alias gui='cd $HOME/git/picosat_gui/'
+#			export alias lib='cd $HOME/git/picosat_lib/'
+#			export alias sim='cd $HOME/git/picosat_sim/'
+#		fi
 		if [ -f /usr/bin/colormake ]; then
-			alias make='colormake'
+			export alias make='colormake'
 		fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
-	alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
-	alias hg="/usr/local/bin/hg"
-	alias ls='ls -lh -G'
-	alias adc='cd ~/Documents/TSL/picosat_adc/'
-	alias cmn='cd ~/Documents/TSL/picosat_cmn/'
-	alias gui='cd ~/Documents/TSL/picosat_gui/'
+	export alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
+	export alias hg="/usr/local/bin/hg"
+	export alias ls='ls -lh -G'
+	export alias adc='cd ~/Documents/TSL/picosat_adc/'
+	export alias cmn='cd ~/Documents/TSL/picosat_cmn/'
+	export alias gui='cd ~/Documents/TSL/picosat_gui/'
 	if [ -f /Volumes/EFI/EFI/CLOVER/config.plist ]; then
-		alias config="vim /Volumes/EFI/EFI/CLOVER/config.plist"
+		export alias config="vim /Volumes/EFI/EFI/CLOVER/config.plist"
 	fi
 	# copyTag is a function that copies the finder tag from arg 1, to arg 2
 	copyTag() {
@@ -48,7 +60,7 @@ fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+export alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 
@@ -131,34 +143,34 @@ On_IWhite="\[\033[0;107m\]"   # White
 # Various variables you might want for your PS1 prompt instead
 #Time12h="\T"
 #Time12a="\@"
-PathShort="\w"
-PathFull="\W"
-NewLine="\n"
-Jobs="\j"
+export PathShort="\w"
+export PathFull="\W"
+export NewLine="\n"
+export Jobs="\j"
 
 if [ $USER == "vagrant" ]; then
 	if [ "$color_prompt" = yes ]; then
-		PS1='$ '$Color_Off
-		PS1='\W '$PS1
-		PS1=$BIRed'\D{%M} '$PS1
-		PS1=$BIRed':'$PS1
-		PS1=$BIRed'\D{%H}'$PS1
-		PS1=$BIRed'] '$PS1
-		PS1=$BIRed'\h'$PS1
-		PS1=$BIRed'@'$PS1
-		PS1=$BIRed'\u'$PS1
-		PS1=$BIRed'['$PS1
+		export PS1='$ '$Color_Off
+		export PS1='\W '$PS1
+		export PS1=$BIRed'\D{%M} '$PS1
+		export PS1=$BIRed':'$PS1
+		export PS1=$BIRed'\D{%H}'$PS1
+		export PS1=$BIRed'] '$PS1
+		export PS1=$BIRed'\h'$PS1
+		export PS1=$BIRed'@'$PS1
+		export PS1=$BIRed'\u'$PS1
+		export PS1=$BIRed'['$PS1
 	else
-		PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+		export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 	fi
 else
-	PS1=$BIYellow'['
-	PS1=$PS1$BIBlue'\h'
-	PS1=$PS1$BIYellow'@'
-	PS1=$PS1$BIBlue'\u'
-	PS1=$PS1$BIYellow'] '
-	PS1=$PS1$BIBlack$Time12h
-	PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
+	export PS1=$BIYellow'['
+	export PS1=$PS1$BIBlue'\h'
+	export PS1=$PS1$BIYellow'@'
+	export PS1=$PS1$BIBlue'\u'
+	export PS1=$PS1$BIYellow'] '
+	export PS1=$PS1$BIBlack$Time12h
+	export PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
 		if [ $? -eq 0 ]; then \
 			echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
 			if [ "$?" -eq "0" ]; then \
