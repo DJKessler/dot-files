@@ -14,10 +14,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		  fi
 		fi
 		if [ $USER == "vagrant" ]; then
-			echo "$USER"
-			export myHomeDir=/home/vagrant/
+			export myHomeDir=/home/vagrant
 		else
-			echo "you are $USER"
 			export myHomeDir=$HOME
 		fi
 
@@ -84,8 +82,5 @@ export color_prompt=yes
 
 # Alias definitions.
 if [ -f $myHomeDir/.unixrc/.bash_aliases ]; then
-	echo "sourcing $myHomeDir/.unixrc/.bash_aliases"
 	. $myHomeDir/.unixrc/.bash_aliases
-else
-	echo "not sourcing $myHomeDir/.unixrc/.bash_aliases"
 fi

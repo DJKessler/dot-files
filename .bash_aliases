@@ -10,10 +10,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		fi
 		if [ $USER == "vagrant" ]; then
 			export myHomeDir=/vagrant
-			echo "$myHomeDir"
 		else
 			export myHomeDir=$HOME/git
-			echo "$myHomeDir"
 		fi
 		alias adc='cd $myHomeDir/picosat_adc/'
 		alias cdh='cd $myHomeDir/picosat_cdh/'
