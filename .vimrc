@@ -7,9 +7,9 @@ syntax on 	 "syntax highlighting
 set hlsearch	 "highlight the last searched term
 set tabstop=2 	 "set tab length to 2 spaces
 set nu		 "set line numbers to on
-set background=light "use light background color profile
+"set background=light "use light background color profile
 set shiftwidth=2
-:colorscheme slate
+":colorscheme slate
 set switchbuf=useopen,usetab,newtab
 
 set nocompatible "use Vim defaults instead of 100% vi compatiblitiy
@@ -25,12 +25,6 @@ Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
 Plugin 'https://github.com/ervandew/supertab.git'
 
 call vundle#end()
-
-filetype plugin on
-
-
-
-
 
 " the following code block enables repeated pasting from visual
 " selection without overwriting default register.
@@ -48,8 +42,7 @@ filetype plugin on
 	
 	vnoremap <silent> <expr> p <sid>Repl()
 
-"filetype plugin on "set to off as required by the Vundle plugin manager
-:highlight Comment ctermfg=lightblue "set the color of comments
+":highlight Comment ctermfg=lightblue "set the color of comments
 
 "the following block causes vim to always jump to the last cursor position
 autocmd BufReadPost *
@@ -70,13 +63,6 @@ if &term == "screen" || &term == "xterm"
 endif
 
 set completeopt=longest,menuone
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"
-"inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-"  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-"
-"inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-"  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextTextOmniPrecedence = ['&omnifunc','&completefunc']

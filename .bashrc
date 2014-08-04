@@ -14,9 +14,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		  fi
 		fi
 		if [ $USER == "vagrant" ]; then
-			export myHomeDir=/home/vagrant
+			myHomeDir=/home/vagrant
 		else
-			export myHomeDir=$HOME
+			myHomeDir=$HOME
 		fi
 
 		# If not running interactively, don't do anything
@@ -26,7 +26,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		esac
 		# set variable identifying the chroot you work in (used in the prompt below)
 		if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-		    export debian_chroot=$(cat /etc/debian_chroot)
+		    debian_chroot=$(cat /etc/debian_chroot)
 		fi
 		
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -75,8 +75,8 @@ shopt -s checkwinsize
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-export force_color_prompt=yes
-export color_prompt=yes
+force_color_prompt=yes
+color_prompt=yes
 
 #unset color_prompt force_color_prompt
 
