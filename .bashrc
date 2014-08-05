@@ -2,42 +2,41 @@
 
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	# this is ubuntu
-		# enable programmable completion features (you don't need to enable
-		# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-		# sources /etc/bash.bashrc).
-		if ! shopt -oq posix; then
-		  if [ -f /usr/share/bash-completion/bash_completion ]; then
-		    . /usr/share/bash-completion/bash_completion
-		  elif [ -f /etc/bash_completion ]; then
-		    . /etc/bash_completion
-		  fi
-		fi
-		if [ $USER == "vagrant" ]; then
-			myHomeDir=/home/vagrant
-		else
-			myHomeDir=$HOME
-		fi
+# this is ubuntu
+	# enable programmable completion features (you don't need to enable
+	# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+	# sources /etc/bash.bashrc).
+	if ! shopt -oq posix; then
+	  if [ -f /usr/share/bash-completion/bash_completion ]; then
+	    . /usr/share/bash-completion/bash_completion
+	  elif [ -f /etc/bash_completion ]; then
+	    . /etc/bash_completion
+	  fi
+	fi
+	if [ $USER == "vagrant" ]; then
+		myHomeDir=/home/vagrant
+	else
+		myHomeDir=$HOME
+	fi
 
-		# If not running interactively, don't do anything
-		case $- in
-		    *i*) ;;
-		      *) return;;
-		esac
-		# set variable identifying the chroot you work in (used in the prompt below)
-		if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-		    debian_chroot=$(cat /etc/debian_chroot)
-		fi
-		
+	# If not running interactively, don't do anything
+	case $- in
+	    *i*) ;;
+	      *) return;;
+	esac
+	# set variable identifying the chroot you work in (used in the prompt below)
+	if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+	    debian_chroot=$(cat /etc/debian_chroot)
+	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	# this is a mac
-		if [ -f $(brew --prefix)/etc/bash_completion ]; then
-			. $(brew --prefix)/etc/bash_completion
-		fi
-		export CLICOLOR=1
-		#export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
-		export LSCOLORS=Exfxcxdxbxegedabagacad
-
+# this is a mac
+	myHomeDir=$HOME
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
+	fi
+	export CLICOLOR=1
+	export LSCOLORS=Exfxcxdxbxegedabagacad
+	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin"
 fi
 
 # don't put duplicate lines or lines starting with space in the history.

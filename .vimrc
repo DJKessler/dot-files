@@ -1,28 +1,40 @@
-set modelines=0
-set nocompatible			" use Vim defaults instead of 100% vi compatiblitiy
-set mouse=a						" enable mouse
-set backspace=2				" more powerful backspacing
-set ai								" auto indenting
-set ruler							" show the cursor position
-syntax on							" syntax highlighting
-set hlsearch					" highlight the last searched term
-set tabstop=2					" set tab length to 2 spaces
-set nu								" set line numbers to on
-"set background=light " use light background color profile
-set shiftwidth=2
-:colorscheme slate
-set switchbuf=useopen,usetab,newtab
-set colorcolumn=80		" add a guideline at 80 characters wide
-
-filetype off					" required by Vundle plugin manager
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-	Plugin 'gmarik/Vundle.vim'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""" begin Vundle plugin manager setup """""""""""""""""""""""
+"""""""""""""" see https://github.com/gmarik/Vundle.vim for info """""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible										" use Vim defaults instead of vi compatibility
+filetype off												" required by Vundle plugin manager
+set rtp+=~/.vim/bundle/Vundle.vim		" set the runtime path to include Vundle
+call vundle#begin()									" initialize Vundle
+	
+	Plugin 'https://github.com/gmarik/Vundle.vim.git'
 	Plugin 'https://github.com/vim-scripts/L9.git'	
 	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
 	Plugin 'https://github.com/ervandew/supertab.git'
-call vundle#end()
-filetype plugin indent on
+	
+call vundle#end()										" deinitialize Vundle
+filetype plugin indent on						" required by Vundle plugin manager
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""" end Vundle plugin manager setup """"""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set modelines=0
+set mouse=a															" turn on mouse
+set backspace=2													" more powerful backspacing
+set tabstop=2														" set tab length to 2 spaces
+set shiftwidth=2
+
+set ai																	" auto indenting
+syntax on																" syntax highlighting
+set hlsearch														" highlight the last searched term
+"set background=light										" use light background color profile
+":colorscheme slate
+":highlight Comment ctermfg=lightblue		"set the color of comments
+
+set nu																	" set line numbers to on
+set ruler																" show the cursor position
+set switchbuf=useopen,usetab,newtab
+set colorcolumn=80		" add a guideline at 80 characters wide
 
 
 " the following code block enables repeated pasting from visual
@@ -41,7 +53,6 @@ filetype plugin indent on
 	
 	vnoremap <silent> <expr> p <sid>Repl()
 
-":highlight Comment ctermfg=lightblue "set the color of comments
 
 "the following block causes vim to always jump to the last cursor position
 autocmd BufReadPost *
