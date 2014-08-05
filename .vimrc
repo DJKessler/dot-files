@@ -1,30 +1,29 @@
 set modelines=0
-set mouse=a
-set backspace=2  "more powerful backspacing
-set ai		 "auto indenting
-set ruler	 "show the cursor position
-syntax on 	 "syntax highlighting
-set hlsearch	 "highlight the last searched term
-set tabstop=2 	 "set tab length to 2 spaces
-set nu		 "set line numbers to on
-"set background=light "use light background color profile
+set nocompatible			" use Vim defaults instead of 100% vi compatiblitiy
+set mouse=a						" enable mouse
+set backspace=2				" more powerful backspacing
+set ai								" auto indenting
+set ruler							" show the cursor position
+syntax on							" syntax highlighting
+set hlsearch					" highlight the last searched term
+set tabstop=2					" set tab length to 2 spaces
+set nu								" set line numbers to on
+"set background=light " use light background color profile
 set shiftwidth=2
-":colorscheme slate
+:colorscheme slate
 set switchbuf=useopen,usetab,newtab
+set colorcolumn=80		" add a guideline at 80 characters wide
 
-set nocompatible "use Vim defaults instead of 100% vi compatiblitiy
-filetype off			" required by Vundle plugin manager
-
+filetype off					" required by Vundle plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'https://github.com/vim-scripts/L9.git'	
-Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
-Plugin 'https://github.com/ervandew/supertab.git'
-
+	Plugin 'gmarik/Vundle.vim'
+	Plugin 'https://github.com/vim-scripts/L9.git'	
+	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
+	Plugin 'https://github.com/ervandew/supertab.git'
 call vundle#end()
+filetype plugin indent on
+
 
 " the following code block enables repeated pasting from visual
 " selection without overwriting default register.
