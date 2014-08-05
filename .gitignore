@@ -1,4 +1,2 @@
-
-/home/.unixrc/.vim/view/**
-
+.vim/view/**
 *.swp
