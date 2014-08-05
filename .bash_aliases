@@ -23,6 +23,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		if [ -f /usr/bin/colormake ]; then
 			export alias make='colormake'
 		fi
+
+		if [ -f /home/$USER/.unixrc/.bash_hist_man ]; then
+			. /home/$USER/.unixrc/.bash_hist_man
+		fi
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
 	alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
