@@ -9,7 +9,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		    alias grep='grep --color=auto'
 		fi
 
-		if [ $USER == "vagrant" ]; then
+		if [ "$USER" == "vagrant" ]; then
 			myHomeDir=/vagrant
 		else
 			myHomeDir=$HOME/git
@@ -21,36 +21,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		alias lib='cd $myHomeDir/picosat_lib/'
 		alias sim='cd $myHomeDir/picosat_sim/'
 
-		# Wraps a completion function
-		# make-completion-wrapper <actual completion function> <name of new func.>
-		#													<command name> <list supplied arguments>
-		# eg.
-		#			alias agi='apt-get install'
-		#			make-completion-wrapper _apt_get _apt_get_install apt-get install
-		#	defines a function called _apt_get_install (that's $2) that will complete
-		# the 'agi' alias. (complete -F _apt_get_install agi)
-		#
-#		function make-completion-wrapper () {
-#			local function_name="$2"
-#			local arg_count=$(($#-3))
-#			local comp_function_name="$1"
-#			shift 2
-#			local function="
-#		function $function_name {
-#			((COMP_CWORD+=$arg_count))
-#			COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-#			"$comp_function_name"
-#			return 0
-#		}"
-#			eval "$function"
-#			echo $function_name
-#			echo "$function"
-#		}
 
 		if [ -f /usr/bin/colormake ]; then
 			alias make='colormake-short'
-#			make-completion-wrapper _make _clrmk colormake
-#			complete -F _clrmk make
 		fi
 
 		if [ -f /home/$USER/.unixrc/.bash_hist_man ]; then
@@ -165,7 +138,7 @@ export PathFull="\W"
 export NewLine="\n"
 export Jobs="\j"
 
-if [ $USER == "vagrant" ]; then
+if [ "$USER" == "vagrant" ]; then
 	if [ "$color_prompt" = yes ]; then
 		export PS1='$ '$Color_Off
 		export PS1='\W '$PS1
@@ -180,7 +153,7 @@ if [ $USER == "vagrant" ]; then
 	else
 		export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 	fi
-else
+elif [ "$OSTYPE" != "msys" ]; then
 	export PS1=$BIYellow'['
 	export PS1=$PS1$BIBlue'\h'
 	export PS1=$PS1$BIYellow'@'

@@ -37,6 +37,33 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	export CLICOLOR=1
 	export LSCOLORS=Exfxcxdxbxegedabagacad
 	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin"
+elif [[ "$OSTYPE" == msys ]]; then
+# this is windows
+	myHomeDir=$HOME
+
+	SSH_ENV=$HOME/.ssh/environment
+	   
+	# start the ssh-agent
+	function start_agent {
+	    echo "Initializing new SSH agent..."
+	    # spawn ssh-agent
+	    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+	    echo succeeded
+	    chmod 600 "${SSH_ENV}"
+	    . "${SSH_ENV}" > /dev/null
+	    /usr/bin/ssh-add
+	}
+	   
+	if [ -f "${SSH_ENV}" ]; then
+	     . "${SSH_ENV}" > /dev/null
+	     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+	        start_agent;
+	    }
+	else
+	    start_agent;
+	fi
+	
+	export PATH=$PATH:"/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/"
 fi
 
 # don't put duplicate lines or lines starting with space in the history.
