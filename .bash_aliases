@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		if [ "$USER" == "vagrant" ]; then
 			myHomeDir=/vagrant
 		else
-			myHomeDir=$HOME/git
+			myHomeDir=$HOME/git/TSL
 		fi
 		alias adc='cd $myHomeDir/picosat_adc/'
 		alias cdh='cd $myHomeDir/picosat_cdh/'
