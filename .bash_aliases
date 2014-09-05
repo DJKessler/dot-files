@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		if [ "$USER" == "vagrant" ]; then
 			myHomeDir=/vagrant
 		else
-			myHomeDir=$HOME/git/TSL
+			myHomeDir=$HOME/git
 		fi
 		alias adc='cd $myHomeDir/picosat_adc/'
 		alias cdh='cd $myHomeDir/picosat_cdh/'
@@ -133,8 +133,8 @@ export On_IWhite="\[\033[0;107m\]"   # White
 # Various variables you might want for your PS1 prompt instead
 #Time12h="\T"
 #Time12a="\@"
-export PathShort="\w"
-export PathFull="\W"
+export PathShort="\W"
+export PathFull="\w"
 export NewLine="\n"
 export Jobs="\j"
 
