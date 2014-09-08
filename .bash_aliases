@@ -23,12 +23,17 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 
 		if [ -f /usr/bin/colormake ]; then
-			alias make='colormake-short'
+			alias MAKE='colormake --short'
 		fi
 
 		if [ -f /home/$USER/.unixrc/.bash_hist_man ]; then
 			. /home/$USER/.unixrc/.bash_hist_man
 		fi
+
+		if [ -f /home/$USER/.unixrc/.bash_functions ]; then
+			. /home/$USER/.unixrc/.bash_functions
+		fi
+
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# this is a mac
@@ -43,8 +48,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 	# copyTag is a function that copies the finder tag from arg 1, to arg 2
 	copyTag() {
-		sudo xattr -wx com.apple.metadata:_kMDitemUserTags "$(xattr -px	com.apple.metadata:_kMDItemUserTags "$1")" "$2";
-		sudo xattr -wx com.apple.FinderInfo "$(xattr -px com.apple.FinderInfo	"$1")" "$2"; 
+		sudo xattr -wx com.apple.metadata:_kMDitemUserTags \
+      "$(xattr -px	com.apple.metadata:_kMDItemUserTags "$1")" "$2";
+		sudo xattr -wx com.apple.FinderInfo \
+      "$(xattr -px com.apple.FinderInfo	"$1")" "$2"; 
 	}
 fi
 
@@ -166,7 +173,7 @@ elif [ "$OSTYPE" != "msys" ]; then
 			if [ "$?" -eq "0" ]; then \
 				echo "'$Green'"$(__git_ps1 " (%s)"); \
 			else \
-				echo "'$IRed'"$(__git_ps1 " {%s}"); \
+				echo "'$BIRed'"$(__git_ps1 " {%s}"); \
 			fi) '$BYellow$PathShort$Color_Off'\$ "; \
 		else \
 			echo " '$Yellow$PathShort$Color_Off'\$ "; \
