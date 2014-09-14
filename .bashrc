@@ -30,13 +30,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 # this is a mac
-	myHomeDir=$HOME
-	if [ -f $(brew --prefix)/etc/bash_completion ]; then
-		. $(brew --prefix)/etc/bash_completion
-	fi
-	export CLICOLOR=1
-	export LSCOLORS=Exfxcxdxbxegedabagacad
-	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin"
+  if [ -f $HOME/.unixrc/.bashrc_osx ]; then
+    . $HOME/.unxirc/.bashrc_osx;
+  fi
 elif [[ "$OSTYPE" == msys ]]; then
 # this is windows
 	myHomeDir=$HOME
