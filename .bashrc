@@ -2,41 +2,24 @@
 
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-# this is ubuntu
-	# enable programmable completion features (you don't need to enable
-	# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-	# sources /etc/bash.bashrc).
-	if ! shopt -oq posix; then
-	  if [ -f /usr/share/bash-completion/bash_completion ]; then
-	    . /usr/share/bash-completion/bash_completion
-	  elif [ -f /etc/bash_completion ]; then
-	    . /etc/bash_completion
-	  fi
-	fi
-	if [ $USER == "vagrant" ]; then
-		myHomeDir=/home/vagrant
-	else
-		myHomeDir=$HOME
-	fi
-
-	# If not running interactively, don't do anything
-	case $- in
-	    *i*) ;;
-	      *) return;;
-	esac
-	# set variable identifying the chroot you work in (used in the prompt below)
-	if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-	    debian_chroot=$(cat /etc/debian_chroot)
-	fi
+################################################################################
+################################ this is ubuntu ################################
+################################################################################
+  if [ -f $HOME/.unixrc/.bashrc_ubuntu ]; then
+    . $HOME/.unixrc/.bashrc_ubuntu;
+  fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-# this is a mac
+################################################################################
+################################# this is osx ##################################
+################################################################################
   if [ -f $HOME/.unixrc/.bashrc_osx ]; then
     . $HOME/.unxirc/.bashrc_osx;
   fi
 elif [[ "$OSTYPE" == msys ]]; then
-# this is windows
+################################################################################
+############################### this is windows ################################
+################################################################################
 	myHomeDir=$HOME
-
 	SSH_ENV=$HOME/.ssh/environment
 	   
 	# start the ssh-agent
@@ -76,9 +59,6 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=10000
 export HISTFILESIZE=100000
-
-# set the history entry timestamp format
-#export HISTTIMEFORMAT="%Y%m%d-%T "
 
 # set the commands that should not be saved to history
 export HISTIGNORE="&:pwd:clear:ls*:[bf]g:exit:[ \t]*"
