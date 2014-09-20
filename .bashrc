@@ -1,4 +1,10 @@
-# $myHomeDir/.bashrc: executed by bash(1) for non-login shells.
+if [ "$USER" == "vagrant" ]; then
+	export myHomeDir=/vagrant
+elif [ -d $HOME/git/TSL/ ]; then
+	export myHomeDir=$HOME/git/TSL
+else
+  export myHomeDir=$HOME/git
+fi
 
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -8,12 +14,18 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ -f $HOME/.unixrc/.bashrc_ubuntu ]; then
     . $HOME/.unixrc/.bashrc_ubuntu;
   fi
+  if [ -f $HOME/.unixrc/.bash_alias_ubuntu ]; then
+    . $HOME/.unixrc/.bash_alias_ubuntu
+  fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 ################################################################################
 ################################# this is osx ##################################
 ################################################################################
   if [ -f $HOME/.unixrc/.bashrc_osx ]; then
-    . $HOME/.unixrc/.bashrc_osx;
+    . $HOME/.unixrc/.bashrc_osx
+  fi
+  if [ -f $HOME/.unixrc/.bash_alias_osx ]; then
+    . $HOME/.unixrc/.bash_alias_osx
   fi
 elif [[ "$OSTYPE" == msys ]]; then
 ################################################################################
@@ -41,7 +53,6 @@ elif [[ "$OSTYPE" == msys ]]; then
 	else
 	    start_agent;
 	fi
-	
 	export PATH=$PATH:"/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/"
 fi
 
@@ -69,7 +80,7 @@ export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_C
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-# shopt -s checkwinsize
+ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -83,6 +94,6 @@ color_prompt=yes
 #unset color_prompt force_color_prompt
 
 # Alias definitions.
-if [ -f $myHomeDir/.unixrc/.bash_aliases ]; then
-	. $myHomeDir/.unixrc/.bash_aliases
+if [ -f $HOME/.unixrc/.bash_aliases ]; then
+	. $HOME/.unixrc/.bash_aliases
 fi

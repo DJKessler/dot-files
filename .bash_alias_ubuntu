@@ -1,0 +1,16 @@
+# bash aliases for linux
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+		alias ls='ls -lh --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+if [ -f /usr/bin/colormake ]; then
+	alias MAKE='colormake --short'
+fi
+
+if [ -f /home/$USER/.unixrc/.bash_functions ]; then
+	. /home/$USER/.unixrc/.bash_functions
+fi

@@ -1,0 +1,50 @@
+# gnu utils for osx
+if [ -d $(brew --prefix)/opt/coreutils/libexec/gnubin/ ]; then
+  export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+fi
+if [ -d $(brew --prefix)/opt/coreutils/libexec/gnuman/ ]; then
+  export MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
+
+if [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnubin/ ]; then
+  export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+fi 
+if [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnuman/ ]; then
+  export MANPATH="$(brew --prefix)/opt/gnu-sed/libexec/gnuman:$MANPATH"
+fi
+
+if [ -d $(brew --prefix)/opt/gnu-tar/libexec/gnubin/ ]; then
+  export PATH="$(brew --prefix)/opt/gnu-tar/libexec/gnubin:$PATH"
+fi 
+
+if [ -d "/Applications/User_Applications/Mathematica.app/Contents/MacOS" ]; then
+  export PATH="$PATH:/Applications/User_Applications/Mathematica.app/Contents/MacOS"
+fi
+
+# bash aliases for osx
+# alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
+alias ls='ls -lh -G'
+
+if [ -f /Volumes/EFI/EFI/CLOVER/config.plist ]; then
+	alias config="vim /Volumes/EFI/EFI/CLOVER/config.plist"
+fi
+
+if [ -d $HOME/git/UTCS/2014F/cs371p/ ]; then
+  alias oop='cd $HOME/git/UTCS/2014F/cs371p/'
+fi
+
+if [ -d $HOME/git/UTCS/2014F/cs378/ ]; then
+  alias bdp='cd $HOME/git/UTCS/2014F/cs378/'
+fi
+
+if [ -d $HOME/git/UTCS/2014F/cs439/ ]; then
+  alias opsys='cd $HOME/git/UTCS/2014F/cs439/'
+fi
+
+# copyTag is a function that copies the finder tag from arg 1, to arg 2
+copyTag() {
+	sudo xattr -wx com.apple.metadata:_kMDitemUserTags \
+    "$(xattr -px	com.apple.metadata:_kMDItemUserTags "$1")" "$2";
+	sudo xattr -wx com.apple.FinderInfo \
+    "$(xattr -px com.apple.FinderInfo	"$1")" "$2"; 
+}
