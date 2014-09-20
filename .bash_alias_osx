@@ -23,22 +23,12 @@ fi
 
 # bash aliases for osx
 # alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
-alias ls='ls -lh -G'
+#alias ls='ls -lh -G'
+
+LSCOLORS=1
 
 if [ -f /Volumes/EFI/EFI/CLOVER/config.plist ]; then
 	alias config="vim /Volumes/EFI/EFI/CLOVER/config.plist"
-fi
-
-if [ -d $HOME/git/UTCS/2014F/cs371p/ ]; then
-  alias oop='cd $HOME/git/UTCS/2014F/cs371p/'
-fi
-
-if [ -d $HOME/git/UTCS/2014F/cs378/ ]; then
-  alias bdp='cd $HOME/git/UTCS/2014F/cs378/'
-fi
-
-if [ -d $HOME/git/UTCS/2014F/cs439/ ]; then
-  alias opsys='cd $HOME/git/UTCS/2014F/cs439/'
 fi
 
 # copyTag is a function that copies the finder tag from arg 1, to arg 2

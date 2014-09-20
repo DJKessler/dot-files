@@ -1,22 +1,18 @@
-alias adc='cd $myHomeDir/picosat_adc/'
-alias cdh='cd $myHomeDir/picosat_cdh/'
-alias cmn='cd $myHomeDir/picosat_cmn/'
-alias gui='cd $myHomeDir/picosat_gui/'
-alias lib='cd $myHomeDir/picosat_lib/'
-alias sim='cd $myHomeDir/picosat_sim/'
+alias adc='cd $HOME/git/TSL/picosat_adc/'
+alias cdh='cd $HOME/git/TSL/picosat_cdh/'
+alias cmn='cd $HOME/git/TSL/picosat_cmn/'
+alias gui='cd $HOME/git/TSL/picosat_gui/'
+alias lib='cd $HOME/git/TSL/picosat_lib/'
+alias sim='cd $HOME/git/TSL/picosat_sim/'
 
-# determine if this is a mac or linux machine
-#if [[ "$OSTYPE" == "linux-gnu" ]]; then
-#	# this is ubuntu
-#  if [ -f $HOME/.unixrc/.bash_alias_ubuntu ]; then
-#    . $HOME/.unixrc/.bash_alias_ubuntu
-#  fi
-#elif [[ "$OSTYPE" == "darwin"* ]]; then
-#	# this is a mac
-#  if [ -f $HOME/.unixrc/.bash_alias_osx ]; then
-#    . $HOME/.unixrc/.bash_alias_osx
-#  fi
-#fi
+alias oop='cd $HOME/git/UTCS/2014F/cs371p/'
+alias bdp='cd $HOME/git/UTCS/2014F/cs378/'
+alias opsys='cd $HOME/git/UTCS/2014F/cs439/'
+
+export oop=$HOME/git/UTCS/2014F/cs371p/
+export bdp=$HOME/git/UTCS/2014F/cs378/
+export opsys=$HOME/git/UTCS/2014F/cs439/
+
 
 #  USEFUL BASH FUNCTIONS
 if [ -f $HOME/.unixrc/.bash_functions ]; then
