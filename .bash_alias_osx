@@ -23,12 +23,13 @@ fi
 
 # bash aliases for osx
 # alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
-#alias ls='ls -lh -G'
+alias ls='ls -lh -G'
 
 LSCOLORS=1
 
 if [ -f /Volumes/EFI/EFI/CLOVER/config.plist ]; then
 	alias config="vim /Volumes/EFI/EFI/CLOVER/config.plist"
+  export clover="/Volumes/EFI/EFI/CLOVER/"
 fi
 
 # copyTag is a function that copies the finder tag from arg 1, to arg 2
