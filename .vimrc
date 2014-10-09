@@ -37,6 +37,7 @@ set hlsearch														" highlight the last searched term
 
 set switchbuf=useopen,usetab,newtab
 set colorcolumn=81		                  " add a guideline at 80 characters wide
+hi ColorColumn ctermbg=darkblue guibg=darkblue
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""
