@@ -22,7 +22,6 @@ if [ -d "/Applications/User_Applications/Mathematica.app/Contents/MacOS" ]; then
 fi
 
 # bash aliases for osx
-# alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
 alias ls='ls -lh -G'
 
 LSCOLORS=1
