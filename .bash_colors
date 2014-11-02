@@ -53,6 +53,7 @@ export IWhite="\[\033[0;97m\]"       # White
 
 # Bold High Intensty
 export BIBlack="\[\033[1;90m\]"      # Black
+export BIDarkRed="\[\033[0;91m\]"    # Dark Red
 export BIRed="\[\033[1;91m\]"        # Red
 export BIGreen="\[\033[1;92m\]"      # Green
 export BIYellow="\[\033[1;93m\]"     # Yellow

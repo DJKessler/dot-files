@@ -14,8 +14,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ -f $HOME/.unixrc/.bashrc_ubuntu ]; then
     . $HOME/.unixrc/.bashrc_ubuntu;
   fi
-  if [ -f $HOME/.unixrc/.bash_alias_ubuntu ]; then
-    . $HOME/.unixrc/.bash_alias_ubuntu
+  if [ -f $HOME/.unixrc/.bash_aliases_ubuntu ]; then
+    . $HOME/.unixrc/.bash_aliases_ubuntu
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 ################################################################################
@@ -24,8 +24,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   if [ -f $HOME/.unixrc/.bashrc_osx ]; then
     . $HOME/.unixrc/.bashrc_osx
   fi
-  if [ -f $HOME/.unixrc/.bash_alias_osx ]; then
-    . $HOME/.unixrc/.bash_alias_osx
+  if [ -f $HOME/.unixrc/.bash_aliases_osx ]; then
+    . $HOME/.unixrc/.bash_aliases_osx
   fi
 elif [[ "$OSTYPE" == msys ]]; then
 ################################################################################
@@ -97,5 +97,3 @@ color_prompt=yes
 if [ -f $HOME/.unixrc/.bash_aliases ]; then
 	. $HOME/.unixrc/.bash_aliases
 fi
-
-export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:/lusr/opt/qemu-1.1.1/:$PATH

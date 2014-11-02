@@ -32,6 +32,27 @@ export PathFull="\w"
 export NewLine="\n"
 export Jobs="\j"
 
+if [ "$(hostname -s)" == "cowboy" ]; then
+  . $HOME/.bash_adcirc
+  export psWhere="COWBOY"
+  export psWho="DJKESSLER"
+	export pscolor=$BIDarkRed
+	export delimColor=$BIPurple
+	. $HOME/.git-prompt.sh
+elif [[ "$(hostname -s)" =~ "compute-0-"$* ]]; then
+  . $HOME/.bash_adcirc
+  export psWhere="$(hostname -s)"
+  export psWho="DJKESSLER"
+	export pscolor=$BIDarkRed
+	export delimColor=$BICyan
+elif [ "$USER" == "vagrant" ]; then
+	export pscolor=$Red
+	export delimColor=$BIBlack
+elif [ "$OSTYPE" != "msys" ]; then
+	export pscolor=$BIBlue
+	export delimColor=$BIYellow
+fi
+
 export PS1PATH="\W"
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 if [ "$USER" == "vagrant" ]; then
@@ -49,22 +70,43 @@ if [ "$USER" == "vagrant" ]; then
 	else
 		export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 	fi
-elif [ "$OSTYPE" != "msys" ]; then
-	export PS1=$BIYellow'['
-	export PS1=$PS1$BIBlue'\h'
-	export PS1=$PS1$BIYellow'@'
-	export PS1=$PS1$BIBlue'\u'
-	export PS1=$PS1$BIYellow'] '
-	export PS1=$PS1$BIBlack$Time12h
-	export PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
-		if [ $? -eq 0 ]; then \
-			echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
-			if [ "$?" -eq "0" ]; then \
-				echo "'$Green'"$(__git_ps1 " (%s)"); \
-			else \
-				echo "'$BIRed'"$(__git_ps1 " {%s}"); \
-			fi) '$BYellow$PS1PATH$Color_Off'\$ "; \
-		else \
-			echo " '$Yellow$PS1PATH$Color_Off'\$ "; \
-		fi)'
+#elif [ "$OSTYPE" != "msys" ]; then
+#	export PS1=$BIYellow'['
+#	export PS1=$PS1$BIBlue'\h'
+#	export PS1=$PS1$BIYellow'@'
+#	export PS1=$PS1$BIBlue'\u'
+#	export PS1=$PS1$BIYellow'] '
+#	export PS1=$PS1$BIBlack$Time12h
+#	export PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
+#		if [ $? -eq 0 ]; then \
+#			echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
+#			if [ "$?" -eq "0" ]; then \
+#				echo "'$Green'"$(__git_ps1 " (%s)"); \
+#			else \
+#				echo "'$BIRed'"$(__git_ps1 " {%s}"); \
+#			fi) '$BYellow$PS1PATH$Color_Off'\$ "; \
+#		else \
+#			echo " '$Yellow$PS1PATH$Color_Off'\$ "; \
+#		fi)'
 fi
+
+
+export PS1=$delimColor'['
+export PS1=$PS1$pscolor$psWho
+export PS1=$PS1$delimColor'@'
+export PS1=$PS1$pscolor$psWhere
+export PS1=$PS1$delimColor']'
+#export PS1=$PS1$BIBlack$Time12h
+export PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
+	if [ $? -eq 0 ]; then \
+		echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
+		if [ "$?" -eq "0" ]; then \
+			echo "'$Green'"$(__git_ps1 " (%s)"); \
+		else \
+			echo "'$BIRed'"$(__git_ps1 " {%s}"); \
+		fi) '$BYellow$PS1PATH$Color_Off'\$ "; \
+	else \
+		echo " '$Yellow$PS1PATH$Color_Off'\$ "; \
+	fi)'
+
+
