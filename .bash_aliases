@@ -50,6 +50,16 @@ elif [ "$(hostname -s)" == "DJKubuntu" ]; then
   export psWho="djkessler"
 	export pscolor=$BIBlue
 	export delimColor=$BIYellow
+elif [ "$(hostname -s)" == "djk_hackpro" ]; then
+  export psWhere="$(hostname -s)"
+  export psWho="DJKessler"
+	export pscolor=$Blue
+	export delimColor=$Yellow
+elif [ "$(hostname -s)" == "djk_mba" ]; then
+  export psWhere="$(hostname -s)"
+  export psWho="DJKessler"
+	export pscolor=$BIBlue
+	export delimColor=$BIYellow
 elif [ "$USER" == "vagrant" ]; then
 	export pscolor=$Red
 	export delimColor=$BIBlack

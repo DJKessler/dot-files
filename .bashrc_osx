@@ -11,6 +11,6 @@ if [ -d $(brew --prefix)/Cellar/hadoop121/1.2.1/bin/ ]; then
   export PATH=$PATH:$HADOOP_INSTALL/bin
 fi
 
-#export CLICOLOR=1
-#export LSCOLORS=Exfxcxdxbxegedabagacad
+export CLICOLOR=1
+export LSCOLORS=Exfxcxdxbxegedabagacad
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin":$PATH
