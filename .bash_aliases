@@ -55,8 +55,8 @@ elif [ "$(hostname -s)" == "djk_hackpro" ]; then
   export psWho="DJKessler"
 	export pscolor=$Blue
 	export delimColor=$Yellow
-elif [ "$(hostname -s)" == "djk_mba" ]; then
-  export psWhere="$(hostname -s)"
+elif [ "$(scutil --get ComputerName)" == "DJK_MBA" ]; then
+  export psWhere="$(scutil --get ComputerName)"
   export psWho="DJKessler"
 	export pscolor=$BIBlue
 	export delimColor=$BIYellow
