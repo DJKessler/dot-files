@@ -18,3 +18,28 @@ fi
 if [ -f /usr/local/hadoop/hadoop-1.2.1/bin/hadoop ]; then
 	alias hadoop=/usr/local/hadoop/hadoop-1.2.1/bin/hadoop
 fi
+
+if [ "$(hostname -s)" == "DJKubuntu" ]; then
+  export psWhere="$(hostname -s)"
+  export psWho="djkessler"
+	export pscolor=$BIBlue
+	export delimColor=$BIYellow
+elif [ "$USER" == "vagrant" ]; then
+  export psWhere="VAGRANT"
+  export psWho="VAGRANT"
+	export pscolor=$Red
+	export delimColor=$BIBlack
+elif [ "$(hostname -s)" == "cowboy" ]; then
+  . $HOME/.bash_adcirc
+  export psWhere="COWBOY"
+  export psWho="DJKESSLER"
+	export pscolor=$BIDarkRed
+	export delimColor=$BIPurple
+	. $HOME/.git-prompt.sh
+elif [[ "$(hostname -s)" =~ "compute-0-"$* ]]; then
+  . $HOME/.bash_adcirc
+  export psWhere="$(hostname -s)"
+  export psWho="DJKESSLER"
+	export pscolor=$BIDarkRed
+	export delimColor=$BICyan
+fi

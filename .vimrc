@@ -73,3 +73,6 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " the following commands cause vim to jump to the last cursor position
 autocmd BufWinLeave *.* mkview
 autocmd VimEnter *.* silent loadview
+
+map <F7> :tabp <CR>
+map <F8> :tabn <CR>

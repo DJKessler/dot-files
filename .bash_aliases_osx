@@ -38,3 +38,15 @@ copyTag() {
 	sudo xattr -wx com.apple.FinderInfo \
     "$(xattr -px com.apple.FinderInfo	"$1")" "$2"; 
 }
+
+if [ "$(hostname -s)" == "djk_hackpro" ]; then
+  export psWhere="$(hostname -s)"
+  export psWho="DJKessler"
+	export pscolor=$Blue
+	export delimColor=$Yellow
+elif [ "$(scutil --get ComputerName)" == "DJK_MBA" ]; then
+  export psWhere="$(scutil --get ComputerName)"
+  export psWho="DJKessler"
+	export pscolor=$BIBlue
+	export delimColor=$BIYellow
+fi
