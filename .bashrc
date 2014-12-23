@@ -6,6 +6,16 @@ else
   export myHomeDir=$HOME/git
 fi
 
+#  USEFUL BASH FUNCTIONS
+if [ -f $HOME/.unixrc/.bash_functions ]; then
+	. $HOME/.unixrc/.bash_functions
+fi
+
+#  BASH COLOR ALIASES
+if [ -f $HOME/.unixrc/.bash_colors ]; then
+  . $HOME/.unixrc/.bash_colors
+fi
+
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 ################################################################################
