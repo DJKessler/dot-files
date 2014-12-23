@@ -36,8 +36,8 @@ set hlsearch														" highlight the last searched term
 ":highlight Comment ctermfg=lightblue		" set the color of comments
 
 set switchbuf=useopen,usetab,newtab
-"set colorcolumn=81		                  " add a guideline at 80 characters wide
-"hi ColorColumn ctermbg=darkblue guibg=darkblue
+set colorcolumn=81		                  " add a guideline at 80 characters wide
+hi ColorColumn ctermbg=darkblue guibg=darkblue
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""
