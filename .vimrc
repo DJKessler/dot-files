@@ -8,9 +8,9 @@ set rtp+=~/.vim/bundle/Vundle.vim		" set the runtime path to include Vundle
 call vundle#begin()									" initialize Vundle
 	
 	Plugin 'https://github.com/gmarik/Vundle.vim.git'
-	Plugin 'https://github.com/vim-scripts/L9.git'	
-	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
-	Plugin 'https://github.com/ervandew/supertab.git'
+"	Plugin 'https://github.com/vim-scripts/L9.git'	
+"	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
+"	Plugin 'https://github.com/ervandew/supertab.git'
 	
 call vundle#end()										" deinitialize Vundle
 filetype plugin indent on						" required by Vundle plugin manager
@@ -19,7 +19,7 @@ filetype plugin indent on						" required by Vundle plugin manager
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set modelines=0
-set mouse=a															" turn on mouse
+"set mouse=a															" turn on mouse
 set backspace=2													" more powerful backspacing
 set nu																	" set line numbers to on
 set ruler																" show the cursor position
