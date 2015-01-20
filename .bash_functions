@@ -23,7 +23,7 @@ function history_cleanup {
 	if [ -f $HISTFILE_SRC ]; then
 		\cp $HISTFILE_SRC $HISTFILE_SRC.backup
 		dedup $HISTFILE_SRC | remove_histignore >| $HISTFILE_DST
-		\mv $HISTFILE_DST $HISTFILE_SRC
+		sudo \mv $HISTFILE_DST $HISTFILE_SRC
 		chmod go-r $HISTFILE_SRC
 		history -c
 		history -r

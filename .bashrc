@@ -1,42 +1,69 @@
-# $myHomeDir/.bashrc: executed by bash(1) for non-login shells.
+if [ "$USER" == "vagrant" ]; then
+	export myHomeDir=/vagrant
+elif [ -d $HOME/git/TSL/ ]; then
+	export myHomeDir=$HOME/git/TSL
+else
+  export myHomeDir=$HOME/git
+fi
+
+#  USEFUL BASH FUNCTIONS
+if [ -f $HOME/.unixrc/.bash_functions ]; then
+	. $HOME/.unixrc/.bash_functions
+fi
+
+#  BASH COLOR ALIASES
+if [ -f $HOME/.unixrc/.bash_colors ]; then
+  . $HOME/.unixrc/.bash_colors
+fi
 
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-# this is ubuntu
-	# enable programmable completion features (you don't need to enable
-	# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-	# sources /etc/bash.bashrc).
-	if ! shopt -oq posix; then
-	  if [ -f /usr/share/bash-completion/bash_completion ]; then
-	    . /usr/share/bash-completion/bash_completion
-	  elif [ -f /etc/bash_completion ]; then
-	    . /etc/bash_completion
-	  fi
-	fi
-	if [ $USER == "vagrant" ]; then
-		myHomeDir=/home/vagrant
-	else
-		myHomeDir=$HOME
-	fi
-
-	# If not running interactively, don't do anything
-	case $- in
-	    *i*) ;;
-	      *) return;;
-	esac
-	# set variable identifying the chroot you work in (used in the prompt below)
-	if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-	    debian_chroot=$(cat /etc/debian_chroot)
-	fi
+################################################################################
+################################ this is ubuntu ################################
+################################################################################
+  if [ -f $HOME/.unixrc/.bashrc_ubuntu ]; then
+    . $HOME/.unixrc/.bashrc_ubuntu;
+  fi
+  if [ -f $HOME/.unixrc/.bash_aliases_ubuntu ]; then
+    . $HOME/.unixrc/.bash_aliases_ubuntu
+  fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-# this is a mac
+################################################################################
+################################# this is osx ##################################
+################################################################################
+  if [ -f $HOME/.unixrc/.bashrc_osx ]; then
+    . $HOME/.unixrc/.bashrc_osx
+  fi
+  if [ -f $HOME/.unixrc/.bash_aliases_osx ]; then
+    . $HOME/.unixrc/.bash_aliases_osx
+  fi
+elif [[ "$OSTYPE" == msys ]]; then
+################################################################################
+############################### this is windows ################################
+################################################################################
 	myHomeDir=$HOME
-	if [ -f $(brew --prefix)/etc/bash_completion ]; then
-		. $(brew --prefix)/etc/bash_completion
+	SSH_ENV=$HOME/.ssh/environment
+	   
+	# start the ssh-agent
+	function start_agent {
+	    echo "Initializing new SSH agent..."
+	    # spawn ssh-agent
+	    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+	    echo succeeded
+	    chmod 600 "${SSH_ENV}"
+	    . "${SSH_ENV}" > /dev/null
+	    /usr/bin/ssh-add
+	}
+	   
+	if [ -f "${SSH_ENV}" ]; then
+	     . "${SSH_ENV}" > /dev/null
+	     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+	        start_agent;
+	    }
+	else
+	    start_agent;
 	fi
-	export CLICOLOR=1
-	export LSCOLORS=Exfxcxdxbxegedabagacad
-	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin"
+	export PATH=$PATH:"/c/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/"
 fi
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -54,9 +81,6 @@ shopt -s histappend
 export HISTSIZE=10000
 export HISTFILESIZE=100000
 
-# set the history entry timestamp format
-#export HISTTIMEFORMAT="%Y%m%d-%T "
-
 # set the commands that should not be saved to history
 export HISTIGNORE="&:pwd:clear:ls*:[bf]g:exit:[ \t]*"
 
@@ -66,7 +90,7 @@ export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_C
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -80,6 +104,6 @@ color_prompt=yes
 #unset color_prompt force_color_prompt
 
 # Alias definitions.
-if [ -f $myHomeDir/.unixrc/.bash_aliases ]; then
-	. $myHomeDir/.unixrc/.bash_aliases
+if [ -f $HOME/.unixrc/.bash_aliases ]; then
+	. $HOME/.unixrc/.bash_aliases
 fi

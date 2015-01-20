@@ -1,3 +1,6 @@
-.vim/view/**
 .vim/.netrwhist
 *.swp
+
+.vim/bundle/AutoComplPop
+.vim/bundle/L9
+.vim/bundle/supertab

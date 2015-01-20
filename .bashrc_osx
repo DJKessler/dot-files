@@ -1,0 +1,16 @@
+export	myHomeDir=$HOME
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
+if [ -f /usr/local/aws/bin/aws_completer ]; then
+  complete -C '/usr/local/aws/bin/aws_completer' aws
+fi
+
+if [ -d $(brew --prefix)/Cellar/hadoop121/1.2.1/bin/ ]; then
+  export HADOOP_INSTALL=$(brew --prefix)/Cellar/hadoop121/1.2.1/
+  export PATH=$PATH:$HADOOP_INSTALL/bin
+fi
+
+#export CLICOLOR=1
+#export LSCOLORS=Exfxcxdxbxegedabagacad
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin":$PATH

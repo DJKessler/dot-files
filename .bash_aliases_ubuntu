@@ -1,0 +1,50 @@
+# bash aliases for linux
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+		alias ls='ls -lh --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+if [ -f /usr/bin/colormake ]; then
+	alias MAKE='colormake --short'
+fi
+
+if [ -f /home/$USER/.unixrc/.bash_functions ]; then
+	. /home/$USER/.unixrc/.bash_functions
+fi
+
+if [ -f /usr/local/hadoop/hadoop-1.2.1/bin/hadoop ]; then
+	alias hadoop=/usr/local/hadoop/hadoop-1.2.1/bin/hadoop
+fi
+
+if [ "$(hostname -s)" == "DJKubuntu" ]; then
+  export psWhere="$(hostname -s)"
+  export psWho="djkessler"
+	export pscolor=$BIBlue
+	export delimColor=$BIYellow
+elif [ "$USER" == "vagrant" ]; then
+  export psWhere="VAGRANT"
+  export psWho="VAGRANT"
+	export pscolor=$Red
+	export delimColor=$BIBlack
+elif [ "$(hostname -s)" == "cowboy" ]; then
+  . $HOME/.bash_adcirc
+  export psWhere="COWBOY"
+  export psWho="DJKESSLER"
+	export pscolor=$BIRed
+	export delimColor=$BIPurple
+	. $HOME/.git-prompt.sh
+elif [[ "$(hostname -s)" =~ "compute-0-"$* ]]; then
+  . $HOME/.bash_adcirc
+  export psWhere="$(hostname -s)"
+  export psWho="DJKESSLER"
+	export pscolor=$BIRed
+	export delimColor=$BICyan
+else
+  export psWhere="$(hostname -s)"
+  export psWho=$USER
+	export pscolor=$BIRed
+	export delimColor=$BICyan
+fi
