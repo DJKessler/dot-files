@@ -107,3 +107,7 @@ color_prompt=yes
 if [ -f $HOME/.unixrc/.bash_aliases ]; then
 	. $HOME/.unixrc/.bash_aliases
 fi
+
+if [ $USER == 'drspaceman' ]; then
+  export PATH="$PATH:$HOME/buildroot-glibc/output/host/usr/bin"
+fi
