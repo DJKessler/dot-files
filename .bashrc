@@ -1,3 +1,5 @@
+export EDITOR=/usr/bin/vim
+
 if [ "$USER" == "vagrant" ]; then
 	export myHomeDir=/vagrant
 elif [ -d $HOME/git/TSL/ ]; then
@@ -108,6 +110,6 @@ if [ -f $HOME/.unixrc/.bash_aliases ]; then
 	. $HOME/.unixrc/.bash_aliases
 fi
 
-if [ $USER == 'drspaceman' ]; then
-  export PATH="$PATH:$HOME/buildroot-glibc/output/host/usr/bin"
+if [ -d $HOME/arm-toolchain/usr/bin ]; then
+  export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
 fi

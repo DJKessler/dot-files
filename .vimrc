@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim		" set the runtime path to include Vundle
 call vundle#begin()									" initialize Vundle
 	
 	Plugin 'https://github.com/gmarik/Vundle.vim.git'
+  Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
 "	Plugin 'https://github.com/vim-scripts/L9.git'	
 "	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
 "	Plugin 'https://github.com/ervandew/supertab.git'
@@ -37,7 +38,7 @@ set hlsearch														" highlight the last searched term
 
 set switchbuf=useopen,usetab,newtab
 set colorcolumn=81		                  " add a guideline at 80 characters wide
-hi ColorColumn ctermbg=darkblue guibg=darkblue
+"hi ColorColumn ctermbg=darkblue guibg=darkblue
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""
