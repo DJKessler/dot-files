@@ -70,7 +70,7 @@ fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-export HISTCONTROL=ignoredups:erasedups
+# export HISTCONTROL=ignoredups:erasedups
 
 # attempt to save all lines of a multiple line command in the same history
 # entry. This allows easy re-editing of multi line commands.
@@ -84,7 +84,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=100000
 
 # set the commands that should not be saved to history
-export HISTIGNORE="&:pwd:clear:ls*:[bf]g:exit:[ \t]*"
+#export HISTIGNORE="&:pwd:clear:ls*:[bf]g:exit:[ \t]*"
+export HISTIGNORE="&:pwd:clear:[bf]g:exit:[ \t]*"
 
 # the contents of the PROMPT_COMMAND environement variable are executed as a
 # regular bash command just before Bash displays a prompt
