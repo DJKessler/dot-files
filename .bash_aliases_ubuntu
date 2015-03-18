@@ -19,6 +19,8 @@ if [ -f /usr/local/hadoop/hadoop-1.2.1/bin/hadoop ]; then
 	alias hadoop=/usr/local/hadoop/hadoop-1.2.1/bin/hadoop
 fi
 
+alias ifconfig="/sbin/ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}'"
+
 if [ "$(hostname -s)" == "DJKubuntu" ]; then
   export psWhere="$(hostname -s)"
   export psWho="djkessler"
