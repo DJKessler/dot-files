@@ -33,7 +33,7 @@ set ai																	" auto indenting
 syntax on																" syntax highlighting
 set hlsearch														" highlight the last searched term
 "set background=light										" use light background color profile
-":highlight Comment ctermfg=lightblue		" set the color of comments
+:highlight Comment ctermfg=lightblue		" set the color of comments
 
 set switchbuf=useopen,usetab,newtab
 set colorcolumn=81		                  " add a guideline at 80 characters wide

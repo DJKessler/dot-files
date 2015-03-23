@@ -111,3 +111,7 @@ fi
 if [ $USER == 'drspaceman' ]; then
   export PATH="$PATH:$HOME/buildroot-glibc/output/host/usr/bin"
 fi
+
+if [ $USER == 'djkessler' ]; then
+  export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
+fi
