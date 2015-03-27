@@ -114,3 +114,7 @@ fi
 if [ -d $HOME/arm-toolchain/usr/bin ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
 fi
+
+if [ $USER == 'djkessler' ]; then
+  export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
+fi
