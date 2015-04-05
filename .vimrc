@@ -36,6 +36,8 @@ syntax on																" syntax highlighting
 set hlsearch														" highlight the last searched term
 "set background=light										" use light background color profile
 :highlight Comment ctermfg=lightblue		" set the color of comments
+set wildmode=longest,list,full          " set the tab-completion to bash-like
+set wildmenu
 
 set switchbuf=useopen,usetab,newtab
 set colorcolumn=81		                  " add a guideline at 80 characters wide
