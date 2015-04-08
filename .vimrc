@@ -10,7 +10,7 @@ call vundle#begin()									" initialize Vundle
 	Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
   Plugin 'dag/vim-fish'
-
+  Plugin 'https://github.com/scrooloose/nerdtree.git'
 "	Plugin 'https://github.com/vim-scripts/L9.git'	
 "	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
 "	Plugin 'https://github.com/ervandew/supertab.git'
@@ -37,6 +37,8 @@ syntax on																" syntax highlighting
 set hlsearch														" highlight the last searched term
 "set background=light										" use light background color profile
 :highlight Comment ctermfg=lightblue		" set the color of comments
+set wildmode=longest,list,full          " set the tab-completion to bash-like
+set wildmenu
 
 set switchbuf=useopen,usetab,newtab
 set colorcolumn=81		                  " add a guideline at 80 characters wide
