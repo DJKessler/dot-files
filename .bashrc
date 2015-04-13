@@ -118,3 +118,7 @@ fi
 if [ $USER == 'djkessler' ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
 fi
+
+if [ -d $HOME/Qt ]; then
+  export PATH="$HOME/Qt/5.3/gcc_64/bin:$PATH"
+fi
