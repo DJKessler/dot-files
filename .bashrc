@@ -111,11 +111,12 @@ if [ -f $HOME/.unixrc/.bash_aliases ]; then
 	. $HOME/.unixrc/.bash_aliases
 fi
 
-if [ -d $HOME/arm-toolchain/usr/bin ]; then
-  export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
+if [ -f $HOME/.unixrc/git-prompt.sh ]; then
+	. $HOME/.unixrc/git-prompt.sh
 fi
 
-if [ $USER == 'djkessler' ]; then
+
+if [ -d $HOME/arm-toolchain/usr/bin ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
 fi
 

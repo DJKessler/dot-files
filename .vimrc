@@ -9,6 +9,7 @@ call vundle#begin()									" initialize Vundle
 	
 	Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
+  Plugin 'dag/vim-fish'
   Plugin 'https://github.com/scrooloose/nerdtree.git'
 "	Plugin 'https://github.com/vim-scripts/L9.git'	
 "	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
@@ -80,3 +81,4 @@ autocmd VimEnter *.* silent loadview
 
 map <F7> :tabp <CR>
 map <F8> :tabn <CR>
+:nnoremap <F12> <k8><k0><Bar> i<CR><Esc>
