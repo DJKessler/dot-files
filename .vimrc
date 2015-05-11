@@ -22,12 +22,14 @@ filetype plugin indent on						" required by Vundle plugin manager
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set modelines=0
-"set mouse=a															" turn on mouse
 set backspace=2													" more powerful backspacing
-set nu																	" set line numbers to on
+set cursorline                          " highlight current line
+set number															" set line numbers to on
 set ruler																" show the cursor position
+set incsearch                           " search as characters are entered
+set showmatch                           " highlight matching [{()}]
 
-set expandtab
+set expandtab                           " tabs are spaces
 set tabstop=2														" set tab length to 2 spaces
 set shiftwidth=2                        " set number of columns test is indented
 map <F2> :retab <CR> :wq! <CR>
