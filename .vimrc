@@ -2,48 +2,49 @@
 """""""""""""""""""""" begin Vundle plugin manager setup """""""""""""""""""""""
 """""""""""""" see https://github.com/gmarik/Vundle.vim for info """""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible										" Vim defaults instead of vi compatibility
-filetype off												" required by Vundle plugin manager
-set rtp+=~/.vim/bundle/Vundle.vim		" set the runtime path to include Vundle
-call vundle#begin()									" initialize Vundle
-	
-	Plugin 'https://github.com/gmarik/Vundle.vim.git'
+set nocompatible                    " Vim defaults instead of vi compatibility
+filetype off                        " required by Vundle plugin manager
+set rtp+=~/.vim/bundle/Vundle.vim   " set the runtime path to include Vundle
+call vundle#begin()                 " initialize Vundle
+  
+  Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
   Plugin 'dag/vim-fish'
   Plugin 'https://github.com/scrooloose/nerdtree.git'
-"	Plugin 'https://github.com/vim-scripts/L9.git'	
-"	Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
-"	Plugin 'https://github.com/ervandew/supertab.git'
-	
-call vundle#end()										" deinitialize Vundle
-filetype plugin indent on						" required by Vundle plugin manager
+" Plugin 'https://github.com/vim-scripts/L9.git'  
+" Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
+" Plugin 'https://github.com/ervandew/supertab.git'
+  
+call vundle#end()                   " deinitialize Vundle
+filetype plugin indent on           " required by Vundle plugin manager
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""" end Vundle plugin manager setup """"""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set modelines=0
-set backspace=2													" more powerful backspacing
+set backspace=2                         " more powerful backspacing
 set cursorline                          " highlight current line
-set number															" set line numbers to on
-set ruler																" show the cursor position
+set number                              " set line numbers to on
+set ruler                               " show the cursor position
 set incsearch                           " search as characters are entered
 set showmatch                           " highlight matching [{()}]
 
 set expandtab                           " tabs are spaces
-set tabstop=2														" set tab length to 2 spaces
-set shiftwidth=2                        " set number of columns test is indented
+set tabstop=2                           " set tab length to 2 spaces
+set shiftwidth=2                        " set number of columns inserted for indentation
+match ErrorMsg '\s\+$'                  " shows trailing whitespace as error
 map <F2> :retab <CR> :wq! <CR>
 
-set ai																	" auto indenting
-syntax on																" syntax highlighting
-set hlsearch														" highlight the last searched term
-"set background=light										" use light background color profile
-:highlight Comment ctermfg=lightblue		" set the color of comments
+set ai                                  " auto indenting
+syntax on                               " syntax highlighting
+set hlsearch                            " highlight the last searched term
+set background=dark                     " use light background color profile
+:highlight Comment ctermfg=lightblue    " set the color of comments
 set wildmode=longest,list,full          " set the tab-completion to bash-like
 set wildmenu
 
 set switchbuf=useopen,usetab,newtab
-set colorcolumn=81		                  " add a guideline at 80 characters wide
+set colorcolumn=81                      " add a guideline at 80 characters wide
 hi ColorColumn ctermbg=darkblue guibg=darkblue
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -52,17 +53,17 @@ hi ColorColumn ctermbg=darkblue guibg=darkblue
 " the following code block enables repeated pasting from visual selection
 " without overwriting default register. This makes it possible to paste copied
 " text repeatedly by just tapping the 'p' key after yanking from visual mode
-	function! RestoreRegister()
-		let @" = s:restore_reg
-		return ''
-	endfunction
-	
-	function! s:Repl()
-		let s:restore_reg = @"
-		return "p@=RestoreRegister()\<cr>"
-	endfunction
-	
-	vnoremap <silent> <expr> p <sid>Repl()
+  function! RestoreRegister()
+    let @" = s:restore_reg
+    return ''
+  endfunction
+  
+  function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+  endfunction
+  
+  vnoremap <silent> <expr> p <sid>Repl()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""" end code block """""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
