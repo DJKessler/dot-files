@@ -1,1 +1,1 @@
-.vim/
+/home/ubuntu/.unixrc/.vim
