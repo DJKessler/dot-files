@@ -24,6 +24,14 @@ if [ -f "$HOME/.vimrc" ] && [ ! -L "$HOME/.vimrc" ]; then
 fi
 
 #################################################################
+## If no vimrc file exists, link it                            ##
+#################################################################
+if [ ! -f "$HOME/.vimrc" ]; then
+  ln -s $HOME/.unixrc/.vimrc $HOME/.vimrc
+fi
+
+
+#################################################################
 ## If .vim directory exists and isn't a link, move it          ##
 #################################################################
 if [ -d "$HOME/.vim" ] && [ ! -L "$HOME/.vim" ]; then
