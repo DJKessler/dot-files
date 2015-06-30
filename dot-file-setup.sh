@@ -39,5 +39,12 @@ if [ -d "$HOME/.vim" ] && [ ! -L "$HOME/.vim" ]; then
   ln -s $HOME/.unixrc/.vim $HOME/.vim
 fi
 
+#################################################################
+## If no .vim directory exists, link it                        ##
+#################################################################
+if [ ! -d "$HOME/.vim" ]; then
+  ln -s $HOME/.unixrc/.vim $HOME/.vim
+fi
+
 exit 0
 
