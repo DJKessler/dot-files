@@ -9,13 +9,13 @@ else
 fi
 
 #  USEFUL BASH FUNCTIONS
-if [ -f $HOME/.unixrc/.bash_functions ]; then
-	. $HOME/.unixrc/.bash_functions
+if [ -f "$HOME/.unixrc/bash.functions" ]; then
+	. "$HOME/.unixrc/bash.functions"
 fi
 
 #  BASH COLOR ALIASES
-if [ -f $HOME/.unixrc/.bash_colors ]; then
-  . $HOME/.unixrc/.bash_colors
+if [ -f $HOME/.unixrc/bash.colors ]; then
+  . $HOME/.unixrc/bash.colors
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]] || [[ "$OSTYPE" == "darwin"* ]]; then
@@ -25,19 +25,19 @@ fi
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then ######################### this is ubuntu
   export PATH="$PATH:/sbin:/usr/sbin:/usr/lib:/usr/local/bin:/usr/local/sbin"
-  if [ -f $HOME/.unixrc/.bashrc_ubuntu ]; then
-    . $HOME/.unixrc/.bashrc_ubuntu;
+  if [ -f $HOME/.unixrc/bash.bashrc_linux]; then
+    . $HOME/.unixrc/bash.bashrc_linux
   fi
-  if [ -f $HOME/.unixrc/.bash_aliases_ubuntu ]; then
-    . $HOME/.unixrc/.bash_aliases_ubuntu
+  if [ -f $HOME/.unixrc/bash.aliases_linux ]; then
+    . $HOME/.unixrc/bash.aliases_linux
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then ############################ this is osx
   export PATH="$PATH:/usr/local/bin:/opt/X11/bin:/usr/texbin:/usr/local/git/bin"
-  if [ -f $HOME/.unixrc/.bashrc_osx ]; then
-    . $HOME/.unixrc/.bashrc_osx
+  if [ -f $HOME/.unixrc/bash.bashrc_osx ]; then
+    . $HOME/.unixrc/bash.bashrc_osx
   fi
-  if [ -f $HOME/.unixrc/.bash_aliases_osx ]; then
-    . $HOME/.unixrc/.bash_aliases_osx
+  if [ -f $HOME/.unixrc/bash.aliases_osx ]; then
+    . $HOME/.unixrc/bash.aliases_osx
   fi
 elif [[ "$OSTYPE" == msys ]]; then ############################# this is windows
 	myHomeDir=$HOME
@@ -130,8 +130,8 @@ color_prompt=yes
 #unset color_prompt force_color_prompt
 
 # Alias definitions.
-if [ -f $HOME/.unixrc/.bash_aliases ]; then
-	. $HOME/.unixrc/.bash_aliases
+if [ -f $HOME/.unixrc/bash.aliases ]; then
+	. $HOME/.unixrc/bash.aliases
 fi
 
 if [ -f $HOME/.unixrc/git-prompt.sh ]; then

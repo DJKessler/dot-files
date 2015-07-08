@@ -11,10 +11,6 @@ if [ -f /usr/bin/colormake ]; then
 	alias MAKE='colormake --short'
 fi
 
-if [ -f /home/$USER/.unixrc/.bash_functions ]; then
-	. /home/$USER/.unixrc/.bash_functions
-fi
-
 if [ -f /usr/bin/minicom ]; then
   alias minicom='TERM=linux minicom -c on'
 fi
