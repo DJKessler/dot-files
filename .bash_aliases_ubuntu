@@ -15,8 +15,8 @@ if [ -f /home/$USER/.unixrc/.bash_functions ]; then
 	. /home/$USER/.unixrc/.bash_functions
 fi
 
-if [ -f /usr/local/hadoop/hadoop-1.2.1/bin/hadoop ]; then
-	alias hadoop=/usr/local/hadoop/hadoop-1.2.1/bin/hadoop
+if [ -f /usr/bin/minicom ]; then
+  alias minicom='TERM=linux minicom -c on'
 fi
 
 alias ifconfig="/sbin/ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}'"
