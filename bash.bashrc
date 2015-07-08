@@ -25,7 +25,7 @@ fi
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then ######################### this is ubuntu
   export PATH="$PATH:/sbin:/usr/sbin:/usr/lib:/usr/local/bin:/usr/local/sbin"
-  if [ -f $HOME/.unixrc/bash.bashrc_linux]; then
+  if [ -f $HOME/.unixrc/bash.bashrc_linux ]; then
     . $HOME/.unixrc/bash.bashrc_linux
   fi
   if [ -f $HOME/.unixrc/bash.aliases_linux ]; then
@@ -77,8 +77,8 @@ fi
 # shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=10000
-export HISTFILESIZE=100000
+export HISTSIZE=100000
+export HISTFILESIZE=1000000
 export HISTCONTROL=ignorespace:ignoredups
 
 #
