@@ -1,0 +1,3 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/DJKessler/git/UTCS/2014F/cs378/AWS/logs/j-RLTXKJ47IU1R/task-attempts/job_201411111934_0011/attempt_201411111934_0011_r_000000_0'

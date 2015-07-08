@@ -1,13 +1,13 @@
-[submodule ".vim/bundle/AutoComplPop"]
-	path = .vim/bundle/AutoComplPop
+[submodule "vim.d/bundle/AutoComplPop"]
+	path = vim.d/bundle/AutoComplPop
 	url = https://github.com/vim-scripts/AutoComplPop.github
-[submodule ".vim/bundle/L9"]
-	path = .vim/bundle/L9
+[submodule "vim.d/bundle/L9"]
+	path = vim.d/bundle/L9
 	url = https://github.com/vim-scripts/L9.git
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
+[submodule "vim.d/bundle/Vundle.vim"]
+	path = vim.d/bundle/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
+[submodule "vim.d/bundle/supertab"]
+	path = vim.d/bundle/supertab
   url = https://github.com/ervandew/supertab.git
 
