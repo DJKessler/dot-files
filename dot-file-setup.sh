@@ -7,6 +7,12 @@ if [ -d "$HOME/unixrc" ]; then
 	mv $HOME/unixrc $HOME/.unixrc
 fi
 
+if [ -d "$HOME/.unixrc" ]; then
+	cd $HOME/.unixrc
+	git submodule init
+	git submodule update
+fi
+
 #################################################################
 ## link in our bashrc file                                     ##
 #################################################################
