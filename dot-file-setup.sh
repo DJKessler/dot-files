@@ -20,7 +20,7 @@ if [ -f "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   ## If a bashrc file exists and isn't a link, move it
 
 	mv $HOME/.bashrc $HOME/.bashrc.orig.bak
-  ln -s $HOME/.unixrc/.bashrc $HOME/.bashrc
+  ln -s "$HOME/.unixrc/bash.bashrc" "$HOME/.bashrc"
 elif [ -L "$HOME/.bashrc" ]; then
   ## If no bashrc file exists, but a link exists, fix link
 
