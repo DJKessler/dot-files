@@ -1,0 +1,18 @@
+*.[oad]
+*.mod
+*~
+*.exe
+*.bin
+*.DS_Store
+*.swp
+*.orig
+
+#
+# clion IDE project files
+#
+**/.idea/workspace.xml
+**/.idea/misc.xml
+**/.idea/modules.xml
+**/.idea/codeStyleSettings.xml
+**/.idea/inspectionProfiles/
+**/.idea/dictionaries/

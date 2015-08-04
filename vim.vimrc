@@ -9,6 +9,7 @@ call vundle#begin()                 " initialize Vundle
 
   Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/scrooloose/nerdtree.git'
+  Plugin 'Valloric/YouCompleteMe'
 "  Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
 "  Plugin 'https://github.com/vim-scripts/L9.git'
 "  Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
@@ -20,9 +21,11 @@ filetype plugin indent on           " required by Vundle plugin manager
 """"""""""""""""""""""" end Vundle plugin manager setup """"""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set history=1000                        " number of past commands to keep
 set modelines=0
 set backspace=2                         " more powerful backspacing
-set cursorline                          " highlight current line
+"set cursorline                          " highlight current line
+"set list                                " show white space characters
 set number                              " set line numbers to on
 set ruler                               " show the cursor position
 set incsearch                           " search as characters are entered

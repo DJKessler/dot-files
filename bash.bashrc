@@ -138,8 +138,11 @@ if [ -f $HOME/.unixrc/git-prompt.sh ]; then
 	. $HOME/.unixrc/git-prompt.sh
 fi
 
-
 if [ -d $HOME/arm-toolchain/usr/bin ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
+fi
+
+if [ -d $HOME/.bin/clion/bin ]; then
+  export PATH="$PATH:$HOME/.bin/clion/bin"
 fi
 
