@@ -15,6 +15,10 @@ if [ -f /usr/bin/minicom ]; then
   alias minicom='TERM=linux minicom -c on'
 fi
 
+if [ -f /usr/bin/make ]; then
+  alias pmake='make -j4'
+fi
+
 alias ifconfig="/sbin/ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}'"
 
 if [ "$(hostname -s)" == "DJKubuntu" ]; then
