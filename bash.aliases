@@ -5,14 +5,6 @@ alias gui='cd $HOME/git/picosat_gui/'
 alias lib='cd $HOME/git/picosat_lib/'
 alias sim='cd $HOME/git/picosat_sim/'
 
-alias oop='cd $HOME/git/UTCS/2014F/cs371p/'
-alias bdp='cd $HOME/git/UTCS/2014F/cs378/'
-alias opsys='cd $HOME/git/UTCS/2014F/cs439/'
-
-export oop=$HOME/git/UTCS/2014F/cs371p/
-export bdp=$HOME/git/UTCS/2014F/cs378/
-export opsys=$HOME/git/UTCS/2014F/cs439/
-
 # Various variables you might want for your PS1 prompt instead
 export Time12h="\T"
 export Time12a="\@"
