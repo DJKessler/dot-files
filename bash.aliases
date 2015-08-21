@@ -13,7 +13,7 @@ export PathFull="\w"
 export NewLine="\n"
 export Jobs="\j"
 
-export PS1PATH="\W"
+export PS1PATH="$PathFull"
 
 export PS1=$delimColor'['
 export PS1=$PS1$pscolor$psWho
