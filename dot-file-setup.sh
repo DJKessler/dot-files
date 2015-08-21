@@ -32,6 +32,47 @@ elif [ ! -f "$HOME/.bashrc" ]; then
   ln -s "$HOME/.unixrc/bash.bashrc" "$HOME/.bashrc"
 fi
 
+#################################################################
+## link in our i3 config directory                             ##
+#################################################################
+i3_config_dir="$HOME/.config/i3"
+
+if [ -d "$i3_config_dir" ] && [ ! -L "$i3_config_dir" ]; then
+  ## If ~/.config/i3 directory exists and isn't a link, move it
+
+	mv "$i3_config_dir" "$i3_config_dir".orig.bak
+  ln -s $HOME/.unixrc/i3 "$i3_config_dir"
+elif [ -L "$i3_config_dir" ]; then
+  ## If no ~/.config/i3 directory exists, but a link exists, fix link
+
+  unlink "$i3_config_dir"
+  ln -s "$HOME/.unixrc/i3" "$i3_config_dir"
+elif [ ! -d "$i3_config_dir" ]; then
+  ## If no ~/.config/i3 directory exists, link it
+
+  ln -s "$HOME/.unixrc/i3" "$i3_config_dir"
+fi
+
+#################################################################
+## link in our i3status config directory                       ##
+#################################################################
+i3status_config_dir="$HOME/.config/i3status"
+
+if [ -d "$i3status_config_dir" ] && [ ! -L "$i3status_config_dir" ]; then
+  ## If ~/.config/i3status directory exists and isn't a link, move it
+
+	mv "$i3status_config_dir" "$i3status_config_dir".orig.bak
+  ln -s $HOME/.unixrc/i3status "$i3status_config_dir"
+elif [ -L "$i3status_config_dir" ]; then
+  ## If no ~/.config/i3status directory exists, but a link exists, fix link
+
+  unlink "$i3status_config_dir"
+  ln -s "$HOME/.unixrc/i3status" "$i3status_config_dir"
+elif [ ! -d "$i3status_config_dir" ]; then
+  ## If no ~/.config/i3status directory exists, link it
+
+  ln -s "$HOME/.unixrc/i3status" "$i3status_config_dir"
+fi
 
 #################################################################
 ## link in our vimrc file                                      ##
