@@ -33,6 +33,25 @@ elif [ ! -f "$HOME/.bashrc" ]; then
 fi
 
 #################################################################
+## link in our xinitrc file                                     ##
+#################################################################
+if [ -f "$HOME/.xinitrc" ] && [ ! -L "$HOME/.xinitrc" ]; then
+  ## If a xinitrc file exists and isn't a link, move it
+
+	mv $HOME/.xinitrc $HOME/.xinitrc.orig.bak
+  ln -s "$HOME/.unixrc/xinit.xinitrc" "$HOME/.xinitrc"
+elif [ -L "$HOME/.xinitrc" ]; then
+  ## If no xinitrc file exists, but a link exists, fix link
+
+  unlink "$HOME/.xinitrc"
+  ln -s "$HOME/.unixrc/xinit.xinitrc" "$HOME/.xinitrc"
+elif [ ! -f "$HOME/.xinitrc" ]; then
+  ## If no xinitrc file exists, link it
+
+  ln -s "$HOME/.unixrc/xinit.xinitrc" "$HOME/.xinitrc"
+fi
+
+#################################################################
 ## link in our i3 config directory                             ##
 #################################################################
 i3_config_dir="$HOME/.config/i3"
