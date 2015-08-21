@@ -28,4 +28,8 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+if [ -f "$HOME/.unixrc/mouseAccel.sh" ]; then
+    source "$HOME/.unixrc/mouseAccel.sh"
+fi
+
 export PATH=$PATH:/usr/lib
