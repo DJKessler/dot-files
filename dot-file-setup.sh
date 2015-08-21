@@ -33,7 +33,7 @@ elif [ ! -f "$HOME/.bashrc" ]; then
 fi
 
 #################################################################
-## link in our xinitrc file                                     ##
+## link in our xinitrc file                                    ##
 #################################################################
 if [ -f "$HOME/.xinitrc" ] && [ ! -L "$HOME/.xinitrc" ]; then
   ## If a xinitrc file exists and isn't a link, move it
@@ -54,7 +54,15 @@ fi
 #################################################################
 ## link in our i3 config directory                             ##
 #################################################################
-i3_config_dir="$HOME/.config/i3"
+config_dir="$HOME/.config"
+
+if [ ! -d "$config_dir" ]; then
+  ## If no ~/.config directory exists, then make it
+
+  mkdir "$config_dir"
+fi
+
+i3_config_dir="$config_dir/i3"
 
 if [ -d "$i3_config_dir" ] && [ ! -L "$i3_config_dir" ]; then
   ## If ~/.config/i3 directory exists and isn't a link, move it
@@ -75,7 +83,7 @@ fi
 #################################################################
 ## link in our i3status config directory                       ##
 #################################################################
-i3status_config_dir="$HOME/.config/i3status"
+i3status_config_dir="$config_dir/i3status"
 
 if [ -d "$i3status_config_dir" ] && [ ! -L "$i3status_config_dir" ]; then
   ## If ~/.config/i3status directory exists and isn't a link, move it
