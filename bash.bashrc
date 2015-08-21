@@ -107,6 +107,8 @@ _bash_history_sync () {
 }
 
 PROMPT_COMMAND=_bash_history_sync
+export PROMPT_DIRTRIM=2
+
 # set the commands that should not be saved to history
 #export HISTIGNORE="&:pwd:clear:[bf]g:exit:[ \t]*"
 
