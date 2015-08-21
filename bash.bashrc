@@ -111,6 +111,7 @@ export PROMPT_DIRTRIM=2
 
 # set the commands that should not be saved to history
 #export HISTIGNORE="&:pwd:clear:[bf]g:exit:[ \t]*"
+export HISTIGNORE="[bf]g:exit"
 
 # the contents of the PROMPT_COMMAND environement variable are executed as a
 # regular bash command just before Bash displays a prompt
