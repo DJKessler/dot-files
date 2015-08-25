@@ -12,7 +12,7 @@ if [ ! -d "$WALLPAPER_DIR/" ]; then
 fi
 
 # randomly select an image from the directory
-WALLPAPER=$(\ls "$WALLPAPER_DIR"/*.jpg | shuf -n1)
+WALLPAPER=$(\ls "$WALLPAPER_DIR"/*{.jpg,.png} | shuf -n1)
 
 # set the selected image as the desktop wallpaper
 #/usr/bin/feh --bg-scale "$WALLPAPER"
