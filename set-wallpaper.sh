@@ -3,6 +3,9 @@
 # a script that randomly selects a JPG file from a directory and sets it as the
 # desktop background
 
+# requires:
+#  feh
+
 # directory to select wallpaper from
 WALLPAPER_DIR="$HOME/Google Drive/wallpapers"
 
