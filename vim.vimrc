@@ -87,4 +87,7 @@ autocmd VimEnter *.* silent loadview
 
 map <F7> :tabp <CR>
 map <F8> :tabn <CR>
+map <F1> :diffget <CR>
+map <F2> :diffput <CR>
+
 :nnoremap <F12> <k8><k0><Bar> i<CR><Esc>
