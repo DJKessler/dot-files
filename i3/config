@@ -171,14 +171,14 @@ mode "pass-through" {
     bindsym $mod+t mode "default"
 }
 
+# disable i3's capture of $mod key
 bindsym $mod+t mode "pass-through"
 
-# Locks the screen, waits 60 seconds and turns the screen off if it's still locked
-bindsym $mod+grave exec "~/.unixrc/lock-script; sleep 60; pgrep i3lock && xset dpms force off"
+# Locks the screen, waits 60 seconds and turns off monitor if still locked
+bindsym $mod+grave exec "~/.unixrc/lock-script"
 
 # Locks the screen then suspends the computer. pm-utils package required
 bindsym $mod+Shift+grave exec "sudo pm-suspend | `~/.unixrc/lock-script`"
 
 # Automatically lock the screen in five minutes. xautolock package required
-exec --no-startup-id xautolock -time 5 -locker '~/.unixrc/lock-script; sleep 60; pgrep i3lock && xset dpms force off' &
-
+exec --no-startup-id xautolock -time 5 -locker '~/.unixrc/lock-script' &
