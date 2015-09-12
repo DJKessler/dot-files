@@ -1,9 +1,9 @@
 ##
 ## begin performance profiling of bashrc
 ##
-PS4='+ $(date "+%s.%N")\011 '
-exec 3>&2 2>/tmp/bashstart.$$.log
-set -x
+#PS4='+ $(date "+%s.%N")\011 '
+#exec 3>&2 2>/tmp/bashstart.$$.log
+#set -x
 
 
 export EDITOR=/usr/bin/vim
@@ -160,5 +160,5 @@ fi
 ##
 ## end performance profiling of bashrc
 ##
-set +x
-exec 2>&3 3>&-
+#set +x
+#exec 2>&3 3>&-
