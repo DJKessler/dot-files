@@ -1,6 +1,7 @@
 .vim/.netrwhist
 *.swp
 
-.vim/bundle/AutoComplPop
-.vim/bundle/L9
-.vim/bundle/supertab
+vim.d/bundle/AutoComplPop
+vim.d/bundle/L9
+vim.d/bundle/supertab
+vim.d/bundle/vim-fugitive
