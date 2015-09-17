@@ -157,6 +157,17 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+mode "grow" {
+    bindsym Up    resize grow down    5px, resize grow up       5px
+    bindsym Down  resize shrink down  5px, resize shrink up     5px
+    bindsym Right resize grow right   5px, resize grow left     5px
+    bindsym Left  resize shrink right 5px, resize shrink left   5px
+    bindsym $mod+g mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+g focus floating; mode "grow"
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
