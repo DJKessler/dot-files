@@ -10,9 +10,4 @@
 #
 # clion IDE project files
 #
-**/.idea/workspace.xml
-**/.idea/misc.xml
-**/.idea/modules.xml
-**/.idea/codeStyleSettings.xml
-**/.idea/inspectionProfiles/
-**/.idea/dictionaries/
+**/.idea/**
