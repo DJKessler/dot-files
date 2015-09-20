@@ -7,7 +7,7 @@
 #  feh
 
 # directory to select wallpaper from
-WALLPAPER_DIR="$HOME/Google Drive/wallpapers"
+WALLPAPER_DIR="$HOME/wallpapers"
 
 if [ ! -d "$WALLPAPER_DIR/" ]; then
   echo "no wallpaper directory"
