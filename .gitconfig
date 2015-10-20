@@ -10,7 +10,7 @@
 [core]
 	editor = vim
 	autocrlf = input
-	excludesfile = /home/djkessler/.unixrc/git.ignore
+	excludesfile = /home/djkessler/git/git.ignore
 [user]
 	name = Kessler David J (djk746)
 	email = djkessler@me.com
