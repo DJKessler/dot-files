@@ -21,6 +21,7 @@ font pango:monospace 8
 
 exec --no-startup-id "~/.unixrc/mouseAccel.sh"
 exec --no-startup-id "~/.unixrc/set-wallpaper.sh"
+exec --no-startup-id "/usr/bin/nm-applet"
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
