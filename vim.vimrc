@@ -42,8 +42,6 @@ map <F2> :retab <CR> :wq! <CR>
 set ai                                  " auto indenting
 syntax on                               " syntax highlighting
 set hlsearch                            " highlight the last searched term
-set background=dark                     " use light background color profile
-:highlight Comment ctermfg=lightblue    " set the color of comments
 set wildmode=longest,list,full          " set the tab-completion to bash-like
 set wildmenu
 
@@ -51,6 +49,9 @@ set switchbuf=useopen,usetab,newtab
 
 let base16colorspace=256                " Access colors present in 256 colorspace
 set colorcolumn=81                      " add a guideline at 80 characters wide
+
+set background=dark                     " set the background color profile
+colorscheme base16-default              " use the base16 color scheme
 hi ColorColumn ctermbg=darkblue guibg=darkblue
 
 colorscheme base16-default              " use the base16 color scheme
