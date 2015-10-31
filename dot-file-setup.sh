@@ -1,5 +1,52 @@
 #!/bin/bash
 
+dot_file_repo_dir="$HOME/.unixrc"
+banner="****************************************"
+
+link_dot_file() {
+  link_dest="$1"
+  link_src="$2"
+  echo "$banner"
+
+  if [ -f "$link_dest" ] && [ ! -L "$link_dest" ]; then
+    echo "Backing up $link_dest";
+    mv "$link_dest" "$link_dest".orig.bak;
+
+    echo "Creating link: $link_dest -> $link_src"
+    ln -s "$link_src" "$link_dest"
+  elif [ -L "$link_dest" ]; then
+    echo "Updating link: $link_dest -> $link_src"
+    unlink "$link_dest"
+    ln -s "$link_src" "$link_dest"
+  elif [ ! -f "$link_dest" ]; then
+    echo "Creating link: $link_dest -> $link_src"
+    ln -s "$link_src" "$link_dest"
+  fi
+  echo ""
+}
+
+link_dir() {
+  link_dest="$1"
+  link_src="$2"
+  echo "$banner"
+
+  if [ -d "$link_dest" ] && [ ! -L "$link_dest" ]; then
+    echo "Backing up $link_dest to $link_dest".orig.bak
+    mv "$link_dest" "$link_dest".orig.bak
+
+    echo "Creating link: $link_dest -> $link_src"
+    ln -s "$link_src" "$link_dest"
+  elif [ -L "$link_dest" ]; then
+    echo "Updating link: $link_dest -> $link_src"
+    unlink "$link_dest"
+    ln -s "$link_src" "$link_dest"
+  elif [ ! -d "$link_dest" ]; then
+    echo "Creating link: $link_dest -> $link_src"
+    ln -s "$link_src" "$link_dest"
+  fi
+  echo ""
+}
+
 #################################################################
 ## Rename the repository directory name to a dotfile           ##
 #################################################################
