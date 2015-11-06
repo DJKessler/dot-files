@@ -1,9 +1,9 @@
-alias adc='cd $HOME/git/picosat_adc/'
-alias cdh='cd $HOME/git/picosat_cdh/'
-alias cmn='cd $HOME/git/picosat_cmn/'
-alias gui='cd $HOME/git/picosat_gui/'
-alias lib='cd $HOME/git/picosat_lib/'
-alias sim='cd $HOME/git/picosat_sim/'
+alias adc='pushd $HOME/git/picosat_adc/'
+alias cdh='pushd $HOME/git/picosat_cdh/'
+alias cmn='pushd $HOME/git/picosat_cmn/'
+alias gui='pushd $HOME/git/picosat_gui/'
+alias lib='pushd $HOME/git/picosat_lib/'
+alias sim='pushd $HOME/git/picosat_sim/'
 
 # Various variables you might want for your PS1 prompt instead
 export Time12h="\T"
