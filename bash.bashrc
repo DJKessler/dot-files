@@ -157,9 +157,7 @@ if [ -d $HOME/.bin/clion/bin ]; then
   export PATH="$PATH:$HOME/.bin/clion/bin"
 fi
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.unixrc/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+[[ $COLORTERM = gnome-terminal ]] && TERM=xterm-256color
 
 ##
 ## end performance profiling of bashrc

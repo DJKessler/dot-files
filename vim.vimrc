@@ -10,7 +10,6 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/scrooloose/nerdtree.git'
   Plugin 'https://github.com/tpope/vim-fugitive.git'
-  Plugin 'chriskempson/base16-vim'
 "  Plugin 'Valloric/YouCompleteMe'
 "  Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
 "  Plugin 'https://github.com/vim-scripts/L9.git'
@@ -47,14 +46,10 @@ set wildmenu
 
 set switchbuf=useopen,usetab,newtab
 
-let base16colorspace=256                " Access colors present in 256 colorspace
 set colorcolumn=81                      " add a guideline at 80 characters wide
 
 set background=dark                     " set the background color profile
-colorscheme base16-default              " use the base16 color scheme
 hi ColorColumn ctermbg=darkblue guibg=darkblue
-
-colorscheme base16-default              " use the base16 color scheme
 
 if &diff
   colorscheme evening
