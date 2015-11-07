@@ -157,6 +157,10 @@ if [ -d $HOME/.bin/clion/bin ]; then
   export PATH="$PATH:$HOME/.bin/clion/bin"
 fi
 
+if [ -f /usr/bin/ninja ]; then
+  source /etc/bash_completion.d/ninja
+fi
+
 [[ $COLORTERM = gnome-terminal ]] && TERM=xterm-256color
 
 ##
