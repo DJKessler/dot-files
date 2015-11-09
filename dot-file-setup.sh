@@ -63,6 +63,11 @@ if [ -d "$dot_file_repo_dir" ]; then
 fi
 
 #################################################################
+## link in our grep-ackrc file                                 ##
+#################################################################
+link_dot_file "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
+
+#################################################################
 ## link in our bashrc file                                     ##
 #################################################################
 link_dot_file "$HOME/.bashrc" "$dot_file_repo_dir/bash.bashrc"
@@ -84,12 +89,12 @@ if [ ! -d "$config_dir" ]; then
   mkdir "$config_dir"
 fi
 
-link_dir "$config_dir/i3" "$dot_file_repo_dir/i3" 
+link_dir "$config_dir/i3" "$dot_file_repo_dir/i3"
 
 #################################################################
 ## link in our i3status config directory                       ##
 #################################################################
-link_dir "$config_dir/i3status" "$dot_file_repo_dir/i3status" 
+link_dir "$config_dir/i3status" "$dot_file_repo_dir/i3status"
 
 #################################################################
 ## link in our vimrc file                                      ##
