@@ -48,5 +48,5 @@ load {
 }
 
 disk "/home" {
-        format = "%used used, %free free, %avail avail"
+        format = "%used used, %avail free"
 }
