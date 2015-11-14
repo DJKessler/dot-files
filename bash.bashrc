@@ -142,29 +142,32 @@ color_prompt=yes
 
 # Alias definitions.
 if [ -f $HOME/.unixrc/bash.aliases ]; then
-	. $HOME/.unixrc/bash.aliases
+	source $HOME/.unixrc/bash.aliases
 fi
 
+# git repo status in ps1
 if [ -f $HOME/.unixrc/git-prompt.sh ]; then
-	. $HOME/.unixrc/git-prompt.sh
+	source $HOME/.unixrc/git-prompt.sh
 fi
 
+# cross compile toolchain
 if [ -d $HOME/arm-toolchain/usr/bin ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
 fi
 
+# clion IDE path
 if [ -d $HOME/.bin/clion/bin ]; then
   export PATH="$PATH:$HOME/.bin/clion/bin"
 fi
 
-if [ -f /usr/bin/ninja ]; then
+# ninja build system tab completion
+if command -v ninja >/dev/null 2>&1; then
   source /etc/bash_completion.d/ninja
 fi
 
 [[ $COLORTERM = gnome-terminal ]] && TERM=xterm-256color
 
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export GCC_COLORS='error=00;101:warning=01;93:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quote=01'
 
 ##
 ## end performance profiling of bashrc
