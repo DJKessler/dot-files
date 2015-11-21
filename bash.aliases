@@ -2,6 +2,7 @@ alias adc='pushd $HOME/git/picosat_adc/'
 alias cdh='pushd $HOME/git/picosat_cdh/'
 alias cmn='pushd $HOME/git/picosat_cmn/'
 alias gui='pushd $HOME/git/picosat_gui/'
+alias ops='pushd $HOME/git/picosat_gui/ops/'
 alias lib='pushd $HOME/git/picosat_lib/'
 alias sim='pushd $HOME/git/picosat_sim/'
 
