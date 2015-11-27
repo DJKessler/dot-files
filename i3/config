@@ -34,6 +34,27 @@ exec --no-startup-id "gsettings set org.gnome.desktop.background show-desktop-ic
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# color defines for zenburn styled i3
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #a0afa0
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+
+# set some nice colors      border     background  text
+client.focused              $ac        $ac         $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
+
+# sets new window borders to 1 pixel wide
+new_window 1pixel
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -180,6 +201,15 @@ bindsym $mod+r mode "resize"
 bar {
         font pango:monospace 10
         status_command i3status
+        colors {
+            background          $bg
+            statusline          $fg
+            separator           $hi
+            focused_workspace   $gn        $bg        $ac
+            active_workspace    $gn        $ac        $tx
+            inactive_workspace  $bg        $bg        $ia
+            urgent_workspace    $rd        $bg        $ac
+        }
 }
 
 # enable a key press pass-through mode
