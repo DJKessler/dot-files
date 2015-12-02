@@ -10,6 +10,8 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/scrooloose/nerdtree.git'
   Plugin 'https://github.com/tpope/vim-fugitive.git'
+  Plugin 'https://github.com/dhruvasagar/vim-railscasts-theme.git'
+  Plugin 'https://github.com/bling/vim-airline.git'
 "  Plugin 'Valloric/YouCompleteMe'
 "  Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
 "  Plugin 'https://github.com/vim-scripts/L9.git'
@@ -51,9 +53,7 @@ set colorcolumn=81                      " add a guideline at 80 characters wide
 set background=dark                     " set the background color profile
 hi ColorColumn ctermbg=darkblue guibg=darkblue
 
-if &diff
-  colorscheme evening
-endif
+colorscheme railscasts
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""
