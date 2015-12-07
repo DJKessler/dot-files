@@ -8,18 +8,17 @@ fi
 
 if [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnubin/ ]; then
   export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-fi 
+fi
 if [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnuman/ ]; then
   export MANPATH="$(brew --prefix)/opt/gnu-sed/libexec/gnuman:$MANPATH"
 fi
 
 if [ -d $(brew --prefix)/opt/gnu-tar/libexec/gnubin/ ]; then
   export PATH="$(brew --prefix)/opt/gnu-tar/libexec/gnubin:$PATH"
-fi 
+fi
 
 if [ -d "/Applications/User_Applications/Mathematica.app/Contents/MacOS" ]; then
   alias math="/Applications/User_Applications/Mathematica.app/Contents/MacOS/MathKernel"
-#  export PATH="$PATH:/Applications/User_Applications/Mathematica.app/Contents/MacOS"
 fi
 
 # bash aliases for osx
@@ -37,7 +36,7 @@ copyTag() {
 	sudo xattr -wx com.apple.metadata:_kMDitemUserTags \
     "$(xattr -px	com.apple.metadata:_kMDItemUserTags "$1")" "$2";
 	sudo xattr -wx com.apple.FinderInfo \
-    "$(xattr -px com.apple.FinderInfo	"$1")" "$2"; 
+    "$(xattr -px com.apple.FinderInfo	"$1")" "$2";
 }
 
 if [ "$(hostname -s)" == "djk_hackpro" ]; then
