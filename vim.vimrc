@@ -12,6 +12,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/tpope/vim-fugitive.git'
   Plugin 'https://github.com/dhruvasagar/vim-railscasts-theme.git'
   Plugin 'https://github.com/bling/vim-airline.git'
+  Plugin 'https://github.com/bkad/CamelCaseMotion.git'
 "  Plugin 'Valloric/YouCompleteMe'
 "  Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
 "  Plugin 'https://github.com/vim-scripts/L9.git'
