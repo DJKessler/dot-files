@@ -22,6 +22,8 @@ font pango:monospace 8
 exec --no-startup-id "~/.unixrc/mouseAccel.sh"
 exec --no-startup-id "~/.unixrc/set-wallpaper.sh"
 exec --no-startup-id "/usr/bin/nm-applet"
+exec gnome-settings-daemon
+exec gnome-keyring-daemon
 
 # this prevents the launching of a nautilus desktop window being launched when
 # a file manager window is opened
