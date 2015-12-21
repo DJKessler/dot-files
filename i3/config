@@ -27,6 +27,10 @@ exec --no-startup-id "/usr/bin/nm-applet"
 # a file manager window is opened
 exec --no-startup-id "gsettings set org.gnome.desktop.background show-desktop-icons false"
 
+# spawn a dropdown terminal
+exec terminator -c dropdown -p dropdown -T "Le Terminator" -H --geometry=1920x1080
+for_window [class="Terminator" instance="dropdown"] floating enable
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and

@@ -2,12 +2,21 @@
   suppress_multiple_term_dialog = True
   borderless = True
 [keybindings]
+  hide_window = <Alt>F1
 [profiles]
   [[default]]
     scrollbar_position = hidden
     font = Monospace 11
     background_image = None
     scroll_on_output = False
+    copy_on_selection = True
+    scrollback_infinite = True
+  [[dropdown]]
+    background_image = None
+    font = Monospace 11
+    scrollbar_position = hidden
+    scroll_on_output = False
+    show_titlebar = True
     copy_on_selection = True
     scrollback_infinite = True
 [layouts]
