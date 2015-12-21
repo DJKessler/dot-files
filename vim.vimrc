@@ -13,11 +13,8 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/dhruvasagar/vim-railscasts-theme.git'
   Plugin 'https://github.com/bling/vim-airline.git'
   Plugin 'https://github.com/bkad/CamelCaseMotion.git'
-"  Plugin 'Valloric/YouCompleteMe'
-"  Plugin 'https://github.com/steffanc/cscopemaps.vim.git'
-"  Plugin 'https://github.com/vim-scripts/L9.git'
-"  Plugin 'https://github.com/vim-scripts/AutoComplPop.git'
-"  Plugin 'https://github.com/ervandew/supertab.git'
+  Plugin 'https://github.com/Valloric/YouCompleteMe'
+  Plugin 'https://github.com/rhysd/vim-clang-format.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
@@ -97,3 +94,22 @@ map <F1> :diffget <CR> ]c
 map <F2> :diffput <CR> ]c
 
 :nnoremap <F12> <k8><k0><Bar> i<CR><Esc>
+
+" map ctrl+c to esc
+inoremap <C-c> <Esc>`^
+
+" quit asking me if my .ycm_extra_conf.py is safe to load
+let g:ycm_confirm_extra_conf = '~/.ycm_extra_conf.py'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""" clang-format """"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
