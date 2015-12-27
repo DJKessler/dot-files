@@ -2,10 +2,10 @@
 
 ##
 ## This script must be sourced, not executed
-## ie do '. mouseAccel.sh' or 'source mouseAccel.sh'
+## ie do '. fix-mouse-acceleration' or 'source fix-mouse-acceleration'
 ##
 ## do not execute this script, you'll get an error
-## ie don't do './mouseAccel.sh'
+## ie don't do './fix-mouse-acceleration'
 ##
 
 razer_id=`xinput | grep -o -P '.Razer Razer DeathAdder.*=.[0-9]{0,3}' | cut -d= -f2`
