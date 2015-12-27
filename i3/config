@@ -235,6 +235,9 @@ mode "pass-through" {
 # disable i3's capture of $mod key
 bindsym $mod+t mode "pass-through"
 
+# displays a window with options to Logout, Suspend, Reboot or Power Off
+bindsym $mod+Delete exec "python ~/.unixrc/i3-exit"
+
 # Locks the screen, waits 60 seconds and turns off monitor if still locked
 bindsym $mod+grave exec "~/.unixrc/lock-script"
 
