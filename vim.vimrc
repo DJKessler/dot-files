@@ -13,7 +13,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/dhruvasagar/vim-railscasts-theme.git'
   Plugin 'https://github.com/bling/vim-airline.git'
   Plugin 'https://github.com/bkad/CamelCaseMotion.git'
-  Plugin 'https://github.com/Valloric/YouCompleteMe'
+  Plugin 'https://github.com/Valloric/YouCompleteMe.git'
   Plugin 'https://github.com/rhysd/vim-clang-format.git'
 
 call vundle#end()                   " deinitialize Vundle
