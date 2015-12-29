@@ -98,8 +98,8 @@ map <F2> :diffput <CR> ]c
 " map ctrl+c to esc
 inoremap <C-c> <Esc>`^
 
-" quit asking me if my .ycm_extra_conf.py is safe to load
-let g:ycm_confirm_extra_conf = '~/.ycm_extra_conf.py'
+""" quit asking me if my .ycm_extra_conf.py is safe to load """
+let g:ycm_confirm_extra_conf = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""" clang-format """"""""""""""""""""""""""""""""""
