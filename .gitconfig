@@ -5,14 +5,28 @@
   st = status
 [merge]
 	tool = vimdiff
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
 [push]
 	default = simple
 [core]
-	editor = vim
+	excludesfile = /home/djkessler/.unixrc/git.ignore
 	autocrlf = input
-	excludesfile = /home/djkessler/git/git.ignore
+	editor = vim -c \"setlocal spell spelllang=en_us\"
 [user]
 	name = Kessler David J (djk746)
 	email = djkessler@me.com
 [clangFormat]
   style = file
+[color]
+	ui = true
+[sendemail]
+  smtpserverport = 587
+	smtpuser = DJKessler@me.com
+  smtpserver = smtp.mail.me.com
+	from = David Kessler <DJKessler@me.com>
+	smtpencryption = tls
+[mergetool]
+	keepBackup = false
