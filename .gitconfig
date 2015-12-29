@@ -14,3 +14,5 @@
 [user]
 	name = Kessler David J (djk746)
 	email = djkessler@me.com
+[clangFormat]
+  style = file
