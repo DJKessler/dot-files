@@ -111,6 +111,10 @@ link_dir "$HOME/.vim" "$dot_file_repo_dir/vim.d"
 #################################################################
 link_dir "$config_dir/terminator" "$dot_file_repo_dir/terminator"
 
+#################################################################
+## link in our ssh config file                                 ##
+#################################################################
+link_dot_file "$HOME/.ssh/config" "$dot_file_repo_dir/ssh.config"
 
 exit 0
 
