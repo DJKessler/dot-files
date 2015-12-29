@@ -116,5 +116,10 @@ link_dir "$config_dir/terminator" "$dot_file_repo_dir/terminator"
 #################################################################
 link_dot_file "$HOME/.ssh/config" "$dot_file_repo_dir/ssh.config"
 
+#################################################################
+## link in our gitconfig file                                  ##
+#################################################################
+link_dot_file "$HOME/.gitconfig" "$dot_file_repo_dir/git.config"
+
 exit 0
 
