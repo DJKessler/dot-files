@@ -25,6 +25,9 @@ exec --no-startup-id "/usr/bin/nm-applet"
 exec gnome-settings-daemon
 exec gnome-keyring-daemon
 
+# this sets the keyboard repeat rate
+exec --no-startup-id "xset r rate 200 30"
+
 # this prevents the launching of a nautilus desktop window being launched when
 # a file manager window is opened
 exec --no-startup-id "gsettings set org.gnome.desktop.background show-desktop-icons false"
