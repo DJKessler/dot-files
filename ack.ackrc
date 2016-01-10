@@ -18,6 +18,7 @@
 --ignore-directory=is:autom4te.cache
 --ignore-directory=is:blib
 --ignore-directory=is:_build
+--ignore-directory=is:build
 --ignore-directory=is:cover_db
 --ignore-directory=is:node_modules
 --ignore-directory=is:CMakeFiles
