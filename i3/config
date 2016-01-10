@@ -240,7 +240,8 @@ mode "pass-through" {
 bindsym $mod+t mode "pass-through"
 
 # displays a window with options to Logout, Suspend, Reboot or Power Off
-bindsym $mod+Delete exec "python ~/.unixrc/i3-exit"
+## seems to need sudo power to work
+# bindsym $mod+Delete exec "python ~/.unixrc/i3-exit"
 
 # Locks the screen, waits 60 seconds and turns off monitor if still locked
 bindsym $mod+grave exec "~/.unixrc/lock-script"
