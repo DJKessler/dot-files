@@ -50,7 +50,7 @@ set switchbuf=useopen,usetab,newtab
 set colorcolumn=81                      " add a guideline at 80 characters wide
 
 set background=dark                     " set the background color profile
-hi ColorColumn ctermbg=darkred guibg=darkred
+hi ColorColumn guifg=#5fff00 guibg=#606060 gui=bold ctermfg=82 ctermbg=241 cterm=bold
 
 colorscheme railscasts
 
@@ -105,6 +105,8 @@ inoremap <C-c> <Esc>`^
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ quit asking me if my .ycm_extra_conf.py is safe to load """
 let g:ycm_confirm_extra_conf = 0
+""" always populate vim's location list
+let g:ycm_always_populate_location_list = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
