@@ -15,6 +15,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/bkad/CamelCaseMotion.git'
   Plugin 'https://github.com/Valloric/YouCompleteMe.git'
   Plugin 'https://github.com/rhysd/vim-clang-format.git'
+  Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
@@ -38,7 +39,7 @@ set shiftwidth=2                        " set number of columns inserted for ind
 match ErrorMsg '\s\+$'                  " shows trailing whitespace as error
 map <F2> :retab <CR> :wq! <CR>
 
-set ai                                  " auto indenting
+"set ai                                  " auto indenting
 syntax on                               " syntax highlighting
 set hlsearch                            " highlight the last searched term
 set wildmode=longest,list,full          " set the tab-completion to bash-like
@@ -49,7 +50,7 @@ set switchbuf=useopen,usetab,newtab
 set colorcolumn=81                      " add a guideline at 80 characters wide
 
 set background=dark                     " set the background color profile
-hi ColorColumn ctermbg=darkblue guibg=darkblue
+hi ColorColumn ctermbg=darkred guibg=darkred
 
 colorscheme railscasts
 
@@ -98,13 +99,17 @@ map <F2> :diffput <CR> ]c
 " map ctrl+c to esc
 inoremap <C-c> <Esc>`^
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""" YouCompleteMe """"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ quit asking me if my .ycm_extra_conf.py is safe to load """
 let g:ycm_confirm_extra_conf = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""" clang-format """"""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
@@ -113,9 +118,15 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" CamelCaseMotion """""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call camelcasemotion#CreateMotionMappings('<leader>')
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""" cpp-enhanced-highlight """"""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:cpp_class_scope_highlight = 1
 
