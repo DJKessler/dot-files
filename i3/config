@@ -133,8 +133,9 @@ bindsym $mod+Tab workspace back_and_forth
 # move to next/prior workspace
 bindsym $mod+Next workspace next
 bindsym $mod+Prior workspace prev
-#bindsym $mod+ctrl+Next workspace next
-#bindsym $mod+ctrl+Prior workspace prev
+
+# screenshot
+bindsym Print exec gnome-screenshot --interactive
 
 # switch to workspace
 bindsym $mod+1 workspace 1
