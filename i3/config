@@ -49,7 +49,7 @@ client.focused_inactive     $bg        $bg         $ac
 client.urgent               $rd        $rd         $tx
 
 # sets new window borders to 1 pixel wide
-new_window pixel 1
+new_window normal 0 px
 
 # toggle window border
 bindsym $mod+x border toggle
