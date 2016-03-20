@@ -138,10 +138,9 @@ if [ -d $HOME/.bin/clion/bin ]; then
 fi
 
 # intellij IDE path
-if [ -d $HOME/.bin/idea/bin ]; then
-  export PATH="$PATH:$HOME/.bin/idea/bin"
+if [ -d $HOME/.bin/clion/bin ]; then
+  export PATH="$PATH:$HOME/.bin/intellij/bin"
 fi
-
 
 # ninja build system tab completion
 if command -v ninja >/dev/null 2>&1; then
