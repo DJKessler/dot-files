@@ -129,6 +129,7 @@ fi
 # cross compile toolchain
 if [ -d $HOME/arm-toolchain/usr/bin ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
+  alias cmake-arm="$HOME/arm-toolchain/usr/bin/cmake -DCMAKE_TOOLCHAIN_FILE=$HOME/arm-toolchain/usr/share/buildroot/toolchainfile.cmake"
 fi
 
 # clion IDE path
