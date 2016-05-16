@@ -12,6 +12,7 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+exec --no-startup-id "~/.unixrc/xrandr-multi-monitor-setup.sh"
 exec --no-startup-id "~/.unixrc/fix-mouse-acceleration"
 exec --no-startup-id "~/.unixrc/set-wallpaper.sh"
 exec --no-startup-id "/usr/bin/nm-applet"
@@ -20,6 +21,8 @@ exec gnome-keyring-daemon
 
 # this sets the keyboard repeat rate
 exec --no-startup-id "xset r rate 200 30"
+
+# assign [class="OpsMonster"] 3
 
 # this prevents a nautilus desktop window from being launched when a file
 # manager window is opened
