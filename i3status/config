@@ -13,7 +13,7 @@ general {
 
 order += "disk /home"
 order += "disk /"
-order += "wireless _first_"
+#order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"
 order += "cpu_temperature 0"
@@ -21,10 +21,10 @@ order += "load"
 order += "cpu_usage"
 order += "tztime local"
 
-wireless _first_ {
-  format_up = "W: (%quality at %essid) %ip"
-  format_down = "W: down"
-}
+# wireless _first_ {
+#   format_up = "W: (%quality at %essid) %ip"
+#   format_down = "W: down"
+# }
 
 ethernet _first_ {
   format_up = "E: %ip (%speed)"
