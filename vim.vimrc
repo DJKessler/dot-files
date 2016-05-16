@@ -107,6 +107,8 @@ inoremap <C-c> <Esc>`^
 let g:ycm_confirm_extra_conf = 0
 """ always populate vim's location list
 let g:ycm_always_populate_location_list = 1
+""" use my global config file
+let g:ycm_global_ycm_extra_conf = '~/.unixrc/vim-ycm.ycm_extra_conf.py'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

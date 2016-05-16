@@ -1,5 +1,6 @@
 .vim/.netrwhist
 *.swp
+*.pyc
 
 vim.d/bundle/AutoComplPop
 vim.d/bundle/L9
