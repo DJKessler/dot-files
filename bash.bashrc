@@ -114,8 +114,6 @@ shopt -s checkwinsize
 force_color_prompt=yes
 color_prompt=yes
 
-#unset color_prompt force_color_prompt
-
 # Alias definitions.
 if [ -f $HOME/.unixrc/bash.aliases ]; then
 	source $HOME/.unixrc/bash.aliases
@@ -140,6 +138,10 @@ fi
 # intellij IDE path
 if [ -d $HOME/.bin/clion/bin ]; then
   export PATH="$PATH:$HOME/.bin/intellij/bin"
+fi
+
+if [ -d $HOME/.bin/SaleaeLogic ]; then
+  export PATH="$PATH:$HOME/.bin/SaleaeLogic"
 fi
 
 # ninja build system tab completion
