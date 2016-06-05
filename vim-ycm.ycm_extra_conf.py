@@ -39,8 +39,20 @@ def IsHeaderFile(filename):
     extension = os.path.splitext(filename)[1]
     return extension in HEADER_EXTENSIONS
 
+def GetHeaderSourceDir(absfilename):
+    containing_dir = os.path.dirname(os.path.abspath(absfilename))
+    basedir = os.path.split(containing_dir)[0]
+    filename = os.path.split(absfilename)[1]
+    header_dir = os.path.basename(containing_dir)
+    if(header_dir == "include" or header_dir == "inc"):
+        sourcefile = os.path.join(basedir, "src", filename)
+        return sourcefile
+    return os.path.join(containing_dir, filename)
+
+
 def GetCompilationInfoForFile(database, filename):
     if IsHeaderFile(filename):
+        filename = GetHeaderSourceDir(filename)
         basename = os.path.splitext(filename)[0]
         for extension in SOURCE_EXTENSIONS:
             replacement_file = basename + extension
