@@ -8,14 +8,6 @@
 
 export EDITOR=/usr/bin/vim
 
-if [ "$USER" == "vagrant" ]; then
-	export myHomeDir=/vagrant
-elif [ -d $HOME/git/TSL/ ]; then
-	export myHomeDir=$HOME/git/TSL
-else
-  export myHomeDir=$HOME/git
-fi
-
 #  USEFUL BASH FUNCTIONS
 if [ -f "$HOME/.unixrc/bash.functions" ]; then
 	. "$HOME/.unixrc/bash.functions"

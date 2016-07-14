@@ -8,11 +8,6 @@
     . /etc/bash_completion
   fi
 #fi
-if [ $USER == "vagrant" ]; then
-	myHomeDir=/home/vagrant
-else
-	myHomeDir=$HOME
-fi
 
 if [ -f /etc/bash_completion.d/git-prompt ]; then
   source /etc/bash_completion.d/git-prompt
