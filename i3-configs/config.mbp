@@ -1,0 +1,10 @@
+# i3 config file (v4) for MacbookPro running ubuntu 14.04
+
+exec --no-startup-id "xset m 1 1"
+exec --no-startup-id "xrandr --dpi 150"
+
+# this sets the keyboard repeat rate
+exec --no-startup-id "xset r rate 200 30"
+
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
