@@ -8,17 +8,13 @@ copy_dot_file() {
   copy_dest="$2"
   echo "$banner"
 
-  echo "copy_src: $copy_src";
-  echo "copy_dest: $copy_dest";
-
   if [ -f "$copy_dest" ] && [ ! -L "$copy_dest" ]; then
     echo "Backing up $copy_dest";
-#    mv "$copy_dest" "$copy_dest".orig.bak;
-#    cp "$copy_src" "$copy_dest"
+    mv "$copy_dest" "$copy_dest".orig.bak;
+    cp "$copy_src" "$copy_dest"
   elif [ ! -f "$copy_dest" ]; then
     echo "Creating copy $copy_dest";
-#    cp "$copy_src" "$copy_dest"
-#    ln -s "$copy_src" "$copy_dest"
+    cp "$copy_src" "$copy_dest"
   fi
   echo ""
 }
