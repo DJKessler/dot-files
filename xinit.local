@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+dot_files_dir="$HOME/.unixrc"
+i3_config_dir="$dot_files_dir/i3-configs"
+i3_config="$dot_files_dir/i3/config"
+
+cat "$i3_config_dir/config.base" > "$i3_config"
+#cat "$i3_config_dir/config.mbp" >> "$i3_config"
+
+exec /usr/bin/i3

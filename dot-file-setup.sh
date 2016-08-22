@@ -3,6 +3,27 @@
 dot_file_repo_dir="$HOME/.unixrc"
 banner="****************************************"
 
+copy_dot_file() {
+  copy_src="$1"
+  copy_dest="$2"
+  echo "$banner"
+
+  echo "copy_src: $copy_src";
+  echo "copy_dest: $copy_dest";
+
+  if [ -f "$copy_dest" ] && [ ! -L "$copy_dest" ]; then
+    echo "Backing up $copy_dest";
+#    mv "$copy_dest" "$copy_dest".orig.bak;
+#    cp "$copy_src" "$copy_dest"
+  elif [ ! -f "$copy_dest" ]; then
+    echo "Creating copy $copy_dest";
+#    cp "$copy_src" "$copy_dest"
+#    ln -s "$copy_src" "$copy_dest"
+  fi
+  echo ""
+}
+
+
 link_dot_file() {
   link_dest="$1"
   link_src="$2"
@@ -76,6 +97,7 @@ link_dot_file "$HOME/.bashrc" "$dot_file_repo_dir/bash.bashrc"
 ## link in our xinitrc file                                    ##
 #################################################################
 link_dot_file "$HOME/.xinitrc" "$dot_file_repo_dir/xinit.xinitrc"
+copy_dot_file "$dot_file_repo_dir/xinit.local" "$HOME/.xinitrc-local"
 
 #################################################################
 ## link in our i3 config directory                             ##
