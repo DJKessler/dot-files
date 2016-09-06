@@ -205,7 +205,7 @@ bindsym $mod+r mode "resize"
 bar {
         tray_output primary
         font pango:monospace 10
-        status_command i3status
+        status_command python3 ~/.unixrc/i3-configs/i3status.py
         colors {
             background          $bg
             statusline          $fg
