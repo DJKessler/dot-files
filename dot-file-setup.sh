@@ -95,24 +95,6 @@ link_dot_file "$HOME/.bashrc" "$dot_file_repo_dir/bash.bashrc"
 link_dot_file "$HOME/.xinitrc" "$dot_file_repo_dir/xinit.xinitrc"
 copy_dot_file "$dot_file_repo_dir/xinit.local" "$HOME/.xinitrc-local"
 
-#################################################################
-## link in our i3 config directory                             ##
-#################################################################
-config_dir="$HOME/.config"
-
-if [ ! -d "$config_dir" ]; then
-  ## If no ~/.config directory exists, then make it
-  echo "Creating config directory: $config_dir"
-
-  mkdir "$config_dir"
-fi
-
-link_dir "$config_dir/i3" "$dot_file_repo_dir/i3"
-
-#################################################################
-## link in our i3status config directory                       ##
-#################################################################
-link_dir "$config_dir/i3status" "$dot_file_repo_dir/i3status"
 
 #################################################################
 ## link in our vimrc file                                      ##

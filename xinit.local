@@ -1,10 +1,19 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-dot_files_dir="$HOME/.unixrc"
-i3_config_dir="$dot_files_dir/i3-configs"
-i3_config="$dot_files_dir/i3/config"
+i3_dot_file_dir="$HOME/.unixrc/i3-configs"
 
-cat "$i3_config_dir/config.base" > "$i3_config"
-#cat "$i3_config_dir/config.mbp" >> "$i3_config"
+cfg_dir="$HOME/.config"
+i3_cfg_dir="$cfg_dir/i3"
+i3_status_cfg_dir="$cfg_dir/i3status"
+i3_cfg_file="$i3_cfg_dir/config"
+i3_status_cfg_file="$i3_status_cfg_dir/config"
 
-exec /usr/bin/i3
+[[ ! -d "$i3_cfg_dir" ]] && mkdir -p "$i3_cfg_dir";
+[[ ! -d "$i3_status_cfg_dir" ]] && mkdir -p "$i3_status_cfg_dir";
+
+/bin/cat "$i3_dot_file_dir/config.base" > "$i3_cfg_file"
+/bin/cat "$i3_dot_file_dir/config.mbp" >> "$i3_cfg_file"
+/bin/cat "$i3_dot_file_dir/status-config.mbp" > "$i3_status_cfg_file"
+
+mv "$HOME/.i3log" "$HOME/.i3log.old";
+exec /usr/bin/i3 > "$HOME/.i3log" 2>&1
