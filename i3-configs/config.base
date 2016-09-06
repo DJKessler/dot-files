@@ -26,11 +26,6 @@ exec --no-startup-id "xset r rate 200 30"
 # manager window is opened
 exec --no-startup-id "gsettings set org.gnome.desktop.background show-desktop-icons false"
 
-# spawn a dropdown terminal
-exec terminator -c dropdown -p dropdown -T "Le Terminator" -H --geometry=2200x1080
-for_window [class="Terminator" instance="dropdown"] floating enable
-
-
 # color defines for zenburn styled i3
 set $bg     #2c2c2e
 set $fg     #9f9f9f

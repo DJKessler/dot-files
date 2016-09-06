@@ -3,11 +3,11 @@
   borderless = True
 [keybindings]
   split_horiz = None
-  hide_window = <Alt>F1
+  hide_window = None
 [profiles]
   [[default]]
     scrollbar_position = hidden
-    font = Monospace 11
+    font = Monospace 10
     background_image = None
     scroll_on_output = False
     copy_on_selection = True
