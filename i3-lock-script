@@ -7,11 +7,20 @@
 #  imagemagick
 #  i3
 
+if ! command -v scrot >/dev/null 2>&1; then
+  logger "scrot is not installed, try apt-get install scrot";
+  exit 1;
+fi
+
+if ! command -v convert >/dev/null 2>&1; then
+  logger "imagemagic/convert is not installed, try apt-get install imagemagick";
+  exit 1;
+fi
 
 #
 # icon that is displayed when screen is locked
 #
-icon="$HOME/.unixrc/lock-icon.png"
+icon="$HOME/.unixrc/i3-lock-icon.png"
 
 #
 # location to store our blurred screenshot
