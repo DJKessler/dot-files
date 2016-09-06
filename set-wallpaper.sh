@@ -10,7 +10,7 @@
 WALLPAPER_DIR="$HOME/wallpapers"
 
 if [ ! -d "$WALLPAPER_DIR/" ]; then
-  echo "no wallpaper directory"
+  logger "no wallpaper directory"
   return 1;
 fi
 
