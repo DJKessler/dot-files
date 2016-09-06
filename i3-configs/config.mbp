@@ -5,5 +5,5 @@ exec --no-startup-id "xset m 1 1"
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
-bindsym $mod+Shift+F3 exec --no-startup-id "~/.unixrc/xrandr-macbook-15.sh; i3-msg restart; ~/.unixrc/set-wallpaper.sh"
-bindsym $mod+Shift+F4 exec --no-startup-id "~/.unixrc/xrandr-multi-monitor-setup.sh; i3-msg restart; ~/.unixrc/set-wallpaper.sh"
+bindsym $mod+Shift+F3 exec --no-startup-id "~/.unixrc/xrandr-macbook-15.sh; i3-msg restart; ~/.unixrc/set-wallpaper"
+bindsym $mod+Shift+F4 exec --no-startup-id "~/.unixrc/xrandr-multi-monitor-setup.sh; i3-msg restart; ~/.unixrc/set-wallpaper"

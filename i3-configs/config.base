@@ -13,7 +13,6 @@ font pango:monospace 8
 font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id "~/.unixrc/fix-mouse-acceleration"
-exec --no-startup-id "~/.unixrc/set-wallpaper.sh"
 exec --no-startup-id "/usr/bin/nm-applet"
 exec gnome-keyring-daemon
 
