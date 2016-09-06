@@ -122,18 +122,27 @@ if [ -d $HOME/arm-toolchain/usr/bin ]; then
   alias cmake-arm="$HOME/arm-toolchain/usr/bin/cmake -DCMAKE_TOOLCHAIN_FILE=$HOME/arm-toolchain/usr/share/buildroot/toolchainfile.cmake"
 fi
 
+if [ -d "$HOME/bin" ]; then
+  home_bin="$HOME/bin";
+fi
+
 # clion IDE path
-if [ -d $HOME/.bin/clion/bin ]; then
-  export PATH="$PATH:$HOME/.bin/clion/bin"
+if [ -d $home_bin/clion/bin ]; then
+  export PATH="$PATH:$home_bin/clion/bin"
+fi
+
+# pycharm IDE path
+if [ -d $home_bin/pycharm/bin ]; then
+  export PATH="$PATH:$home_bin/pycharm/bin"
 fi
 
 # intellij IDE path
-if [ -d $HOME/.bin/clion/bin ]; then
+if [ -d $home_bin/clion/bin ]; then
   export PATH="$PATH:$HOME/.bin/intellij/bin"
 fi
 
-if [ -d $HOME/.bin/SaleaeLogic ]; then
-  export PATH="$PATH:$HOME/.bin/SaleaeLogic"
+if [ -d $home_bin/SaleaeLogic ]; then
+  export PATH="$PATH:$home_bin/SaleaeLogic"
 fi
 
 # ninja build system tab completion
