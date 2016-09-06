@@ -1,17 +1,3 @@
 [submodule "vim.d/bundle/Vundle.vim"]
 	path = vim.d/bundle/Vundle.vim
   url = https://github.com/gmarik/Vundle.vim.git
-[submodule "vim.d/bundle/nerdtree"]
-	path = vim.d/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-
-#[submodule "vim.d/bundle/AutoComplPop"]
-#	path = vim.d/bundle/AutoComplPop
-#	url = https://github.com/vim-scripts/AutoComplPop.github
-#[submodule "vim.d/bundle/L9"]
-#	path = vim.d/bundle/L9
-#	url = https://github.com/vim-scripts/L9.git
-#[submodule "vim.d/bundle/supertab"]
-#	path = vim.d/bundle/supertab
-#  url = https://github.com/ervandew/supertab.git
-
