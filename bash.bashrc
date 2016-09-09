@@ -141,8 +141,8 @@ if [ -d $home_bin/clion/bin ]; then
   export PATH="$PATH:$HOME/.bin/intellij/bin"
 fi
 
-if [ -d $home_bin/SaleaeLogic ]; then
-  export PATH="$PATH:$home_bin/SaleaeLogic"
+if [ -d $home_bin/SalaeaLogic ]; then
+  export PATH="$PATH:$home_bin/SalaeaLogic"
 fi
 
 # ninja build system tab completion
