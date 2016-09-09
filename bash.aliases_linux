@@ -23,7 +23,7 @@ if [ -f /usr/bin/make ]; then
   alias pmake='make -j4'
 fi
 
-alias ifconfig="/sbin/ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}'"
+alias myip="ip route get 8.8.8.8 | awk '{print $NF; exit}'"
 
 if [ "$(hostname -s)" == "DJKubuntu" ]; then
   export psWhere="$(hostname -s)"
