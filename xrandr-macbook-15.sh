@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-xrandr --dpi 192 --output LVDS --mode 2880x1800 --primary \
-       --output DFP1 --off \
-       --output DFP5 --off
+mb_disp="eDP"
+lt_disp="DisplayPort-1"
+rt_disp="DisplayPort-0"
+
+xrandr --dpi 220 --output $mb_disp --mode 2880x1800 --primary \
+       --output $rt_disp --off \
+       --output $lt_disp --off
 
