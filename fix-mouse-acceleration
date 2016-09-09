@@ -9,6 +9,5 @@ if [ ! -z "$razer_id" ]; then
 fi
 
 if [ ! -z "$lab_mouse_id" ]; then
-  xinput --set-prop "$lab_mouse_id" "Device Accel Constant Deceleration" 1;
-  xinput --set-prop "$lab_mouse_id" "Device Accel Velocity Scaling" 1;
+  xinput --set-prop "$lab_mouse_id" "Accel Speed" 0.0;
 fi
