@@ -5,7 +5,7 @@ status = Status()
 
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
-                interface="wlan0",
+                interface="wlp4s0",
                 format_up="{essid} {quality:3.0f}%",
                 color_down="#ff0000",
                 color_up="#00ff00",
@@ -44,15 +44,15 @@ status.register("fanspeed",
 # This would look like this:
 # Discharging 6h:51m
 status.register("battery",
-                format="BAT: {status}{remaining:%E %hh:%Mm}",
+                format="\U0001F50B  {status}{remaining:%E %hh:%Mm}",
                 alert=True,
                 alert_percentage=5,
                 full_color="#efef8f",
-                charging_color="#00ff00",
+                charging_color="#009900",
                 critical_color="#ff0000",
                 status={
-                    "DIS":  "DIS",
-                    "CHR":  "CHR",
+                    "DIS": "\U00002193",
+                    "CHR": "\U0001F50C",
                     "FULL": "FULL",
                 }, )
 
