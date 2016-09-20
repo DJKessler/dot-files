@@ -1,9 +1,10 @@
 # i3 config file (v4) for MacbookPro running ubuntu 14.04
 
-exec --no-startup-id "xset m 1 1"
+# make mouse accel be 1-to-1
+exec --no-startup-id "xset mouse 1 1"
 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 
 bindsym $mod+Shift+F3 exec --no-startup-id "~/.unixrc/xrandr-macbook-15.sh; i3-msg restart; ~/.unixrc/set-wallpaper"
 bindsym $mod+Shift+F4 exec --no-startup-id "~/.unixrc/xrandr-multi-monitor-setup.sh; i3-msg restart; ~/.unixrc/set-wallpaper"
