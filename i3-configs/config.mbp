@@ -6,5 +6,5 @@ exec --no-startup-id "xset mouse 1 1"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 
-bindsym $mod+Shift+F3 exec --no-startup-id "~/.unixrc/i3-undock"
-bindsym $mod+Shift+F4 exec --no-startup-id "~/.unixrc/i3-dock"
+bindsym $mod+Shift+F3 exec --no-startup-id "~/.unixrc/i3-scripts/i3-undock"
+bindsym $mod+Shift+F4 exec --no-startup-id "~/.unixrc/i3-scripts/i3-dock"
