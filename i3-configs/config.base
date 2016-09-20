@@ -230,7 +230,6 @@ bindsym $mod+Shift+grave exec "sudo pm-suspend | `~/.unixrc/i3-lock-script`"
 # Automatically lock the screen in five minutes. xautolock package required
 exec --no-startup-id "xautolock -time 5 -locker '~/.unixrc/i3-lock-script' &"
 
-set $sink 0
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume $sink -- +1%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume $sink -- -1%"
-bindcode 171 exec --no-startup-id "pactl set-sink-mute   $sink toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
