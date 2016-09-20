@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
-mb_disp="eDP"
-lt_disp="DisplayPort-1"
-rt_disp="DisplayPort-0"
+min_params=3
 
-xrandr --dpi 192 --output $mb_disp --mode 2880x1800 --primary \
-       --output $rt_disp --off \
-       --output $lt_disp --off
+if [ $# -lt "$min_params" ]
+then
+  echo "Usage: $0 <internal_display> <left external display> <right external display>"
+fi
+
+internal="$1"
+left="$2"
+right="$3"
+
+xrandr --dpi 192 --output $internal --mode 2880x1800 --primary \
+       --output $right --off \
+       --output $left --off
 

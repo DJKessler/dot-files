@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+internal="eDP"
+left="DisplayPort-1"
+right="DisplayPort-0"
+
+$HOME/.unixrc/xrandr-macbook-15.sh $internal $left $right;
+i3-msg restart;
+$HOME/.unixrc/set-wallpaper;
+
+# set keyboard autorepeat rate
+xset r rate 200 30
