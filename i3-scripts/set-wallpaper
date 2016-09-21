@@ -14,12 +14,9 @@ if [ ! -d "$WALLPAPER_DIR/" ]; then
   exit 1
 fi
 
-# randomly select an image from the directory
-WALLPAPER=$(\ls "$WALLPAPER_DIR"/*{.jpg,.png} | shuf -n1)
-
-# set the selected image as the desktop wallpaper
+# set a randomly selected image as the desktop wallpaper
 if command -v feh > /dev/null 2>&1; then
-  /usr/bin/feh --bg-center "$WALLPAPER"
+  /usr/bin/feh --randomize --bg-center "$WALLPAPER_DIR/"
   exit 0
 else
   logger "feh is not installed, try apt-get install feh"
