@@ -1,0 +1,36 @@
+! Xft.dpi:                      109
+Xft.antialias:                 true
+Xft.hinting:                   true
+Xft.rgba:                      rgb
+Xft.hintstyle:                 hintslight
+
+! disable iso14755 mode to allow Control-Shift-C/V keybindings
+URxvt.iso14755:                false
+
+! do not show the scrollbar
+URxvt*scrollBar:               false
+
+! do not scroll with output
+URxvt*scrollTtyOutput:         false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer:        true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:       true
+
+URxvt.letterSpace:             -2
+URxvt.font:                    xft:monospace:bold:size=10
+URxvt.perl-lib:                ~/.unixrc/urxvt-cfgs/
+
+URxvt.perl-ext-common:         resize-font,selection-to-clipboard,pasta
+URxvt.resize-font.smaller:     C-Down
+URxvt.resize-font.bigger:      C-Up
+
+URxvt.keysym.Control-Shift-V:  perl:pasta:paste
+URxvt.keysym.Control-Shift-C:  perl:pasta:copy
+
+URxvt.color12:                 rgb:5c/5c/ff
+
+#include ".unixrc/base16-default-dark-256.Xresources"
+

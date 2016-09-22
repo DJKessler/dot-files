@@ -107,14 +107,10 @@ link_dot_file "$HOME/.vimrc" "$dot_file_repo_dir/vim.vimrc"
 link_dir "$HOME/.vim" "$dot_file_repo_dir/vim.d"
 
 #################################################################
-## link in terminator config directory                         ##
+## link in our urxvt configs                                   ##
 #################################################################
-link_dir "$config_dir/terminator" "$dot_file_repo_dir/terminator"
-
-#################################################################
-## link in our ssh config file                                 ##
-#################################################################
-link_dot_file "$HOME/.ssh/config" "$dot_file_repo_dir/ssh.config"
+link_dot_file "$HOME/.Xresources" "$dot_file_repo_dir/Xresources.Xresources"
+link_dir "$HOME/.urxvt" "$dot_file_repo_dir/urxvt-cfgs"
 
 #################################################################
 ## link in our gitconfig file                                  ##
