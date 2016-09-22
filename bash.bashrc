@@ -137,8 +137,8 @@ if [ -d $home_bin/pycharm/bin ]; then
 fi
 
 # intellij IDE path
-if [ -d $home_bin/clion/bin ]; then
-  export PATH="$PATH:$HOME/.bin/intellij/bin"
+if [ -d $home_bin/intellij/bin ]; then
+  export PATH="$PATH:$home_bin/intellij/bin"
 fi
 
 if [ -d $home_bin/SalaeaLogic ]; then
