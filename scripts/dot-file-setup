@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dot_file_repo_dir="$HOME/.unixrc"
+shell_cfgs_dir="$dot_file_repo_dir/shell-configs"
 banner="****************************************"
 
 copy_dot_file() {
@@ -11,6 +12,7 @@ copy_dot_file() {
   if [ -f "$copy_dest" ] && [ ! -L "$copy_dest" ]; then
     echo "Backing up $copy_dest";
     mv "$copy_dest" "$copy_dest".orig.bak;
+    echo "Creating copy $copy_dest";
     cp "$copy_src" "$copy_dest"
   elif [ ! -f "$copy_dest" ]; then
     echo "Creating copy $copy_dest";
@@ -87,7 +89,7 @@ link_dot_file "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
 #################################################################
 ## link in our bashrc file                                     ##
 #################################################################
-link_dot_file "$HOME/.bashrc" "$dot_file_repo_dir/bashrc.bash"
+link_dot_file "$HOME/.bashrc" "$shell_cfgs_dir/bashrc.bash"
 
 #################################################################
 ## link in our xinitrc file                                    ##
