@@ -1,3 +1,6 @@
 [submodule "vim.d/bundle/Vundle.vim"]
 	path = vim.d/bundle/Vundle.vim
   url = https://github.com/gmarik/Vundle.vim.git
+[submodule "shell-configs/base16-shell"]
+	path = shell-configs/base16-shell
+	url = git://github.com/chriskempson/base16-shell.git
