@@ -35,19 +35,6 @@ elif [ "$USER" == "vagrant" ]; then
   export psWho="VAGRANT"
 	export pscolor=$Red
 	export delimColor=$BIBlack
-elif [ "$(hostname -s)" == "cowboy" ]; then
-  . $HOME/.bash_adcirc
-  export psWhere="COWBOY"
-  export psWho="DJKESSLER"
-	export pscolor=$BIRed
-	export delimColor=$BIPurple
-	. $HOME/.git-prompt.sh
-elif [[ "$(hostname -s)" =~ "compute-0-"$* ]]; then
-  . $HOME/.bash_adcirc
-  export psWhere="$(hostname -s)"
-  export psWho="DJKESSLER"
-	export pscolor=$BIRed
-	export delimColor=$BICyan
 else
   export psWhere="$(hostname -s)"
   export psWho=$USER

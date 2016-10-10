@@ -9,19 +9,18 @@ export PathShort="\W"
 export PathFull="\w"
 export PS1PATH="$PathFull"
 
-export PS1=$delimColor'['
-export PS1=$PS1$pscolor$psWho
-export PS1=$PS1$delimColor'@'
-export PS1=$PS1$pscolor$psWhere
-export PS1=$PS1$delimColor']'
-export PS1=$PS1$Color_Off'$(git branch &>/dev/null; \
-	if [ $? -eq 0 ]; then \
-		echo "$(echo $(git status) | grep "nothing to commit" > /dev/null 2>&1; \
-		if [ "$?" -eq "0" ]; then \
-			echo "'$Green'"$(__git_ps1 " (%s)"); \
-		else \
-			echo "'$BIRed'"$(__git_ps1 " {%s}"); \
-		fi) '$BYellow$PS1PATH$Color_Off' \$ "; \
-	else \
-		echo " '$BYellow$PS1PATH$Color_Off' \$ "; \
-	fi)'
+function user_at_host {
+  local __open="$delimColor["
+  local __shut="$delimColor]$Color_Off"
+  local __who="$pscolor\u"
+  local __sep="$delimColor@"
+  local __where="$pscolor\h"
+  echo "$__open$__who$__sep$__where$__shut"
+}
+
+function color_path {
+  echo "$BYellow\w$Color_Off"
+}
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWCOLORHINTS=true
+export PROMPT_COMMAND='__git_ps1 "$(user_at_host) $(color_path)" " \\\$ "'
