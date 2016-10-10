@@ -7,15 +7,18 @@
 
 export EDITOR=/usr/bin/vim
 
+dot_dir="$HOME/.unixrc"
+shell_cfg_dir="$dot_dir/shell-configs"
+
 ## setup base16 colorscheme
-if [ -d "$HOME/.unixrc/shell-configs/base16-shell" ]; then
-  base16_prof_helper="$HOME/.unixrc/shell-configs/base16-shell/profile_helper.sh";
-  [[ "$PS1" ]] && [ -s "$base16_prof_helper" ] && eval "$($base16_prof_helper)"
+if [ -d "$shell_cfg_dir/base16-shell" ]; then
+  base16_dir="$shell_cfg_dir/base16-shell";
+  [[ "$PS1" ]] && [ -s "$base16_dir/profile_helper.sh" ] && eval "$($base16_dir/profile_helper.sh)"
 fi
 
 #  BASH COLOR ALIASES
-if [ -f $HOME/.unixrc/shell-configs/colors.bash ]; then
-  . $HOME/.unixrc/shell-configs/colors.bash
+if [ -f $shell_cfg_dir/colors.bash ]; then
+  . $shell_cfg_dir/colors.bash
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]] || [[ "$OSTYPE" == "darwin"* ]]; then
@@ -25,19 +28,19 @@ fi
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then ######################### this is ubuntu
   export PATH="$PATH:/sbin:/usr/sbin:/usr/lib:/usr/local/bin:/usr/local/sbin"
-  if [ -f $HOME/.unixrc/shell-configs/bashrc-linux.bash ]; then
-    . $HOME/.unixrc/shell-configs/bashrc-linux.bash
+  if [ -f "$shell_cfg_dir/bashrc-linux.bash" ]; then
+    . "$shell_cfg_dir/bashrc-linux.bash"
   fi
-  if [ -f $HOME/.unixrc/shell-configs/aliases-linux.bash ]; then
-    . $HOME/.unixrc/shell-configs/aliases-linux.bash
+  if [ -f "$shell_cfg_dir/aliases-linux.bash" ]; then
+    . "$shell_cfg_dir/aliases-linux.bash"
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then ############################ this is osx
   export PATH="$PATH:/usr/local/bin:/opt/X11/bin:/usr/texbin:/usr/local/git/bin"
-  if [ -f $HOME/.unixrc/shell-configs/bashrc-osx.bash ]; then
-    . $HOME/.unixrc/shell-configs/bashrc-osx.bash
+  if [ -f "$shell_cfg_dir/bashrc-osx.bash" ]; then
+    . "$shell_cfg_dir/bashrc-osx.bash"
   fi
-  if [ -f $HOME/.unixrc/shell-configs/aliases-osx.bash ]; then
-    . $HOME/.unixrc/shell-configs/aliases-osx.bash
+  if [ -f "$shell_cfg_dir/aliases-osx.bash" ]; then
+    . "$shell_cfg_dir/aliases-osx.bash"
   fi
 fi
 
@@ -107,17 +110,17 @@ force_color_prompt=yes
 color_prompt=yes
 
 # Alias definitions.
-if [ -f $HOME/.unixrc/shell-configs/aliases.bash ]; then
-	source $HOME/.unixrc/shell-configs/aliases.bash
+if [ -f "$shell_cfg_dir/aliases.bash" ]; then
+	source "$shell_cfg_dir/aliases.bash"
 fi
 
 # git repo status in ps1
-if [ -f $HOME/.unixrc/git-prompt.sh ]; then
-	source $HOME/.unixrc/git-prompt.sh
+if [ -f "$dot_dir/git-prompt.sh" ]; then
+	source "$dot_dir/git-prompt.sh"
 fi
 
 # cross compile toolchain
-if [ -d $HOME/arm-toolchain/usr/bin ]; then
+if [ -d "$HOME/arm-toolchain/usr/bin" ]; then
   export PATH="$PATH:$HOME/arm-toolchain/usr/bin"
   alias cmake-arm="$HOME/arm-toolchain/usr/bin/cmake -DCMAKE_TOOLCHAIN_FILE=$HOME/arm-toolchain/usr/share/buildroot/toolchainfile.cmake"
 fi
@@ -127,21 +130,21 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 # clion IDE path
-if [ -d $home_bin/clion/bin ]; then
+if [ -d "$home_bin/clion/bin" ]; then
   export PATH="$PATH:$home_bin/clion/bin"
 fi
 
 # pycharm IDE path
-if [ -d $home_bin/pycharm/bin ]; then
+if [ -d "$home_bin/pycharm/bin" ]; then
   export PATH="$PATH:$home_bin/pycharm/bin"
 fi
 
 # intellij IDE path
-if [ -d $home_bin/intellij/bin ]; then
+if [ -d "$home_bin/intellij/bin" ]; then
   export PATH="$PATH:$home_bin/intellij/bin"
 fi
 
-if [ -d $home_bin/SalaeaLogic ]; then
+if [ -d "$home_bin/SalaeaLogic" ]; then
   export PATH="$PATH:$home_bin/SalaeaLogic"
 fi
 
