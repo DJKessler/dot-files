@@ -10,3 +10,4 @@ vim.d/bundle/vim-clang-format
 vim.d/bundle/vim-cpp-enhanced-highlight
 vim.d/bundle/vim-railscasts-theme
 vim.d/bundle/vim-fugitive
+vim.d/bundle/cscope.vim

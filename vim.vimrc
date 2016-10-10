@@ -16,6 +16,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/Valloric/YouCompleteMe.git'
   Plugin 'https://github.com/rhysd/vim-clang-format.git'
   Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
+  Plugin 'https://github.com/vim-scripts/cscope.vim.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
