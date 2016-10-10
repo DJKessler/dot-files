@@ -87,7 +87,7 @@ link_dot_file "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
 #################################################################
 ## link in our bashrc file                                     ##
 #################################################################
-link_dot_file "$HOME/.bashrc" "$dot_file_repo_dir/bash.bashrc"
+link_dot_file "$HOME/.bashrc" "$dot_file_repo_dir/bashrc.bash"
 
 #################################################################
 ## link in our xinitrc file                                    ##

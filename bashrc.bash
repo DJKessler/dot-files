@@ -8,14 +8,9 @@
 
 export EDITOR=/usr/bin/vim
 
-#  USEFUL BASH FUNCTIONS
-if [ -f "$HOME/.unixrc/bash.functions" ]; then
-	. "$HOME/.unixrc/bash.functions"
-fi
-
 #  BASH COLOR ALIASES
-if [ -f $HOME/.unixrc/bash.colors ]; then
-  . $HOME/.unixrc/bash.colors
+if [ -f $HOME/.unixrc/colors.bash ]; then
+  . $HOME/.unixrc/colors.bash
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]] || [[ "$OSTYPE" == "darwin"* ]]; then
@@ -25,19 +20,19 @@ fi
 # determine if this is a mac or linux machine
 if [[ "$OSTYPE" == "linux-gnu" ]]; then ######################### this is ubuntu
   export PATH="$PATH:/sbin:/usr/sbin:/usr/lib:/usr/local/bin:/usr/local/sbin"
-  if [ -f $HOME/.unixrc/bash.bashrc_linux ]; then
-    . $HOME/.unixrc/bash.bashrc_linux
+  if [ -f $HOME/.unixrc/bashrc-linux.bash ]; then
+    . $HOME/.unixrc/bashrc-linux.bash
   fi
-  if [ -f $HOME/.unixrc/bash.aliases_linux ]; then
-    . $HOME/.unixrc/bash.aliases_linux
+  if [ -f $HOME/.unixrc/aliases-linux.bash ]; then
+    . $HOME/.unixrc/aliases-linux.bash
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then ############################ this is osx
   export PATH="$PATH:/usr/local/bin:/opt/X11/bin:/usr/texbin:/usr/local/git/bin"
-  if [ -f $HOME/.unixrc/bash.bashrc_osx ]; then
-    . $HOME/.unixrc/bash.bashrc_osx
+  if [ -f $HOME/.unixrc/bashrc-osx.bash ]; then
+    . $HOME/.unixrc/bashrc-osx.bash
   fi
-  if [ -f $HOME/.unixrc/bash.aliases_osx ]; then
-    . $HOME/.unixrc/bash.aliases_osx
+  if [ -f $HOME/.unixrc/aliases-osx.bash ]; then
+    . $HOME/.unixrc/aliases-osx.bash
   fi
 fi
 
@@ -107,8 +102,8 @@ force_color_prompt=yes
 color_prompt=yes
 
 # Alias definitions.
-if [ -f $HOME/.unixrc/bash.aliases ]; then
-	source $HOME/.unixrc/bash.aliases
+if [ -f $HOME/.unixrc/aliases.bash ]; then
+	source $HOME/.unixrc/aliases.bash
 fi
 
 # git repo status in ps1

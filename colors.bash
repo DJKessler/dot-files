@@ -21,7 +21,6 @@ export BPurple="\[\033[1;35m\]"      # Purple
 export   BCyan="\[\033[1;36m\]"      # Cyan
 export  BWhite="\[\033[1;37m\]"      # White
 
-
 # Underline
 export  UBlack="\[\033[4;30m\]"      # Black
 export    URed="\[\033[4;31m\]"      # Red
