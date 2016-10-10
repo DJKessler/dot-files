@@ -17,6 +17,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/rhysd/vim-clang-format.git'
   Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
   Plugin 'https://github.com/vim-scripts/cscope.vim.git'
+  Plugin 'https://github.com/chriskempson/base16-vim.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
@@ -27,8 +28,6 @@ filetype plugin indent on           " required by Vundle plugin manager
 set history=1000                        " number of past commands to keep
 set modelines=0
 set backspace=2                         " more powerful backspacing
-"set cursorline                          " highlight current line
-"set list                                " show white space characters
 set number                              " set line numbers to on
 set ruler                               " show the cursor position
 set incsearch                           " search as characters are entered
@@ -38,22 +37,15 @@ set expandtab                           " tabs are spaces
 set tabstop=2                           " set tab length to 2 spaces
 set shiftwidth=2                        " set number of columns inserted for indentation
 match ErrorMsg '\s\+$'                  " shows trailing whitespace as error
-map <F2> :retab <CR> :wq! <CR>
 
-"set ai                                  " auto indenting
 syntax on                               " syntax highlighting
 set hlsearch                            " highlight the last searched term
-set wildmode=longest,list,full          " set the tab-completion to bash-like
 set wildmenu
 
 set switchbuf=useopen,usetab,newtab
 
 set colorcolumn=81                      " add a guideline at 80 characters wide
-
-set background=dark                     " set the background color profile
-hi ColorColumn guifg=#5fff00 guibg=#606060 gui=bold ctermfg=82 ctermbg=241 cterm=bold
-
-colorscheme railscasts
+colorscheme base16-default-dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""

@@ -5,8 +5,13 @@
 #exec 3>&2 2>/tmp/bashstart.$$.log
 #set -x
 
-
 export EDITOR=/usr/bin/vim
+
+## setup base16 colorscheme
+if [ -d "$HOME/.unixrc/shell-configs/base16-shell" ]; then
+  base16_prof_helper="$HOME/.unixrc/shell-configs/base16-shell/profile_helper.sh";
+  [[ "$PS1" ]] && [ -s "$base16_prof_helper" ] && eval "$($base16_prof_helper)"
+fi
 
 #  BASH COLOR ALIASES
 if [ -f $HOME/.unixrc/shell-configs/colors.bash ]; then
