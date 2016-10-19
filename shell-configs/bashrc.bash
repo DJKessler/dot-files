@@ -153,8 +153,6 @@ if command -v ninja >/dev/null 2>&1; then
   source /etc/bash_completion.d/ninja
 fi
 
-[[ $COLORTERM = gnome-terminal ]] && TERM=xterm-256color
-
 export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quote=01'
 
 ##
