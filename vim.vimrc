@@ -44,8 +44,9 @@ set wildmenu
 
 set switchbuf=useopen,usetab,newtab
 
+let base16colorspace=256
 set colorcolumn=81                      " add a guideline at 80 characters wide
-colorscheme base16-default-dark
+colorscheme base16-railscasts
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""
