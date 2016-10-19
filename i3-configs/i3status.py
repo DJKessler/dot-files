@@ -1,3 +1,16 @@
+# This script requires the following python3 packages:
+#   basiciw
+#   colour
+#   i3pystatus
+#   netifaces
+#   psutil
+#
+# The basiciw python3 package requires libiw-dev being installed:
+#   sudo apt-get install libiw-dev
+#
+# Install them locally with:
+#   pip3 install --user basiciw colour i3pystatus netifaces psutil
+
 from i3pystatus import Status
 import os.path
 
