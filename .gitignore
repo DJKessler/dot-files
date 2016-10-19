@@ -5,3 +5,5 @@
 vim.d/bundle/**
 
 shell-configs/base16-shell/*
+shell-configs/base16-xresources/*
+shell-configs/base16.Xresources

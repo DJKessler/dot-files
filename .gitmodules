@@ -4,3 +4,6 @@
 [submodule "shell-configs/base16-shell"]
 	path = shell-configs/base16-shell
 	url = git://github.com/chriskempson/base16-shell.git
+[submodule "shell-configs/base16-xresources"]
+	path = shell-configs/base16-xresources
+	url = git://github.com/chriskempson/base16-xresources.git
