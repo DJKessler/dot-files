@@ -8,9 +8,10 @@
 
 # directory to select wallpaper from
 WALLPAPER_DIR="$HOME/wallpapers"
+DATE=`date '+%m/%d/%Y %H:%M:%S %p'`
 
 if [ ! -d "$WALLPAPER_DIR/" ]; then
-  logger "no wallpaper directory"
+  echo "$DATE - ERROR: Wallpaper directory '$WALLPAPER_DIR' not found"
   exit 1
 fi
 
@@ -19,7 +20,7 @@ if command -v feh > /dev/null 2>&1; then
   /usr/bin/feh --randomize --bg-center --no-fehbg "$WALLPAPER_DIR/"
   exit 0
 else
-  logger "feh is not installed, try apt-get install feh"
+  echo "$DATE - ERROR: feh is not installed, try apt-get install feh"
   exit 1
 fi
 
