@@ -4,10 +4,7 @@ alias cmn='pushd $HOME/git/picosat_cmn/'
 alias gui='pushd $HOME/git/picosat_gui/'
 alias asteria='pushd $HOME/Documents/asteria/'
 
-# Various variables you might want for your PS1 prompt instead
-export PathShort="\W"
-export PathFull="\w"
-export PS1PATH="$PathFull"
+PROMPT_DIRTRIM=2
 
 function user_at_host {
   local __open="$delimColor["
