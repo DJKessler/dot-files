@@ -10,12 +10,6 @@ export EDITOR=/usr/bin/vim
 dot_dir="$HOME/.unixrc"
 shell_cfg_dir="$dot_dir/shell-configs"
 
-## setup base16 colorscheme
-if [ -d "$shell_cfg_dir/base16-shell" ]; then
-  base16_dir="$shell_cfg_dir/base16-shell";
-  [[ "$PS1" ]] && [ -s "$base16_dir/profile_helper.sh" ] && eval "$($base16_dir/profile_helper.sh)"
-fi
-
 #  BASH COLOR ALIASES
 if [ -f $shell_cfg_dir/colors.bash ]; then
   . $shell_cfg_dir/colors.bash

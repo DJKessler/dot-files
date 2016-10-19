@@ -44,9 +44,12 @@ set wildmenu
 
 set switchbuf=useopen,usetab,newtab
 
-let base16colorspace=256
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 set colorcolumn=81                      " add a guideline at 80 characters wide
-colorscheme base16-railscasts
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" begin code block """"""""""""""""""""""""""""""""

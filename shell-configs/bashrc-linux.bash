@@ -13,6 +13,25 @@ if [ -f /etc/bash_completion.d/git-prompt ]; then
   source /etc/bash_completion.d/git-prompt
 fi
 
+base16_shell_dir="$shell_cfg_dir/base16-shell"
+base16_xres_dir="$shell_cfg_dir/base16-xresources"
+
+## setup base16 colorscheme
+if [ -d "$base16_shell_dir" ]; then
+  if [ "$PS1" ] && [ -s "$base16_shell_dir/profile_helper.sh" ]; then
+    eval "$($base16_shell_dir/profile_helper.sh)"
+  fi
+fi
+
+## setup base16 xresources
+if [ -d "$base16_xres_dir" ]; then
+  theme_dir="$base16_xres_dir/xresources";
+  if [ -L "$shell_cfg_dir/base16.Xresources" ]; then
+    unlink "$shell_cfg_dir/base16.Xresources";
+  fi
+  ln -s "$theme_dir/$BASE16_THEME.Xresources" "$shell_cfg_dir/base16.Xresources"
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
