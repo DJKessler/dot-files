@@ -126,6 +126,8 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#bufferline#pathshorten = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':.'
+let g:airline#extensions#tabline#fnamecollapse = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
