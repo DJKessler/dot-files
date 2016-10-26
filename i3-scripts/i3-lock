@@ -17,34 +17,22 @@ if ! command -v convert >/dev/null 2>&1; then
   exit 1;
 fi
 
-#
 # icon that is displayed when screen is locked
-#
 icon="$HOME/.unixrc/i3-lock-icon.png"
 
-#
 # location to store our blurred screenshot
-#
 tmpbg="/tmp/wall.png"
 
-#
 # Take a screenshot
-#
 scrot "$tmpbg"
 
-#
 # make it blurry
-#
 convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 
-#
 # place the lock icon over the screenshot
-#
 convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 
-#
 # lock the screen
-#
 i3lock -i "$tmpbg"
 
 # Turn the screen off after a delay
