@@ -7,13 +7,26 @@
 #  imagemagick
 #  i3
 
+# log file location
+# ENV_LOG="$HOME/env.log"
+
+ts() { printf '%s\t%s\t\n' "$(date)" "$*"; }
+
+envlog() {
+  if [ -z ${ENV_LOG+x} ]; then
+    logger "$@";
+  else
+    ts >> "$ENV_LOG" "$@"
+  fi
+}
+
 if ! command -v scrot >/dev/null 2>&1; then
-  logger "scrot is not installed, try apt-get install scrot";
+  envlog "scrot is not installed, try apt-get install scrot";
   exit 1;
 fi
 
 if ! command -v convert >/dev/null 2>&1; then
-  logger "imagemagic/convert is not installed, try apt-get install imagemagick";
+  envlog "imagemagic/convert is not installed, try apt-get install imagemagick";
   exit 1;
 fi
 
