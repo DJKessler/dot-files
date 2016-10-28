@@ -56,7 +56,7 @@ case "$1" in
   lock)
     locked && envlog "Already locked, not re-locking" && exit 1;
     envlog "Locking"
-    generate_blurred_screenshot
+    generate_lock_screen
     i3lock --ignore-empty-password --inactivity-timeout=10 --image="$tmpbg" \
       --nofork &
     ;;
