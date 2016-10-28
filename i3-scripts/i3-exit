@@ -28,20 +28,19 @@ class i3_exit:
     def suspend_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Suspending, please standby...")
-        os.system("i3-lock")
-        os.system("(sudo pm-suspend | ~/.unixrc/i3-scripts/i3-lock) &")
+        os.system("~/.unixrc/i3-scripts/i3-lock suspend &")
         gtk.main_quit()
 
     def reboot_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Rebooting, please standby...")
-        os.system("sudo reboot")
+        os.system("systemctl reboot")
         gtk.main_quit()
 
     def shutdown_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Shutting down, please standby...")
-        os.system("sudo poweroff")
+        os.system("systemctl poweroff")
         gtk.main_quit()
 
     def create_window(self):
