@@ -221,14 +221,15 @@ mode "pass-through" {
 # disable i3's capture of $mod key
 bindsym $mod+t mode "pass-through"
 
-# Locks the screen, waits 60 seconds and turns off monitor if still locked
-bindsym $mod+grave exec "~/.unixrc/i3-scripts/i3-lock"
+exec --no-startup-id "xautolock"
+
+exec --no-startup-id "xss-lock -- ~/.unixrc/i3-scripts/i3-lock lock"
+
+# Locks the screen
+bindsym $mod+grave exec "~/.unixrc/i3-scripts/i3-lock lock"
 
 # Locks the screen then suspends the computer. pm-utils package required
-bindsym $mod+Shift+grave exec "sudo pm-suspend | `~/.unixrc/i3-scripts/i3-lock`"
-
-# Automatically lock the screen in five minutes. xautolock package required
-exec --no-startup-id "xss-lock -- '/home/kessler/.unixrc/i3-scripts/i3-lock' &"
+bindsym $mod+Shift+grave exec "~/.unixrc/i3-scripts/i3-lock suspend"
 
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"

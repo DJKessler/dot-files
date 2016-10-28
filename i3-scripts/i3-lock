@@ -44,9 +44,35 @@ generate_lock_screen() {
   convert "$tmpbg" "$__icon" -gravity center -composite -matte "$tmpbg"
 }
 
-# lock the screen
-generate_lock_screen
-i3lock -i "$tmpbg"
+# check if i3lock is already running
+locked() { pkill -0 --euid "$(id -u)" --exact i3lock; }
 
-# Turn the screen off after a delay
-sleep 60; pgrep i3lock && xset dpms force off;
+if [ "$#" -lt 1 ]; then
+  envlog "ERROR usage: ./$0 lock|screen-off|suspend"
+  exit 1;
+fi
+
+case "$1" in
+  lock)
+    locked && envlog "Already locked, not re-locking" && exit 1;
+    envlog "Locking"
+    generate_blurred_screenshot
+    i3lock --ignore-empty-password --inactivity-timeout=10 --image="$tmpbg" \
+      --nofork &
+    ;;
+
+  screen-off)
+    envlog "Shutting off displays"
+    xset dpms force off
+    ;;
+
+  suspend)
+    envlog "Suspending system"
+    systemctl suspend
+  ;;
+
+  *)
+    envlog "Unrecognized option: $1"
+    ;;
+esac
+
