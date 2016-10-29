@@ -33,19 +33,3 @@ alias wget='wget --no-hsts'
 ## prevents the creation of the '~/.lesshst' file
 export LESSHISTFILE="/dev/null"
 
-if [ "$(hostname -s)" == "DJKubuntu" ]; then
-  export psWhere="$(hostname -s)"
-  export psWho="djkessler"
-	export pscolor=$BIBlue
-	export delimColor=$BIYellow
-elif [ "$USER" == "vagrant" ]; then
-  export psWhere="VAGRANT"
-  export psWho="VAGRANT"
-	export pscolor=$Red
-	export delimColor=$BIBlack
-else
-  export psWhere="$(hostname -s)"
-  export psWho=$USER
-	export pscolor=$BIRed
-	export delimColor=$BICyan
-fi

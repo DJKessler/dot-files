@@ -7,11 +7,13 @@ alias asteria='pushd $HOME/Documents/asteria/'
 PROMPT_DIRTRIM=2
 
 function user_at_host {
-  local __open="$delimColor["
-  local __shut="$delimColor]$Color_Off"
-  local __who="$pscolor\u"
-  local __sep="$delimColor@"
-  local __where="$pscolor\h"
+  local __pscolor=$BIRed
+  local __delim_color=$BICyan
+  local __open="$__delim_color["
+  local __shut="$__delim_color]$Color_Off"
+  local __who="$__pscolor\u"
+  local __sep="$__delim_color@"
+  local __where="$__pscolor\h"
   echo "$__open$__who$__sep$__where$__shut"
 }
 
