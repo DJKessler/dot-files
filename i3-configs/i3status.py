@@ -28,13 +28,23 @@ status.register("network",
 # hh:mm:ss mm-dd-yyyy
 status.register("clock", format=" %H:%M:%S %m-%d-%Y ", )
 
-cpu_temp_path = "/sys/devices/platform/coretemp.0/hwmon/"
-if os.path.isfile(cpu_temp_path + "hwmon0/temp1_input"):
-    cpu_temp_file = cpu_temp_path + "hwmon0/temp1_input"
-elif os.path.isfile(cpu_temp_path + "hwmon1/temp1_input"):
-    cpu_temp_file = cpu_temp_path + "hwmon1/temp1_input"
-else:
-    cpu_temp_file = ""
+def find_temp_input(path):
+    file_pattern = 'temp1_input'
+    for root, dirs, files in os.walk(path):
+        for name in files:
+            if fnmatch.fnmatch(name, file_pattern):
+                return os.path.join(root, name)
+    return ""
+
+def find_coretemp_dir():
+    dir_pattern = 'coretemp.[0-9]'
+    for root, dirs, files in os.walk('/sys/devices/platform'):
+        for name in dirs:
+            if fnmatch.fnmatch(name, dir_pattern):
+                return os.path.join(root, name)
+    return ""
+
+cpu_temp_file = find_temp_input(find_coretemp_dir())
 
 # Shows your CPU temperature, if you have a Intel CPU
 status.register("temp",
