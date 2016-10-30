@@ -12,7 +12,7 @@
 #   pip3 install --user basiciw colour i3pystatus netifaces psutil
 
 from i3pystatus import Status
-import os.path
+import os, fnmatch
 
 status = Status()
 
@@ -59,20 +59,24 @@ status.register("fanspeed",
 
 # The battery monitor has many formatting options, see README for details
 
-# This would look like this:
-# Discharging 6h:51m
-status.register("battery",
-                format="\U0001F50B  {status}{remaining:%E %hh:%Mm}",
-                alert=True,
-                alert_percentage=5,
-                full_color="#efef8f",
-                charging_color="#009900",
-                critical_color="#ff0000",
-                status={
-                    "DIS": "\U00002193",
-                    "CHR": "\U0001F50C",
-                    "FULL": "FULL",
-                }, )
+for root, dirs, files in os.walk('/sys/class/power_supply'):
+    if not dirs:
+        break
+    else:
+        status.register("battery",
+                        format="\U0001F50B  {status}{remaining:%E %hh:%Mm}",
+                        alert=True,
+                        alert_percentage=5,
+                        full_color="#efef8f",
+                        charging_color="#009900",
+                        critical_color="#ff0000",
+                        status={
+                            "DIS": "\U00002193",
+                            "CHR": "\U0001F50C",
+                            "FULL": "FULL",
+                        }, )
+        break
+
 
 # Shows disk usage of /
 # Format:
