@@ -17,12 +17,7 @@ import os.path
 status = Status()
 
 # Note: requires both netifaces and basiciw (for essid and quality)
-status.register("network",
-                interface="wlp4s0",
-                format_up="{essid} {quality:3.0f}%",
-                color_down="#ff0000",
-                color_up="#00ff00",
-                )
+status.register("network", )
 
 # Displays clock like this:
 # hh:mm:ss mm-dd-yyyy
