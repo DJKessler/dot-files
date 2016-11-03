@@ -12,12 +12,28 @@
 #   pip3 install --user basiciw colour i3pystatus netifaces psutil
 
 from i3pystatus import Status
+from i3pystatus.network import Network, sysfs_interface_up
 import os, fnmatch
 
 status = Status()
 
+
+class NetworkUp(Network):
+    """
+    Modified Network class that automatic switch interface in case of
+    the current interface is down.
+    """
+    on_upscroll = None
+    on_downscroll = None
+
+    def run(self):
+        super().run()
+        if not sysfs_interface_up(self.interface, self.unknown_up):
+            self.cycle_interface()
+
+
 # Note: requires both netifaces and basiciw (for essid and quality)
-status.register("network", )
+status.register(NetworkUp, )
 
 # Displays clock like this:
 # hh:mm:ss mm-dd-yyyy
