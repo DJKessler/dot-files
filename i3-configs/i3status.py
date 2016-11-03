@@ -23,6 +23,7 @@ status.register("network", )
 # hh:mm:ss mm-dd-yyyy
 status.register("clock", format=" %H:%M:%S %m-%d-%Y ", )
 
+
 def find_temp_input(path):
     file_pattern = 'temp1_input'
     for root, dirs, files in os.walk(path):
@@ -30,6 +31,7 @@ def find_temp_input(path):
             if fnmatch.fnmatch(name, file_pattern):
                 return os.path.join(root, name)
     return ""
+
 
 def find_coretemp_dir():
     dir_pattern = 'coretemp.[0-9]'
@@ -39,6 +41,7 @@ def find_coretemp_dir():
                 return os.path.join(root, name)
     return ""
 
+
 cpu_temp_file = find_temp_input(find_coretemp_dir())
 
 # Shows your CPU temperature, if you have a Intel CPU
@@ -46,14 +49,6 @@ status.register("temp",
                 format="CPU: {temp:.0f}°C",
                 file=cpu_temp_file,
                 alert_temp=80,
-                interval=1,
-                )
-
-# Shows your CPU temperature, if you have a Intel CPU
-status.register("fanspeed",
-                file="/sys/devices/platform/applesmc.768/fan1_output",
-                format="FAN: {speed:0.0f}%",
-                max=6156,
                 interval=1,
                 )
 
@@ -76,7 +71,6 @@ for root, dirs, files in os.walk('/sys/class/power_supply'):
                             "FULL": "FULL",
                         }, )
         break
-
 
 # Shows disk usage of /
 # Format:
