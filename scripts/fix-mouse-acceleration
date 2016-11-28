@@ -1,13 +1,7 @@
 #!/bin/bash
 
 razer_id=`xinput | grep -o -P '.Razer Razer DeathAdder.*=.[0-9]{0,3}' | cut -d= -f2`
-lab_mouse_id=`xinput | grep -o -P 'Logitech USB-PS/2 Optical Mouse.*=.[0-9]{0,3}' | cut -d= -f2`
 
 if [ ! -z "$razer_id" ]; then
-  xinput --set-prop "$razer_id" "Device Accel Constant Deceleration" 4
-  xinput --set-prop "$razer_id" "Device Accel Velocity Scaling" 1
-fi
-
-if [ ! -z "$lab_mouse_id" ]; then
-  xinput --set-prop "$lab_mouse_id" "Accel Speed" 0.0;
+  xinput --set-prop "$razer_id" "libinput Accel Speed" -0.9
 fi
