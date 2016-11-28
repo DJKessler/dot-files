@@ -21,6 +21,7 @@ function color_path {
   echo "$BYellow\w$Color_Off"
 }
 
+export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWCOLORHINTS=true
 export PROMPT_COMMAND='__git_ps1 "$(user_at_host) $(color_path)" " \\\$ "'
