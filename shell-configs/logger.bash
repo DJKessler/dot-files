@@ -9,3 +9,5 @@ envlog() {
     ts >> "$ENV_LOG" "$@"
   fi
 }
+
+export -f envlog

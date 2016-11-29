@@ -7,8 +7,8 @@
 #  imagemagick
 #  i3
 
-if [ -f "$dot_dir/shell-configs/logger.bash" ]; then
-  source "$dot_dir/shell-configs/logger.bash";
+if [ -f "$HOME/.unixrc/shell-configs/logger.bash" ]; then
+  source "$HOME/.unixrc/shell-configs/logger.bash";
 fi
 
 if ! command -v scrot >/dev/null 2>&1; then
