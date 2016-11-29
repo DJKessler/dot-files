@@ -7,18 +7,9 @@
 #  imagemagick
 #  i3
 
-# log file location
-# ENV_LOG="$HOME/env.log"
-
-ts() { printf '%s\t%s\t\n' "$(date)" "$*"; }
-
-envlog() {
-  if [ -z ${ENV_LOG+x} ]; then
-    logger "$@";
-  else
-    ts >> "$ENV_LOG" "$@"
-  fi
-}
+if [ -f "$dot_dir/shell-configs/logger.bash" ]; then
+  source "$dot_dir/shell-configs/logger.bash";
+fi
 
 if ! command -v scrot >/dev/null 2>&1; then
   envlog "scrot is not installed, try apt-get install scrot";

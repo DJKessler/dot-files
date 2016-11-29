@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+export ENV_LOG="$HOME/env.log";
+
+source "$HOME/.unixrc/shell-configs/logger.bash";
+
 if [ ! -e "/usr/bin/i3" ]; then
-  logger "i3wm is not installed!";
+  envlog "i3wm is not installed!";
 elif [ -e "$HOME/.xinitrc-local" ]; then
-  logger "Sourcing $HOME/.xinitrc-local";
+  envlog "Sourcing $HOME/.xinitrc-local";
   source "$HOME/.xinitrc-local";
 fi
