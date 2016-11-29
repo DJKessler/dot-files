@@ -124,5 +124,56 @@ link_dir "$HOME/.urxvt" "$dot_file_repo_dir/urxvt-cfgs"
 #################################################################
 link_dot_file "$HOME/.gitconfig" "$dot_file_repo_dir/git.config"
 
+#################################################################
+## Get rid of annoying default directories                     ##
+#################################################################
+sed -i 's/^\(XDG_TEMPLATES_DIR=\)\"\$HOME\/\(Templates\)\"$/\1\"\/tmp\/\2\"/' \
+  $HOME/.config/user-dirs.dirs
+
+sed -i 's/^\(XDG_PUBLICSHARE_DIR=\)\"\$HOME\/\(Public\)\"$/\1\"\/tmp\/\2\"/' \
+  $HOME/.config/user-dirs.dirs
+
+sed -i 's/^\(XDG_MUSIC_DIR=\)\"\$HOME\/\(Music\)\"$/\1\"\/tmp\/\2\"/' \
+  $HOME/.config/user-dirs.dirs
+
+sed -i 's/^\(XDG_PICTURES_DIR=\)\"\$HOME\/\(Pictures\)\"$/\1\"\/tmp\/\2\"/' \
+  $HOME/.config/user-dirs.dirs
+
+sed -i 's/^\(XDG_VIDEOS_DIR=\)\"\$HOME\/\(Videos\)\"$/\1\"\/tmp\/\2\"/' \
+  $HOME/.config/user-dirs.dirs
+
+#################################################################
+## Move the existing annoying default directories to tmp       ##
+#################################################################
+if [ -d "$HOME/Templates" ]; then
+  echo "Moving $HOME/Templates to /tmp/Templates"
+  mv "$HOME/Templates" "/tmp/Templates"
+fi
+
+if [ -d "$HOME/Public" ]; then
+  echo "Moving $HOME/Public to /tmp/Public"
+  mv "$HOME/Public" "/tmp/Public"
+fi
+
+if [ -d "$HOME/Music" ]; then
+  echo "Moving $HOME/Music to /tmp/Music"
+  mv "$HOME/Music" "/tmp/Music"
+fi
+
+if [ -d "$HOME/Pictures" ]; then
+  echo "Moving $HOME/Pictures to /tmp/Pictures"
+  mv "$HOME/Pictures" "/tmp/Pictures"
+fi
+
+if [ -d "$HOME/Videos" ]; then
+  echo "Moving $HOME/Videos to /tmp/Videos"
+  mv "$HOME/Videos" "/tmp/Videos"
+fi
+
+#################################################################
+## Remove stupid 'examples.desktop' file                       ##
+#################################################################
+rm -rf "$HOME/examples.desktop"
+
 exit 0
 
