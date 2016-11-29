@@ -81,6 +81,11 @@ if [ -d "$dot_file_repo_dir" ]; then
   git submodule update
 fi
 
+if [ -f "$shell_cfgs_dir/base16-shell/profile_helper.sh" ]; then
+  echo "initializing base16 profiles";
+  source "$shell_cfgs_dir/base16-shell/profile_helper.sh"
+fi
+
 #################################################################
 ## link in our grep-ackrc file                                 ##
 #################################################################
