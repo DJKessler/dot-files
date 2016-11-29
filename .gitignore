@@ -3,3 +3,5 @@
 *.pyc
 
 vim.d/bundle/**
+
+shell-configs/base16.Xresources
