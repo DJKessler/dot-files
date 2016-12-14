@@ -11,4 +11,6 @@
 #
 # clion IDE project files
 #
-**/.idea/**
+.idea/
+
+build/
