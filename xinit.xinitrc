@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export ENV_LOG="$HOME/env.log";
+# export ENV_LOG="$HOME/env.log";
 
 source "$HOME/.unixrc/shell-configs/logger.bash";
 
