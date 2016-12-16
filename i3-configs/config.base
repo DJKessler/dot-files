@@ -209,9 +209,9 @@ bar {
     statusline         $yellow
     # <colorclass>     <border>      <background>  <text>
     focused_workspace  $yellow       $background   $yellow
-    active_workspace   $green        $green        $white
+    active_workspace   $background   $background   $white
     inactive_workspace $background   $background   $yellow
-    urgent_workspace   $bblack       $bblack       $white
+    urgent_workspace   $white        $bred         $white
   }
 }
 
