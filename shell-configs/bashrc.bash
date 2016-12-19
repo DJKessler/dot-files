@@ -1,10 +1,4 @@
-##
-## begin performance profiling of bashrc
-##
-#PS4='+ $(date "+%s.%N")\011 '
-#exec 3>&2 2>/tmp/bashstart.$$.log
-#set -x
-
+# make our editor vim
 export EDITOR=/usr/bin/vim
 
 dot_dir="$HOME/.unixrc"
@@ -38,25 +32,12 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then ############################ this is osx
   fi
 fi
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-# export HISTCONTROL=ignoredups:erasedups
-
-# attempt to save all lines of a multiple line command in the same history
-# entry. This allows easy re-editing of multi line commands.
-# shopt -s cmdhist
-
-# append to the history file, don't overwrite it
-# shopt -s histappend
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=100000
 export HISTFILESIZE=1000000
 export HISTCONTROL=ignorespace:ignoredups
 
-#
 # override the bash's default history() function
-#
 history() {
   _bash_history_sync
   builtin history "$@"
@@ -83,12 +64,7 @@ PROMPT_COMMAND=_bash_history_sync
 export PROMPT_DIRTRIM=2
 
 # set the commands that should not be saved to history
-#export HISTIGNORE="&:pwd:clear:[bf]g:exit:[ \t]*"
 export HISTIGNORE="[bf]g:exit"
-
-# the contents of the PROMPT_COMMAND environement variable are executed as a
-# regular bash command just before Bash displays a prompt
-#export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -97,9 +73,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
 force_color_prompt=yes
 color_prompt=yes
 
@@ -148,9 +121,3 @@ if command -v ninja >/dev/null 2>&1; then
 fi
 
 export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quote=01'
-
-##
-## end performance profiling of bashrc
-##
-#set +x
-#exec 2>&3 3>&-
