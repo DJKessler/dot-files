@@ -37,7 +37,7 @@ status.register(NetworkUp, )
 
 # Displays clock like this:
 # hh:mm:ss mm-dd-yyyy
-status.register("clock", format=" %H:%M:%S %m-%d-%Y ", )
+status.register("clock", format="%H:%M:%S %m-%d-%Y", )
 
 
 def find_temp_input(path):

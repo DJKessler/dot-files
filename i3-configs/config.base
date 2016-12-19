@@ -203,6 +203,7 @@ bar {
   tray_output primary
   font pango:monospace 10
   status_command python3 ~/.unixrc/i3-configs/i3status.py
+  separator_symbol   "|"
   colors {
     separator          $yellow
     background         $background

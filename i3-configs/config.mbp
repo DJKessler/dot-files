@@ -1,4 +1,4 @@
-# i3 config file (v4) for MacbookPro running ubuntu 14.04
+# i3 config file (v4) for MacbookPro
 
 # make mouse accel be 1-to-1
 exec --no-startup-id "xset mouse 1 1"
