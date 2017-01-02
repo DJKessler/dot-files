@@ -18,6 +18,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
   Plugin 'https://github.com/vim-scripts/cscope.vim.git'
   Plugin 'https://github.com/chriskempson/base16-vim.git'
+  Plugin 'https://github.com/inside/vim-search-pulse.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
