@@ -13,6 +13,14 @@ def get_specific_line(file, line_number):
     for aline in islice(file, line_number - 1, line_number):
         return aline
 
+def word_length_is_good(word):
+    word_len = len(word)
+    return word_len == 6
+
+
+def word_is_good(word):
+    return word.isalpha() and word_length_is_good(word)
+
 
 def random_lines(file_name, num_lines):
     num_lines_in_file = sum(1 for line in open(fname))
@@ -22,9 +30,9 @@ def random_lines(file_name, num_lines):
         with open(file_name) as fp:
             line = get_specific_line(fp, line_num)
             # drop newline character
-            aline_chars = line[:-1]
-            if aline_chars.isalpha() and len(aline_chars) > _WORD_LEN_MIN:
-                lines.append(aline_chars)
+            line = line[:-1]
+            if word_is_good(line):
+                lines.append(line)
     return lines
 
 
