@@ -5,6 +5,7 @@ min_params=3
 if [ $# -lt "$min_params" ]
 then
   echo "Usage: $0 <internal_display> <left external display> <right external display>"
+  exit -1
 fi
 
 internal="$1"
