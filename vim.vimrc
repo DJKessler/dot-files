@@ -19,6 +19,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/vim-scripts/cscope.vim.git'
   Plugin 'https://github.com/chriskempson/base16-vim.git'
   Plugin 'https://github.com/inside/vim-search-pulse.git'
+  Plugin 'https://github.com/junegunn/vim-easy-align.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
@@ -120,6 +121,9 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
+
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""" vim-airline """"""""""""""""""""""""""""""""""
