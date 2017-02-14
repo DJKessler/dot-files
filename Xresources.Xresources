@@ -14,7 +14,7 @@ URxvt*scrollBar:               false
 ! do not scroll with output
 URxvt*scrollTtyOutput:         false
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer:        false
+URxvt*scrollWithBuffer:        true
 ! number of lines saved in the scrollback buffer
 URxvt*saveLines:               65535
 
