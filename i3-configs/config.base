@@ -224,6 +224,8 @@ mode "pass-through" {
 # disable i3's capture of $mod key
 bindsym $mod+t mode "pass-through"
 
+exec --no-startup-id "~/.unixrc/i3-scripts/set-wallpaper"
+
 exec --no-startup-id "xautolock"
 
 exec --no-startup-id "xss-lock -- ~/.unixrc/i3-scripts/i3-lock lock"
