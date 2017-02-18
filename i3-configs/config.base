@@ -161,35 +161,32 @@ bindsym $mod+Shift+e exec --no-startup-id "~/.unixrc/i3-scripts/i3-exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  set $step 1
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym j         resize shrink width  $step px or $step ppt
+  bindsym k         resize grow   height $step px or $step ppt
+  bindsym l         resize shrink height $step px or $step ppt
+  bindsym semicolon resize grow   width  $step px or $step ppt
+  bindsym Left      resize shrink width  $step px or $step ppt
+  bindsym Down      resize grow   height $step px or $step ppt
+  bindsym Up        resize shrink height $step px or $step ppt
+  bindsym Right     resize grow   width  $step px or $step ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 mode "grow" {
-    bindsym Up    resize grow down    5px, resize grow up       5px
-    bindsym Down  resize shrink down  5px, resize shrink up     5px
-    bindsym Right resize grow right   5px, resize grow left     5px
-    bindsym Left  resize shrink right 5px, resize shrink left   5px
-    bindsym $mod+g mode "default"
-    bindsym Escape mode "default"
+  set $step 5
+
+  bindsym Up    resize grow   down  $step px, resize grow   up   $step px
+  bindsym Down  resize shrink down  $step px, resize shrink up   $step px
+  bindsym Right resize grow   right $step px, resize grow   left $step px
+  bindsym Left  resize shrink right $step px, resize shrink left $step px
+
+  bindsym $mod+g mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+g focus floating; mode "grow"
