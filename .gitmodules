@@ -7,3 +7,12 @@
 [submodule "shell-configs/base16-xresources"]
 	path = shell-configs/base16-xresources
 	url = git://github.com/chriskempson/base16-xresources.git
+[submodule "shell-configs/zsh-custom/plugins/zsh-autosuggestions"]
+	path = shell-configs/zsh-custom/plugins/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions
+[submodule "shell-configs/zsh-custom/plugins/zsh-completions"]
+	path = shell-configs/zsh-custom/plugins/zsh-completions
+	url = git://github.com/zsh-users/zsh-completions
+[submodule "shell-configs/oh-my-zsh"]
+	path = shell-configs/oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git

@@ -21,7 +21,6 @@ copy_dot_file() {
   echo ""
 }
 
-
 link_dot_file() {
   link_dest="$1"
   link_src="$2"
@@ -97,11 +96,15 @@ link_dot_file "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
 link_dot_file "$HOME/.bashrc" "$shell_cfgs_dir/bashrc.bash"
 
 #################################################################
+## link in our zshrc file                                      ##
+#################################################################
+link_dot_file "$HOME/.zshrc" "$shell_cfgs_dir/zshrc.zsh"
+
+#################################################################
 ## link in our xinitrc file                                    ##
 #################################################################
 link_dot_file "$HOME/.xinitrc" "$dot_file_repo_dir/xinit.xinitrc"
 copy_dot_file "$dot_file_repo_dir/xinit.local" "$HOME/.xinitrc-local"
-
 
 #################################################################
 ## link in our vimrc file                                      ##
