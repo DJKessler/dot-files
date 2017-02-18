@@ -1,7 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-razer_id=`xinput | grep -o -P '.Razer Razer DeathAdder.*=.[0-9]{0,3}' | cut -d= -f2`
+razer_id='Razer Razer DeathAdder'
+prop_id="libinput Accel Speed"
 
-if [ ! -z "$razer_id" ]; then
-  xinput --set-prop "$razer_id" "libinput Accel Speed" -0.9
+if [ -f "$HOME/.unixrc/shell-configs/logger.bash" ]; then
+  source "$HOME/.unixrc/shell-configs/logger.bash";
+fi
+
+me=`basename "$0"`
+
+xinput --set-prop "$razer_id" "$prop_id" -0.9
+
+if [ "$?" -eq 0 ]; then
+  envlog "[$me]: xinput succeeded"
+else
+  envlog "[$me]: xinput failed"
 fi
