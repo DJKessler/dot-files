@@ -45,7 +45,7 @@ fi
 
 case "$1" in
   lock)
-    locked && envlog "Already locked, not re-locking" && exit 1;
+    locked && exit 1;
     envlog "Locking"
     generate_lock_screen
     i3lock --ignore-empty-password --inactivity-timeout=10 --image="$tmpbg" \
@@ -53,7 +53,6 @@ case "$1" in
     ;;
 
   screen-off)
-    envlog "Shutting off displays"
     xset dpms force off
     ;;
 
