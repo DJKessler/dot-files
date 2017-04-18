@@ -65,7 +65,7 @@ ZSH_CUSTOM="$shell_cfg_dir/zsh-custom"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to $ZSH/custom/plugins/
-plugins=(git zsh-completions zsh-autosuggestions ssh-agent)
+plugins=(git zsh-completions zsh-autosuggestions ssh-agent pip)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
