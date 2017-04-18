@@ -7,7 +7,7 @@
 #  feh
 
 # directory to select wallpaper from
-WALLPAPER_DIR="$HOME/wallpapers"
+WALLPAPER_DIR="$HOME/.wallpapers"
 DATE=`date '+%m/%d/%Y %H:%M:%S %p'`
 
 if [ ! -d "$WALLPAPER_DIR/" ]; then
