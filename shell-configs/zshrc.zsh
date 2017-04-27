@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=100000
+HISTSIZE=100000
+SAVEHIST=1000000
 setopt appendhistory beep nomatch
 unsetopt autocd extendedglob notify
 bindkey -e
@@ -128,3 +128,5 @@ fi
 
 export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quote=01'
 alias ls='ls -l --color=auto'
+
+alias dirs='dirs -v'
