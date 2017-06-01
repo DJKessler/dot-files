@@ -32,6 +32,7 @@ set modelines=0
 set backspace=2                         " more powerful backspacing
 set number                              " set line numbers to on
 set ruler                               " show the cursor position
+set nocursorline                        " disable cursorline
 set incsearch                           " search as characters are entered
 set showmatch                           " highlight matching [{()}]
 
@@ -83,10 +84,6 @@ let g:SuperTabRetainCompletionType=2
 " the following commands enable tab completion for auto-complete
 inoremap <expr><Enter>  pumvisible() ? "\<C-Y>" : "\<Enter>"
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" the following commands cause vim to jump to the last cursor position
-autocmd BufWinLeave *.* mkview
-autocmd VimEnter *.* silent loadview
 
 map <F7> :tabp <CR>
 map <F8> :tabn <CR>
