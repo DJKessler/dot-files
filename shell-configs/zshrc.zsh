@@ -103,23 +103,8 @@ fi
 
 local_dir="$HOME/.local"
 
-# clion IDE path
-if [ -d "$local_dir/clion/bin" ]; then
-  export PATH="$PATH:$local_dir/clion/bin"
-fi
-
-# pycharm IDE path
-if [ -d "$local_dir/pycharm/bin" ]; then
-  export PATH="$PATH:$local_dir/pycharm/bin"
-fi
-
-# intellij IDE path
-if [ -d "$local_dir/intellij/bin" ]; then
-  export PATH="$PATH:$local_dir/intellij/bin"
-fi
-
-if [ -d "$local_dir/SalaeaLogic" ]; then
-  export PATH="$PATH:$local_dir/SalaeaLogic"
+if [ -d $local_dir ]; then
+  export PATH="$PATH:$local_dir/bin"
 fi
 
 if [ -d /usr/lib/ccache ]; then
