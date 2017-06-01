@@ -122,6 +122,16 @@ bindsym $mod+Prior workspace prev
 # screenshot
 bindsym Print exec "gnome-screenshot --interactive"
 
+set $ws1  "1:firefox"
+set $ws2  "2:mail"
+set $ws9  "9:vnc"
+set $ws10 "10:logs"
+
+bindsym $mod+F1 workspace $ws1
+bindsym $mod+F2 workspace $ws2
+bindsym $mod+F9  workspace $ws9
+bindsym $mod+F10  workspace $ws10
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -135,6 +145,11 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
+bindsym $mod+Shift+F1 move container to workspace $ws1
+bindsym $mod+Shift+F2 move container to workspace $ws2
+bindsym $mod+Shift+F9 move container to workspace $ws9
+bindsym $mod+Shift+F10 move container to workspace $ws10
+
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -191,6 +206,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+  strip_workspace_numbers yes
   tray_output primary
   font pango:monospace 10
   status_command python3 ~/.unixrc/i3-configs/i3status.py
