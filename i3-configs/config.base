@@ -9,15 +9,10 @@ set $mod Mod1
 font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id "~/.unixrc/scripts/fix-mouse-acceleration"
-exec --no-startup-id "/usr/bin/nm-applet"
 
 # this sets the keyboard repeat rate
 exec --no-startup-id "xset r rate 200 30"
 
-# this prevents a nautilus desktop window from being launched when a file
-# manager window is opened
-exec --no-startup-id "gsettings set org.gnome.desktop.background \
-                      show-desktop-icons false"
 
 set_from_resource $background     color0     #000000
 set_from_resource $red            color1     #000000
