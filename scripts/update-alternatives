@@ -4,13 +4,20 @@ bin="/usr/bin"
 prefix="x86_64-linux-gnu"
 
 sudo update-alternatives --install "$bin/gcc"          gcc           "$bin/gcc-4.9"     100 \
-                         --slave   "$bin/g++"          g++           "$bin/g++-4.9"
+                         --slave   "$bin/g++"          g++           "$bin/g++-4.9"         \
+                         --slave   "$bin/gfortran"     gfortran      "$bin/gfortran-4.9"
+
+sudo update-alternatives --install "$bin/gcc"          gcc           "$bin/gcc-5"     100 \
+                         --slave   "$bin/g++"          g++           "$bin/g++-5"         \
+                         --slave   "$bin/gfortran"     gfortran      "$bin/gfortran-5"
 
 sudo update-alternatives --install "$bin/gcc"          gcc           "$bin/gcc-6"       100 \
-                         --slave   "$bin/g++"          g++           "$bin/g++-6"
+                         --slave   "$bin/g++"          g++           "$bin/g++-6"           \
+                         --slave   "$bin/gfortran"     gfortran      "$bin/gfortran-6"
 
-sudo update-alternatives --install "$bin/$prefix-gcc"  "$prefix-gcc" "$bin/gcc"         100 \
-                         --slave   "$bin/$prefix-g++"  "$prefix-g++" "$bin/g++"
+sudo update-alternatives --install "$bin/$prefix-gcc"       "$prefix-gcc" "$bin/gcc"         100 \
+                         --slave   "$bin/$prefix-g++"       "$prefix-g++" "$bin/g++"             \
+                         --slave   "$bin/$prefix-gfortran"  "$prefix-gfortran" "$bin/gfortran"
 
 sudo update-alternatives --install "$bin/clang"        clang         "$bin/clang-3.9"   100 \
                          --slave   "$bin/clang++"      clang++       "$bin/clang++-3.9"     \
