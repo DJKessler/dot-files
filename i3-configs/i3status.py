@@ -98,15 +98,4 @@ status.register("disk", path="/", format="Disk: {used} [{avail}G]", )
 # Note: requires libpulseaudio from PyPI
 status.register("pulseaudio", format="♪{volume}", )
 
-# Shows mpd status
-# Format:
-# Cloud connected▶Reroute to Remain
-status.register("mpd",
-                format="{title}{status}{album}",
-                status={
-                    "pause": "▷",
-                    "play": "▶",
-                    "stop": "◾",
-                }, )
-
 status.run()
