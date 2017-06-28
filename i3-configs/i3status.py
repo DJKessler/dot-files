@@ -89,9 +89,7 @@ for root, dirs, files in os.walk('/sys/class/power_supply'):
         break
 
 # Shows disk usage of /
-# Format:
-# 42/128G [86G]
-status.register("disk", path="/", format="Disk: {used} [{avail}G]", )
+# status.register("disk", path="/", format="Disk '/': {used} [{avail}G]", )
 
 # Shows pulseaudio default sink volume
 #
