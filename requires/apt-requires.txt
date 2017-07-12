@@ -1,0 +1,6 @@
+libiw-dev
+feh
+scrot
+imagemagick
+xss-lock
+xautolock
