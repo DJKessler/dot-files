@@ -20,6 +20,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/chriskempson/base16-vim.git'
   Plugin 'https://github.com/inside/vim-search-pulse.git'
   Plugin 'https://github.com/junegunn/vim-easy-align.git'
+  Plugin 'https://github.com/vim-scripts/VisIncr.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
