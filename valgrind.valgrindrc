@@ -1,6 +1,5 @@
 --memcheck:leak-check=full
 --memcheck:track-origins=yes
 --memcheck:track-fds=yes
-# --memcheck:show-reachable=no
 --memcheck:show-possibly-lost=yes
 --memcheck:error-exitcode=1
