@@ -109,7 +109,7 @@ bindsym $mod+Next workspace next
 bindsym $mod+Prior workspace prev
 
 # screenshot
-bindsym Print exec "gnome-screenshot --interactive"
+bindsym Print exec "lximage-qt --screenshot"
 
 # leftmost named workspaces
 set $ws_firefox  "0:firefox"
