@@ -48,8 +48,7 @@ case "$1" in
     locked && exit 1;
     envlog "Locking"
     generate_lock_screen
-    i3lock --ignore-empty-password --inactivity-timeout=10 --image="$tmpbg" \
-      --nofork &
+    i3lock --ignore-empty-password --image="$tmpbg" --nofork &
     ;;
 
   screen-off)
