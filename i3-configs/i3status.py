@@ -13,7 +13,8 @@
 
 from i3pystatus import Status
 from i3pystatus.network import Network, sysfs_interface_up
-import os, fnmatch
+import os
+import fnmatch
 
 status = Status()
 
@@ -42,19 +43,19 @@ status.register("clock", format="%H:%M:%S %m-%d-%Y", )
 
 def find_temp_input(path):
     file_pattern = 'temp1_input'
-    for root, dirs, files in os.walk(path):
-        for name in files:
+    for root_dir, subdirs, all_files in os.walk(path):
+        for name in all_files:
             if fnmatch.fnmatch(name, file_pattern):
-                return os.path.join(root, name)
+                return os.path.join(root_dir, name)
     return ""
 
 
 def find_coretemp_dir():
     dir_pattern = 'coretemp.[0-9]'
-    for root, dirs, files in os.walk('/sys/devices/platform'):
-        for name in dirs:
+    for root_dir, subdirs, all_files in os.walk('/sys/devices/platform'):
+        for name in subdirs:
             if fnmatch.fnmatch(name, dir_pattern):
-                return os.path.join(root, name)
+                return os.path.join(root_dir, name)
     return ""
 
 
