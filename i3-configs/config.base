@@ -13,7 +13,8 @@ exec --no-startup-id "~/.unixrc/scripts/fix-mouse-acceleration"
 # this sets the keyboard repeat rate
 exec --no-startup-id "xset r rate 200 30"
 
-
+#
+# set i3 colors from Xresources
 set_from_resource $background     color0     #000000
 set_from_resource $red            color1     #000000
 set_from_resource $green          color2     #000000
@@ -127,16 +128,16 @@ set $ws9  "19:9"
 set $ws10 "20:10"
 
 # rightmost named workspaces
-set $ws_vnc  "31:vnc"
-set $ws_logs "32:logs"
-set $ws_tor  "33:tor"
+set $ws_log "32:F10:logs"
+set $ws_vnc "33:F11:vnc"
 
-# named workspace switching
+# leftmost workspace switching
 bindsym $mod+F1  workspace $ws_firefox
 bindsym $mod+F2  workspace $ws_mail
-bindsym $mod+F9  workspace $ws_vnc
-bindsym $mod+F10 workspace $ws_logs
-bindsym $mod+F12 workspace $ws_tor
+
+# rightmost workspace switching
+bindsym $mod+F10 workspace $ws_log
+bindsym $mod+F11 workspace $ws_vnc
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -153,9 +154,8 @@ bindsym $mod+0 workspace $ws10
 # named workspace moving
 bindsym $mod+Shift+F1  move container to workspace $ws_firefox
 bindsym $mod+Shift+F2  move container to workspace $ws_mail
-bindsym $mod+Shift+F9  move container to workspace $ws_vnc
-bindsym $mod+Shift+F10 move container to workspace $ws_logs
-bindsym $mod+Shift+F12 move container to workspace $ws_tor
+bindsym $mod+Shift+F10 move container to workspace $ws_log
+bindsym $mod+Shift+F11 move container to workspace $ws_vnc
 
 # general purpose workspace moving
 bindsym $mod+Shift+1 move container to workspace $ws1
