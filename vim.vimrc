@@ -40,7 +40,6 @@ set showmatch                           " highlight matching [{()}]
 set expandtab                           " tabs are spaces
 set tabstop=2                           " set tab length to 2 spaces
 set shiftwidth=2                        " set number of columns inserted for indentation
-match ErrorMsg '\s\+$'                  " shows trailing whitespace as error
 
 syntax on                               " syntax highlighting
 set hlsearch                            " highlight the last searched term
@@ -52,6 +51,14 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+""" highlight trailing whitespace as error
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 set colorcolumn=81                      " add a guideline at 80 characters wide
 
