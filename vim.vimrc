@@ -7,20 +7,20 @@ filetype off                        " required by Vundle plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim   " set the runtime path to include Vundle
 call vundle#begin()                 " initialize Vundle
 
-  Plugin 'https://github.com/gmarik/Vundle.vim.git'
-  Plugin 'https://github.com/scrooloose/nerdtree.git'
-  Plugin 'https://github.com/tpope/vim-fugitive.git'
-  Plugin 'https://github.com/dhruvasagar/vim-railscasts-theme.git'
-  Plugin 'https://github.com/bling/vim-airline.git'
-  Plugin 'https://github.com/bkad/CamelCaseMotion.git'
   Plugin 'https://github.com/Valloric/YouCompleteMe.git'
-  Plugin 'https://github.com/rhysd/vim-clang-format.git'
-  Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
-  Plugin 'https://github.com/vim-scripts/cscope.vim.git'
+  Plugin 'https://github.com/bkad/CamelCaseMotion.git'
+  Plugin 'https://github.com/bling/vim-airline.git'
   Plugin 'https://github.com/chriskempson/base16-vim.git'
+  Plugin 'https://github.com/dhruvasagar/vim-railscasts-theme.git'
+  Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/inside/vim-search-pulse.git'
   Plugin 'https://github.com/junegunn/vim-easy-align.git'
+  Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
+  Plugin 'https://github.com/rhysd/vim-clang-format.git'
+  Plugin 'https://github.com/scrooloose/nerdtree.git'
+  Plugin 'https://github.com/tpope/vim-fugitive.git'
   Plugin 'https://github.com/vim-scripts/VisIncr.git'
+  Plugin 'https://github.com/vim-scripts/cscope.vim.git'
 
 call vundle#end()                   " deinitialize Vundle
 filetype plugin indent on           " required by Vundle plugin manager
