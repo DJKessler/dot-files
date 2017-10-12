@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
 internal="eDP"
-left="DisplayPort-1"
-right="DisplayPort-0"
+dp0="DisplayPort-0"
+dp1="DisplayPort-1"
+hdmi="HDMI-0"
 
-$HOME/.unixrc/scripts/xrandr-macbook-15.sh $internal $left $right;
+xrandr --dpi 192 --output "$internal" --mode 2880x1800 --primary \
+       --output "$dp0" --off \
+       --output "$dp1" --off\
+       --output "$hdmi" --off
+
 i3-msg restart;
 $HOME/.unixrc/i3-scripts/set-wallpaper;
+
+rm -f "$HOME/.docked"
 
 # set keyboard autorepeat rate
 xset r rate 200 30
