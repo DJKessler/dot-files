@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
 internal="eDP"
-left="DisplayPort-1"
-right="DisplayPort-0"
 
-$HOME/.unixrc/scripts/xrandr-multi-monitor-setup.sh $internal $left $right;
-i3-msg restart;
-$HOME/.unixrc/i3-scripts/set-wallpaper;
+external=`xrandr | grep -E "\S+-[[:digit:]] connected" \
+                 | sed -E 's/(\S+-[[:digit:]]) connected.*/\1/'`
+
+if [[ ! -z "$external" ]]; then
+  xrandr --dpi 109 --output "$internal" --off --output "$external" --auto --primary
+  i3-msg restart;
+  "$HOME/.unixrc/i3-scripts/set-wallpaper";
+  touch "$HOME/.docked";
+fi
 
 # set keyboard autorepeat rate
 xset r rate 200 30
