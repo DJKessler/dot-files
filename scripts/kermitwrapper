@@ -6,26 +6,21 @@
 if test "$#" -lt 1; then
   echo "USAGE: kermitwrapper <device file> (e.g. kermitwrapper /dev/ttyUSB0)" 1>&2
   exit -1
-fi
-
-if [[ $1 == "cdh" ]]; then
-  device_name=/dev/cdh-flight-console;
-  device_path="$(readlink -f $device_name)";
-elif [[ $1 == "adc" ]]; then
-  device_name=/dev/adc-flight-console;
-  device_path="$(readlink -f $device_name)";
 else
-  device_name="$1";
-  device_path="$device_name";
+  device_path="$1";
 fi
 
+if test "$#" -eq 2; then
+  baud_rate="$2"
+else
+  baud_rate="115200"
+fi
 
 if test ! -e "$device_path"; then
-  echo -n "[`basename "$0"`]: No such device file: \'$device_name\'.";
+  echo -n "[`basename "$0"`]: No such device file: '$device_path'. ";
   echo "Is it plugged in?";
   exit -1;
 fi
-
 
 ##
 ## check if the device is locked
@@ -49,7 +44,7 @@ rand="$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
 kermit_file="/tmp/kermrc_$rand"
 
 echo "set line $device_path" > "$kermit_file";
-echo "set speed 115200" >> "$kermit_file";
+echo "set speed $baud_rate" >> "$kermit_file";
 echo "set parity none" >> "$kermit_file";
 echo "set carrier-watch off" >> "$kermit_file";
 echo "set flow-control none" >> "$kermit_file";
