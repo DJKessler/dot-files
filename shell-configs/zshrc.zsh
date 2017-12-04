@@ -30,7 +30,7 @@ if [ -d "$base16_xres_dir" ]; then
 fi
 
 # export PATH=$(getconf PATH)
-export PATH="$(getconf PATH):/sbin:/usr/sbin:/usr/lib:/usr/local/bin:/usr/local/sbin"
+export PATH="/usr/bin:/usr/sbin:/usr/lib:/usr/local/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$shell_cfg_dir/oh-my-zsh"
@@ -72,6 +72,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 source "$ZSH_CUSTOM/aliases/cmake-arm.zsh"
+source "$ZSH_CUSTOM/keybindings.zsh"
 
 local_dir="$HOME/.local"
 
