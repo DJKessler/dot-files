@@ -32,10 +32,6 @@ class NetworkUp(Network):
         if not sysfs_interface_up(self.interface, self.unknown_up):
             self.cycle_interface()
 
-
-# Note: requires both netifaces and basiciw (for essid and quality)
-status.register(NetworkUp, )
-
 # Displays clock like this:
 # hh:mm:ss mm-dd-yyyy
 status.register("clock", format="%H:%M:%S %m-%d-%Y", )
@@ -96,5 +92,8 @@ for root, dirs, files in os.walk('/sys/class/power_supply'):
 #
 # Note: requires libpulseaudio from PyPI
 status.register("pulseaudio", format="♪{volume}", )
+
+# Note: requires both netifaces and basiciw (for essid and quality)
+status.register(NetworkUp, )
 
 status.run()
