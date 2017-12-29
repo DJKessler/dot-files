@@ -4,3 +4,10 @@ scrot
 imagemagick
 xss-lock
 xautolock
+python-pip
+python3-pip
+silversearcher-ag
+xinput
+policykit-1
+python-gtk2-dev
+zsh
