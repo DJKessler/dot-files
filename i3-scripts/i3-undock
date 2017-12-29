@@ -11,7 +11,7 @@ xrandr --dpi 192 --output "$internal" --mode 2880x1800 --primary \
        --output "$hdmi" --off
 
 i3-msg restart;
-$HOME/.unixrc/i3-scripts/set-wallpaper;
+$HOME/.dot-files/i3-scripts/set-wallpaper;
 
 rm -f "$HOME/.docked"
 

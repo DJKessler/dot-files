@@ -8,7 +8,7 @@ external=`xrandr | grep -E "\S+-[[:digit:]] connected" \
 if [[ ! -z "$external" ]]; then
   xrandr --dpi 109 --output "$internal" --off --output "$external" --auto --primary
   i3-msg restart;
-  "$HOME/.unixrc/i3-scripts/set-wallpaper";
+  "$HOME/.dot-files/i3-scripts/set-wallpaper";
   touch "$HOME/.docked";
 fi
 

@@ -2,7 +2,7 @@
 
 # export ENV_LOG="$HOME/env.log";
 
-source "$HOME/.unixrc/shell-configs/logger.bash";
+source "$HOME/.dot-files/shell-configs/logger.bash";
 
 if [ ! -e "/usr/bin/i3" ]; then
   envlog "i3wm is not installed!";

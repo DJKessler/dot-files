@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dot_file_repo_dir="$HOME/.unixrc"
+dot_file_repo_dir="$HOME/.dot-files"
 shell_cfgs_dir="$dot_file_repo_dir/shell-configs"
 banner="****************************************"
 
@@ -68,9 +68,9 @@ link_dir() {
 #################################################################
 ## Rename the repository directory name to a dotfile           ##
 #################################################################
-if [ -d "$HOME/unixrc" ]; then
-  echo "Moving $HOME/unixrc to $dot_file_repo_dir"
-  mv "$HOME/unixrc" "$dot_file_repo_dir"
+if [ -d "$HOME/dot-files" ]; then
+  echo "Moving $HOME/dot-files to $dot_file_repo_dir"
+  mv "$HOME/dot-files" "$dot_file_repo_dir"
 fi
 
 if [ -d "$dot_file_repo_dir" ]; then

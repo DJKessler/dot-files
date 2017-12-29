@@ -20,7 +20,7 @@ URxvt*saveLines:               65535
 
 URxvt.letterSpace:             -2
 URxvt.font:                    xft:monospace:bold:pixelsize=18
-URxvt.perl-lib:                ~/.unixrc/urxvt-configs/
+URxvt.perl-lib:                ~/.dot-files/urxvt-configs/
 
 URxvt.perl-ext-common:         resize-font,selection-to-clipboard,pasta
 URxvt.resize-font.smaller:     C-Down
@@ -29,7 +29,7 @@ URxvt.resize-font.bigger:      C-Up
 URxvt.keysym.Control-Shift-V:  perl:pasta:paste
 URxvt.keysym.Control-Shift-C:  perl:pasta:copy
 
-#include ".unixrc/shell-configs/base16.Xresources"
+#include ".dot-files/shell-configs/base16.Xresources"
 
 
 ! Xautolock executes the 'Xautolock.notifier' command, 'Xautolock.notify'
@@ -48,11 +48,11 @@ Xautolock.time: 6
 Xautolock.killtime: 10
 
 ! lock the screen, before turning the screens off
-Xautolock.notifier: ~/.unixrc/i3-scripts/i3-lock lock
+Xautolock.notifier: ~/.dot-files/i3-scripts/i3-lock lock
 ! turn displays off before suspending
-Xautolock.locker: ~/.unixrc/i3-scripts/i3-lock screen-off
+Xautolock.locker: ~/.dot-files/i3-scripts/i3-lock screen-off
 ! suspend
-Xautolock.killer: ~/.unixrc/i3-scripts/i3-lock suspend
+Xautolock.killer: ~/.dot-files/i3-scripts/i3-lock suspend
 
 Xautolock.detectsleep: true
 Xautolock.secure: true

@@ -11,7 +11,7 @@ bindkey "" history-incremental-pattern-search-backward
 bindkey "^[Od" backward-word
 bindkey "^[Oc" forward-word
 
-dot_dir="$HOME/.unixrc"
+dot_dir="$HOME/.dot-files"
 shell_cfg_dir="$dot_dir/shell-configs"
 
 base16_shell_dir="$shell_cfg_dir/base16-shell"
@@ -29,8 +29,7 @@ if [ -d "$base16_xres_dir" ]; then
   [ ! -f ~/.base16_theme ] && base16_brewer
 fi
 
-# export PATH=$(getconf PATH)
-export PATH="/usr/bin:/usr/sbin:/usr/lib:/usr/local/bin"
+export PATH="$(getconf PATH):/usr/sbin:/usr/lib:/usr/local/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$shell_cfg_dir/oh-my-zsh"

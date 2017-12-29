@@ -1,7 +1,7 @@
 # make our editor vim
 export EDITOR=/usr/bin/vim
 
-dot_dir="$HOME/.unixrc"
+dot_dir="$HOME/.dot-files"
 shell_cfg_dir="$dot_dir/shell-configs"
 
 #  BASH COLOR ALIASES

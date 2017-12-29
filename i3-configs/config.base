@@ -8,7 +8,7 @@ set $mod Mod1
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
-exec --no-startup-id "~/.unixrc/scripts/fix-mouse-acceleration"
+exec --no-startup-id "~/.dot-files/scripts/fix-mouse-acceleration"
 
 # this sets the keyboard repeat rate
 exec --no-startup-id "xset r rate 200 30"
@@ -175,7 +175,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # displays a window with options to Logout, Suspend, Reboot or Power Off
-bindsym $mod+Shift+e exec --no-startup-id "~/.unixrc/i3-scripts/i3-exit"
+bindsym $mod+Shift+e exec --no-startup-id "~/.dot-files/i3-scripts/i3-exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -217,7 +217,7 @@ bar {
   strip_workspace_numbers yes
   tray_output primary
   font pango:monospace 10
-  status_command python3 ~/.unixrc/i3-configs/i3status.py
+  status_command python3 ~/.dot-files/i3-configs/i3status.py
   separator_symbol   "|"
   colors {
     separator          $yellow
@@ -242,17 +242,17 @@ bindsym $mod+t mode "pass-through"
 
 exec --no-startup-id "/usr/lib/notification-daemon/notification-daemon"
 
-exec --no-startup-id "~/.unixrc/i3-scripts/set-wallpaper"
+exec --no-startup-id "~/.dot-files/i3-scripts/set-wallpaper"
 
 exec --no-startup-id "xautolock"
 
-exec --no-startup-id "xss-lock -- ~/.unixrc/i3-scripts/i3-lock lock"
+exec --no-startup-id "xss-lock -- ~/.dot-files/i3-scripts/i3-lock lock"
 
 # Locks the screen
-bindsym $mod+grave exec "~/.unixrc/i3-scripts/i3-lock lock"
+bindsym $mod+grave exec "~/.dot-files/i3-scripts/i3-lock lock"
 
 # Locks the screen then suspends the computer. pm-utils package required
-bindsym $mod+Shift+grave exec "~/.unixrc/i3-scripts/i3-lock suspend"
+bindsym $mod+Shift+grave exec "~/.dot-files/i3-scripts/i3-lock suspend"
 
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"

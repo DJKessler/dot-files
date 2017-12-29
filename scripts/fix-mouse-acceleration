@@ -3,8 +3,8 @@
 razer_id='Razer Razer DeathAdder'
 prop_id="libinput Accel Speed"
 
-if [ -f "$HOME/.unixrc/shell-configs/logger.bash" ]; then
-  source "$HOME/.unixrc/shell-configs/logger.bash";
+if [ -f "$HOME/.dot-files/shell-configs/logger.bash" ]; then
+  source "$HOME/.dot-files/shell-configs/logger.bash";
 fi
 
 me=`basename "$0"`

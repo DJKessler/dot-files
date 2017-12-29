@@ -5,7 +5,7 @@ if command -v urxvt >/dev/null 2>&1; then
   [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources;
 fi
 
-i3_dot_file_dir="$HOME/.unixrc/i3-configs"
+i3_dot_file_dir="$HOME/.dot-files/i3-configs"
 
 cfg_dir="$HOME/.config"
 i3_cfg_dir="$cfg_dir/i3"

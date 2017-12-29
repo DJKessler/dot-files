@@ -7,8 +7,8 @@
 #  imagemagick
 #  i3
 
-if [ -f "$HOME/.unixrc/shell-configs/logger.bash" ]; then
-  source "$HOME/.unixrc/shell-configs/logger.bash";
+if [ -f "$HOME/.dot-files/shell-configs/logger.bash" ]; then
+  source "$HOME/.dot-files/shell-configs/logger.bash";
 fi
 
 if ! command -v scrot >/dev/null 2>&1; then
@@ -26,7 +26,7 @@ tmpbg="/tmp/lock-screen.png"
 
 generate_lock_screen() {
   # icon that is displayed when screen is locked
-  local __icon="$HOME/.unixrc/i3-lock-icon.png"
+  local __icon="$HOME/.dot-files/i3-lock-icon.png"
   # Take a screenshot
   scrot "$tmpbg"
   # make it blurry
