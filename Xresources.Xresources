@@ -19,7 +19,7 @@ URxvt*scrollWithBuffer:        true
 URxvt*saveLines:               65535
 
 URxvt.letterSpace:             -2
-URxvt.font:                    xft:monospace:bold:size=10
+URxvt.font:                    xft:monospace:bold:pixelsize=18
 URxvt.perl-lib:                ~/.unixrc/urxvt-configs/
 
 URxvt.perl-ext-common:         resize-font,selection-to-clipboard,pasta
