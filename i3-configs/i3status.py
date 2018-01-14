@@ -11,13 +11,20 @@
 # Install them locally with:
 #   pip3 install --user basiciw colour i3pystatus netifaces psutil
 
-from i3pystatus import Status
+from i3pystatus import Status, battery
 from i3pystatus.network import Network, sysfs_interface_up
 import os
 import fnmatch
 
-status = Status()
+def make_bar(percentage):
+    bars = ['', '', '', '', '']
+    base = 100 / len(bars)
+    index = round(percentage / base) - 1
+    return bars[index]
 
+battery.make_bar = make_bar
+
+status = Status()
 
 class NetworkUp(Network):
     """
@@ -65,23 +72,22 @@ status.register("temp",
                 interval=1,
                 )
 
-# The battery monitor has many formatting options, see README for details
-
 for root, dirs, files in os.walk('/sys/class/power_supply'):
     if not dirs:
         break
     else:
         status.register("battery",
-                        format="\U0001F50B  {status}{remaining:%E %hh:%Mm}",
+                        format="{bar}  {status}{remaining:%E %h:%M} {percentage:.2f}%",
                         alert=True,
                         alert_percentage=5,
                         full_color="#efef8f",
                         charging_color="#009900",
                         critical_color="#ff0000",
                         status={
-                            "DIS": "\U00002193",
-                            "CHR": "\U0001F50C",
-                            "FULL": "FULL",
+                            "DIS": "",
+                            "CHR": "",
+                            "DPL": "",
+                            "FULL": "",
                         }, )
         break
 
