@@ -24,7 +24,7 @@ URxvt.letterSpace:             -2
 URxvt.font:                    xft:monospace:bold:size=11
 URxvt.perl-lib:                ~/.dot-files/urxvt-configs/
 
-URxvt.perl-ext-common:         resize-font,selection-to-clipboard,pasta
+URxvt.perl-ext-common:         resize-font,selection-to-clipboard,pasta,clear
 URxvt.resize-font.smaller:     C-Down
 URxvt.resize-font.bigger:      C-Up
 
