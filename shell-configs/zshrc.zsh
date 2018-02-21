@@ -79,10 +79,6 @@ if [ -d $local_dir ]; then
   export PATH="$PATH:$local_dir/bin"
 fi
 
-if [ -d /usr/lib/ccache ]; then
-	export PATH="/usr/lib/ccache:$PATH"
-fi
-
 export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quote=01'
 alias ls='ls -l --color=auto'
 
