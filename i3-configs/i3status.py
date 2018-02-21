@@ -72,24 +72,26 @@ status.register("temp",
                 interval=1,
                 )
 
-for root, dirs, files in os.walk('/sys/class/power_supply'):
-    if not dirs:
-        break
-    else:
-        status.register("battery",
-                        format="{bar}  {status}{remaining:%E %h:%M} {percentage:.2f}%",
-                        alert=True,
-                        alert_percentage=5,
-                        full_color="#efef8f",
-                        charging_color="#009900",
-                        critical_color="#ff0000",
-                        status={
-                            "DIS": "",
-                            "CHR": "",
-                            "DPL": "",
-                            "FULL": "",
-                        }, )
-        break
+def is_laptop():
+    with open('/sys/class/dmi/id/chassis_type') as dmi_file:
+        dmi_code = int(dmi_file.read())
+        return (8 <= dmi_code) and (dmi_code <= 11)
+    return False
+
+if is_laptop():
+    status.register("battery",
+                    format="{bar}  {status}{remaining:%E %h:%M} {percentage:.2f}%",
+                    alert=True,
+                    alert_percentage=5,
+                    full_color="#efef8f",
+                    charging_color="#009900",
+                    critical_color="#ff0000",
+                    status={
+                        "DIS": "",
+                        "CHR": "",
+                        "DPL": "",
+                        "FULL": "",
+                    }, )
 
 # Shows disk usage of /
 # status.register("disk", path="/", format="Disk '/': {used} [{avail}G]", )
