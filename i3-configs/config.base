@@ -237,7 +237,7 @@ mode "pass-through" {
 # disable i3's capture of $mod key
 bindsym $mod+t mode "pass-through"
 
-exec --no-startup-id "/usr/lib/x86_64-linux-gnu/notification-daemon"
+exec --no-startup-id "/usr/lib/notification-daemon/notification-daemon"
 
 exec --no-startup-id "~/.dot-files/i3-scripts/set-wallpaper"
 
