@@ -10,6 +10,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/Valloric/YouCompleteMe.git'
   Plugin 'https://github.com/bkad/CamelCaseMotion.git'
   Plugin 'https://github.com/bling/vim-airline.git'
+  Plugin 'https://github.com/vim-airline/vim-airline-themes.git'
   Plugin 'https://github.com/chriskempson/base16-vim.git'
   Plugin 'https://github.com/gmarik/Vundle.vim.git'
   Plugin 'https://github.com/inside/vim-search-pulse.git'
@@ -137,6 +138,7 @@ let g:airline#extensions#bufferline#pathshorten = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
+let g:airline_powerline_fonts = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
