@@ -21,46 +21,37 @@ copy_dot_file() {
   echo ""
 }
 
-link_dot_file() {
-  link_dest="$1"
-  link_src="$2"
-  echo "$banner"
-
-  if [ -f "$link_dest" ] && [ ! -L "$link_dest" ]; then
-    echo "Backing up $link_dest";
-    mv "$link_dest" "$link_dest".orig.bak;
-
-    echo "Creating link: $link_dest -> $link_src"
-    ln -s "$link_src" "$link_dest"
-  elif [ -L "$link_dest" ]; then
-    echo "Updating link: $link_dest -> $link_src"
-    unlink "$link_dest"
-    ln -s "$link_src" "$link_dest"
-  elif [ ! -f "$link_dest" ]; then
-    echo "Creating link: $link_dest -> $link_src"
-    ln -s "$link_src" "$link_dest"
-  fi
-  echo ""
+__call_ln() {
+  declare -r link_dest="$1"
+  declare -r link_src="$2"
+  ln --symbolic --relative "$link_src" "$link_dest"
 }
 
-link_dir() {
-  link_dest="$1"
-  link_src="$2"
+__create_link() {
+  declare -r link_dest="$1"
+  declare -r link_src="$2"
   echo "$banner"
 
-  if [ -d "$link_dest" ] && [ ! -L "$link_dest" ]; then
-    echo "Backing up $link_dest to $link_dest".orig.bak
-    mv "$link_dest" "$link_dest".orig.bak
+  if [ -e "$link_dest" ] && [ ! -L "$link_dest" ]; then
+    local idx=0
+    local suffix=".bak"
+    while test -e "$link_dest$suffix"; do
+      (( ++idx ))
+      suffix="$(printf '.bak.%d' "$idx")"
+    done
+
+    echo "Backing up $link_dest to $link_dest$suffix";
+    mv "$link_dest" "$link_dest$suffix";
 
     echo "Creating link: $link_dest -> $link_src"
-    ln -s "$link_src" "$link_dest"
+    __call_ln "$link_dest" "$link_src"
   elif [ -L "$link_dest" ]; then
     echo "Updating link: $link_dest -> $link_src"
     unlink "$link_dest"
-    ln -s "$link_src" "$link_dest"
-  elif [ ! -d "$link_dest" ]; then
+    __call_ln "$link_dest" "$link_src"
+  elif [ ! -e "$link_dest" ]; then
     echo "Creating link: $link_dest -> $link_src"
-    ln -s "$link_src" "$link_dest"
+    __call_ln "$link_dest" "$link_src"
   fi
   echo ""
 }
@@ -88,49 +79,49 @@ fi
 #################################################################
 ## link in our grep-ackrc file                                 ##
 #################################################################
-link_dot_file "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
+__create_link "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
 
 #################################################################
 ## link in our bashrc file                                     ##
 #################################################################
-link_dot_file "$HOME/.bashrc" "$shell_cfgs_dir/bashrc.bash"
+__create_link "$HOME/.bashrc" "$shell_cfgs_dir/bashrc.bash"
 
 #################################################################
 ## link in our zshrc file                                      ##
 #################################################################
-link_dot_file "$HOME/.zshrc" "$shell_cfgs_dir/zshrc.zsh"
+__create_link "$HOME/.zshrc" "$shell_cfgs_dir/zshrc.zsh"
 
 #################################################################
 ## link in our xinitrc file                                    ##
 #################################################################
-link_dot_file "$HOME/.xinitrc" "$dot_file_repo_dir/xinit.xinitrc"
+__create_link "$HOME/.xinitrc" "$dot_file_repo_dir/xinit.xinitrc"
 copy_dot_file "$dot_file_repo_dir/xinit.local" "$HOME/.xinitrc-local"
 
 #################################################################
 ## link in our vimrc file                                      ##
 #################################################################
-link_dot_file "$HOME/.vimrc" "$dot_file_repo_dir/vim.vimrc"
+__create_link "$HOME/.vimrc" "$dot_file_repo_dir/vim.vimrc"
 
 #################################################################
 ## link in our vim directory                                   ##
 #################################################################
-link_dir "$HOME/.vim" "$dot_file_repo_dir/vim.d"
+__create_link "$HOME/.vim" "$dot_file_repo_dir/vim.d"
 
 #################################################################
 ## link in our urxvt configs                                   ##
 #################################################################
-link_dot_file "$HOME/.Xresources" "$dot_file_repo_dir/Xresources.Xresources"
-link_dir "$HOME/.urxvt" "$dot_file_repo_dir/urxvt-configs"
+  __create_link "$HOME/.Xresources" "$dot_file_repo_dir/Xresources.Xresources"
+  __create_link "$HOME/.urxvt" "$dot_file_repo_dir/urxvt-configs"
 
 #################################################################
 ## link in our gitconfig file                                  ##
 #################################################################
-link_dot_file "$HOME/.gitconfig" "$dot_file_repo_dir/git.config"
+__create_link "$HOME/.gitconfig" "$dot_file_repo_dir/git.config"
 
 #################################################################
 ## link in our valgrindrc file                                 ##
 #################################################################
-link_dot_file "$HOME/.valgrindrc" "$dot_file_repo_dir/valgrind.valgrindrc"
+__create_link "$HOME/.valgrindrc" "$dot_file_repo_dir/valgrind.valgrindrc"
 
 #################################################################
 ## Get rid of annoying default directories                     ##
@@ -138,16 +129,16 @@ link_dot_file "$HOME/.valgrindrc" "$dot_file_repo_dir/valgrind.valgrindrc"
 if [ -f "$HOME/.config/user-dirs.dirs" ]; then
   sed -i 's/^\(XDG_TEMPLATES_DIR=\)\"\$HOME\/\(Templates\)\"$/\1\"\/tmp\/\2\"/' \
     $HOME/.config/user-dirs.dirs
-  
+
   sed -i 's/^\(XDG_PUBLICSHARE_DIR=\)\"\$HOME\/\(Public\)\"$/\1\"\/tmp\/\2\"/' \
     $HOME/.config/user-dirs.dirs
-  
+
   sed -i 's/^\(XDG_MUSIC_DIR=\)\"\$HOME\/\(Music\)\"$/\1\"\/tmp\/\2\"/' \
     $HOME/.config/user-dirs.dirs
-  
+
   sed -i 's/^\(XDG_PICTURES_DIR=\)\"\$HOME\/\(Pictures\)\"$/\1\"\/tmp\/\2\"/' \
     $HOME/.config/user-dirs.dirs
-  
+
   sed -i 's/^\(XDG_VIDEOS_DIR=\)\"\$HOME\/\(Videos\)\"$/\1\"\/tmp\/\2\"/' \
     $HOME/.config/user-dirs.dirs
 fi
