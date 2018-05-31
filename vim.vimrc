@@ -29,7 +29,8 @@ filetype plugin indent on           " required by Vundle plugin manager
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set history=1000                        " number of past commands to keep
-set modelines=0
+set modeline
+set modelines=5
 set backspace=2                         " more powerful backspacing
 set number                              " set line numbers to on
 set ruler                               " show the cursor position
@@ -156,3 +157,6 @@ let g:cpp_class_scope_highlight = 1
 """""""""""""""""""""""""""""""" vim-cursor-line """""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_search_pulse_mode = 'cursor_line'
+
+set exrc
+set secure
