@@ -72,6 +72,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 source "$ZSH_CUSTOM/aliases/cmake-arm.zsh"
 source "$ZSH_CUSTOM/keybindings.zsh"
+source "$ZSH_CUSTOM/macOs.zsh"
 
 local_dir="$HOME/.local"
 
