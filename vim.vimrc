@@ -158,5 +158,15 @@ let g:cpp_class_scope_highlight = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_search_pulse_mode = 'cursor_line'
 
+""" Override default header guard given by vim-headerguard
+if filereadable("${HOME}/.vim/header-guard.vim")
+  source ${HOME}/.vim/header-guard.vim
+endif
+
+""" Do JPL ITAR header insertion
+if filereadable("${HOME}/.vim/headers.vim")
+  source ${HOME}/.vim/headers.vim
+endif
+
 set exrc
 set secure
