@@ -12,7 +12,7 @@ call vundle#begin()                 " initialize Vundle
   Plugin 'https://github.com/bling/vim-airline.git'
   Plugin 'https://github.com/vim-airline/vim-airline-themes.git'
   Plugin 'https://github.com/chriskempson/base16-vim.git'
-  Plugin 'https://github.com/gmarik/Vundle.vim.git'
+  Plugin 'https://github.com/VundleVim/Vundle.vim.git'
   Plugin 'https://github.com/inside/vim-search-pulse.git'
   Plugin 'https://github.com/junegunn/vim-easy-align.git'
   Plugin 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
