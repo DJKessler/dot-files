@@ -16,28 +16,39 @@ from i3pystatus.network import Network, sysfs_interface_up
 import os
 import fnmatch
 
+
 def make_bar(percentage):
     bars = ['', '', '', '', '']
     base = 100 / len(bars)
     index = round(percentage / base) - 1
     return bars[index]
 
+
 battery.make_bar = make_bar
 
 status = Status()
+
 
 class NetworkUp(Network):
     """
     Modified Network class that automatic switch interface in case of
     the current interface is down.
     """
+
+    @staticmethod
+    def find_leftclick_action():
+        from distutils.spawn import find_executable
+        return find_executable("nm-connection-editor")
+
     on_upscroll = None
     on_downscroll = None
+    on_leftclick = find_leftclick_action.__func__
 
     def run(self):
         super().run()
         if not sysfs_interface_up(self.interface, self.unknown_up):
             self.cycle_interface()
+
 
 # Displays clock like this:
 # hh:mm:ss mm-dd-yyyy
@@ -72,11 +83,13 @@ status.register("temp",
                 interval=1,
                 )
 
+
 def is_laptop():
     with open('/sys/class/dmi/id/chassis_type') as dmi_file:
         dmi_code = int(dmi_file.read())
         return (8 <= dmi_code) and (dmi_code <= 11)
     return False
+
 
 if is_laptop():
     status.register("battery",
@@ -93,15 +106,11 @@ if is_laptop():
                         "FULL": "",
                     }, )
 
-# Shows disk usage of /
-# status.register("disk", path="/", format="Disk '/': {used} [{avail}G]", )
-
 # Shows pulseaudio default sink volume
-#
-# Note: requires libpulseaudio from PyPI
+# Note: requires libpulseaudio
 status.register("pulseaudio", format="♪{volume}", )
 
-# Note: requires both netifaces and basiciw (for essid and quality)
+# Note: requires both netifaces and basiciw for essid and quality
 status.register(NetworkUp, )
 
 status.run()
