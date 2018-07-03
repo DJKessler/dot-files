@@ -112,23 +112,23 @@ bindsym $mod+Prior workspace prev
 bindsym Print exec "lximage-qt --screenshot"
 
 # leftmost named workspaces
-set $ws_firefox  "0:F1:firefox"
-set $ws_mail     "1:F2:mail"
+set $ws_firefox  0:F1:firefox
+set $ws_mail     1:F2:mail
 
 # general purpose workspaces
-set $ws1  "11:1"
-set $ws2  "12:2"
-set $ws3  "13:3"
-set $ws4  "14:4"
-set $ws5  "15:5"
-set $ws6  "16:6"
-set $ws7  "17:7"
-set $ws8  "18:8"
-set $ws9  "19:9"
-set $ws10 "20:10"
+set $ws1  11:1
+set $ws2  12:2
+set $ws3  13:3
+set $ws4  14:4
+set $ws5  15:5
+set $ws6  16:6
+set $ws7  17:7
+set $ws8  18:8
+set $ws9  19:9
+set $ws10 20:10
 
 # rightmost named workspaces
-set $ws_log "32:F10:logs"
+set $ws_log 32:F10:logs
 
 # leftmost workspace switching
 bindsym $mod+F1  workspace $ws_firefox
