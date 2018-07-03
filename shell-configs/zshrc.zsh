@@ -73,6 +73,7 @@ source $ZSH/oh-my-zsh.sh
 source "$ZSH_CUSTOM/aliases/cmake-arm.zsh"
 source "$ZSH_CUSTOM/keybindings.zsh"
 source "$ZSH_CUSTOM/macOs.zsh"
+source "$ZSH_CUSTOM/linux.zsh"
 
 local_dir="$HOME/.local"
 
@@ -84,6 +85,3 @@ export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quo
 alias ls='ls -l --color=auto'
 
 alias dirs='dirs -v'
-
-# zsh-autosuggestions keybindings
-bindkey '^ ' autosuggest-accept
