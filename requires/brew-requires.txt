@@ -1,0 +1,15 @@
+findutils --default-names
+gnu-which --with-default-names
+gnutls --with-default-names
+coreutils
+diffutils
+gzip
+watch
+wget
+nmap
+gpg
+htop
+neofetch
+the_silver_searcher
+cscope ctags vim
+cracklib
