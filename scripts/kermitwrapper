@@ -16,6 +16,12 @@ else
   baud_rate="115200"
 fi
 
+if test "$#" -eq 3; then
+  term_type="$3"
+else
+  term_type="VT100"
+fi
+
 if test ! -e "$device_path"; then
   echo -n "[`basename "$0"`]: No such device file: '$device_path'. ";
   echo "Is it plugged in?";
@@ -48,6 +54,7 @@ echo "set speed $baud_rate" >> "$kermit_file";
 echo "set parity none" >> "$kermit_file";
 echo "set carrier-watch off" >> "$kermit_file";
 echo "set flow-control none" >> "$kermit_file";
+echo "set terminal type $term_type" >> "$kermit_file";
 echo "connect" >> "$kermit_file";
 sleep 0.1;
 /usr/bin/kermit -l "$device_path" -y "$kermit_file";
