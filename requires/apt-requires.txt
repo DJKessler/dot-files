@@ -26,3 +26,4 @@ xautolock
 xinput
 xss-lock
 zsh
+lxqt-policykit
