@@ -27,3 +27,7 @@ xinput
 xss-lock
 zsh
 lxqt-policykit
+xscreensaver
+xscreensaver-gl
+xscreensaver-gl-extra
+xscreensaver-screensaver-bsod

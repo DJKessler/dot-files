@@ -1,0 +1,25 @@
+! Xautolock executes the 'Xautolock.notifier' command, 'Xautolock.notify'
+! seconds before executing the 'Xautolock.locker' command. Then,
+! the 'Xautolock.killer' command is executed, 'Xautolock.killtime' minutes
+! (minimum of 10) after executing the 'Xautolock.locker' command is run
+
+! We're using xautolock's notifier to lock the screen, then the locker turns the
+! screens off, and finally the killer suspends the computer
+
+! seconds
+Xautolock.notify: 180
+! minutes
+Xautolock.time: 6
+! minutes
+Xautolock.killtime: 10
+
+! lock the screen, before turning the screens off
+Xautolock.notifier: ~/.dot-files/i3-scripts/i3-lock lock
+! turn displays off before suspending
+Xautolock.locker: ~/.dot-files/i3-scripts/i3-lock screen-off
+! suspend
+Xautolock.killer: ~/.dot-files/i3-scripts/i3-lock suspend
+
+Xautolock.detectsleep: true
+Xautolock.secure: true
+Xautolock.noclose: true
