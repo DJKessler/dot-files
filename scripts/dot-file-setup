@@ -84,11 +84,6 @@ fi
 __create_link "$HOME/.ackrc" "$dot_file_repo_dir/ack.ackrc"
 
 #################################################################
-## link in our bashrc file                                     ##
-#################################################################
-__create_link "$HOME/.bashrc" "$shell_cfgs_dir/bashrc.bash"
-
-#################################################################
 ## link in our zshrc file                                      ##
 #################################################################
 __create_link "$HOME/.zshrc" "$shell_cfgs_dir/zshrc.zsh"
