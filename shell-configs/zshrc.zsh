@@ -85,3 +85,9 @@ export GCC_COLORS='error=01;41:warning=01;93:note=01;36:caret=01;32:locus=01:quo
 alias ls='ls -l --color=auto'
 
 alias dirs='dirs -v'
+
+function ssh() {
+  if command ssh "$@"; then
+    source "$HOME/.base16_theme"
+  fi
+}
